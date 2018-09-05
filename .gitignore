@@ -1,0 +1,57 @@
+# System Files
+.DS_Store
+
+# Node Artifacts
+node_modules/
+package-lock.json
+npm-debug.log
+yarn-error.log
+
+# XCode
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Android/IntelliJ
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+
+# Fastlane
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+*.dSYM.zip
+
+# Bundle Artifact
+*.jsbundle
+
+# VSCode
+.vscode/.react
+
+# Testing
+coverage/
+
+# Environmental Variable
+.env

@@ -1,0 +1,74 @@
+{
+  "name": "interview",
+  "version": "1.0.0",
+  "repository": "git@github.com:shopbonsai/interview-test-native.git",
+  "author": "Mackie Drew <mackie@shopbonsai.ca>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "ios": "react-native run-ios",
+    "android": "react-native run-android",
+    "lint": "eslint .",
+    "test": "jest",
+    "coverage": "yarn test --coverage",
+    "precommit": "lint-staged && yarn test --lastCommit",
+    "devtools": "react-devtools",
+    "clear-cache": "watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf node_modules && yarn && rm -rf ios/build && rm -rf android/build"
+  },
+  "dependencies": {
+    "get-value": "3.0.1",
+    "prop-types": "15.6.1",
+    "react": "16.3.2",
+    "react-native": "0.55.4",
+    "react-native-firebase": "4.2.0",
+    "react-native-navigation": "1.1.462",
+    "react-redux": "5.0.7",
+    "recompose": "0.27.1",
+    "redux": "4.0.0",
+    "styled-components": "^3.2.6"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "3.4.5",
+    "@storybook/addon-links": "3.4.5",
+    "@storybook/addon-storyshots": "3.4.5",
+    "@storybook/addons": "3.4.5",
+    "@storybook/react-native": "3.4.5",
+    "babel-core": "6.26.3",
+    "babel-eslint": "8.2.3",
+    "babel-jest": "22.4.4",
+    "babel-plugin-transform-remove-console": "6.9.4",
+    "babel-preset-react-native": "4.0.0",
+    "babel-preset-react-native-stage-0": "1.0.1",
+    "babel-runtime": "6.26.0",
+    "eslint": "4.19.1",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-cumul8": "1.4.3",
+    "eslint-plugin-eslint-comments": "2.0.2",
+    "eslint-plugin-fp": "2.3.0",
+    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-jsdoc": "3.7.0",
+    "eslint-plugin-prettier": "2.6.0",
+    "eslint-plugin-react": "7.8.2",
+    "eslint-plugin-you-dont-need-lodash-underscore": "6.3.1",
+    "jest": "22.4.4",
+    "lint-staged": "7.1.2",
+    "prettier": "1.12.1",
+    "react-devtools": "3.2.2",
+    "react-dom": "16.3.2",
+    "react-native-dotenv": "0.1.1",
+    "react-test-renderer": "16.3.2",
+    "redux-logger": "3.0.6"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
+  }
+}
