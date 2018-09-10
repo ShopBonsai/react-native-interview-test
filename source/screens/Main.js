@@ -1,12 +1,13 @@
-import React, { Component } from "react"
-import { Text, ScrollView } from "react-native"
+import React, { Component } from 'react';
+import { ScrollView } from 'react-native';
+import MoviesData from '../MoviesData';
 
 export default class Main extends Component {
-  render() {
-    return (
-      <ScrollView>
-        <Text>Title</Text>
-      </ScrollView>
-    )
+    render(){
+      return(
+        <ScrollView> 
+          <MoviesData />
+        </ScrollView>
+      );  
+    }
   }
-}
