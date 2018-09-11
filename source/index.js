@@ -1,7 +1,7 @@
 import { Navigation } from "react-native-navigation"
-
 import withProviders from "./containers/withProviders"
 import screens, { MAIN } from "./screens"
+
 
 class App {
   constructor() {
