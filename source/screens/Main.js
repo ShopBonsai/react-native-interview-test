@@ -1,11 +1,13 @@
 import React, { Component } from "react"
-import { Text, ScrollView } from "react-native"
+import { ScrollView } from "react-native"
+
+import Movies from "../Movies"
 
 export default class Main extends Component {
   render() {
     return (
-      <ScrollView>
-        <Text>Title</Text>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <Movies />
       </ScrollView>
     )
   }
