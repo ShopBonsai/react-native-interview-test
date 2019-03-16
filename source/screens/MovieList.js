@@ -1,18 +1,20 @@
-import React, { Component } from "react"
-import { ActivityIndicator, FlatList, Image, StyleSheet, Text, View } from "react-native"
-import MovieListItem from "./MovieListItem"
+import React, { Component } from "react";
+import { ActivityIndicator, FlatList, Image, 
+  StyleSheet, Text, View } from "react-native";
+import MovieListItem from "./MovieListItem";
 
 export default class Movies extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isLoading: true,
-      movies: {},
-    }
+
+  // The states needed for re-rendering are to check loading and the list of movies
+  state = {
+    isLoading: true,
+    movies: {},
   }
 
+  // Function to get the list of movies based on page number
   getMovies = () => {
-    fetch("https://us-central1-bonsai-interview-endpoints.cloudfunctions.net/movieTickets?skip="+this.props.page*10+"&limit=10")
+    fetch("https://us-central1-bonsai-interview-endpoints.cloudfunctions.net"+
+    "/movieTickets?skip="+this.props.page*10+"&limit=10")
       .then(response => {
         if (response.ok) {
           return response.json()
@@ -27,10 +29,12 @@ export default class Movies extends Component {
       });
   }
 
+  // Initial Render
   componentDidMount(){
     this.getMovies();
   }
 
+  // Good use of React's life cycle to prevent excess re-rendering
   componentDidUpdate(prevProps) {
     if(prevProps.page !== this.props.page){
       this.setState({ isLoading: true});
@@ -39,11 +43,17 @@ export default class Movies extends Component {
   }
 
   render() {
-
+    // Either it's a spinning loader
+    // or
+    // It displays the 10 movies in a Flat list
     return (
       <View style={styles.container}>
         {this.state.isLoading ? (
-          <ActivityIndicator style={styles.loading} size="large" color="#0000ff" />
+          <ActivityIndicator 
+            style={styles.loading}
+            size="large"
+            color="#0000ff"
+          />
         ) : (
           <FlatList
             style={{ marginTop: 5, marginBottom: 5 }}
@@ -59,6 +69,7 @@ export default class Movies extends Component {
   }
 }
 
+// Styles for the List of Movies and Loading Spinner
 const styles = StyleSheet.create({
   container: {
     flex: 1,

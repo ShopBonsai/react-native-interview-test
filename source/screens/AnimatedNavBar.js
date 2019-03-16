@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from 'react';
 import {
   Text,
   View,
@@ -10,8 +9,9 @@ import {
   KeyboardAvoidingView,
   StyleSheet,
   ScrollView
-} from 'react-native'
+} from 'react-native';
 
+// Declaring the constants used
 const HEADER_MAX_HEIGHT = 150;
 const HEADER_MIN_HEIGHT = 65;
 const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
@@ -19,31 +19,36 @@ const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
 const START_HEIGHT = 50;
 const END_HEIGHT = 100;
 
-const {height, width} = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 
 export default class AnimatedNavbar extends React.Component {
 
+  // Animating based on the Y value of the scroll
   state = {
     scrollY: new Animated.Value(0),
   };
 
   render() {
 
+    // The start and end colors of the navbar
     const headerOpacity = this.state.scrollY.interpolate({
       inputRange: [START_HEIGHT, END_HEIGHT],
-      outputRange: ['transparent', '#FFFFFF'],
+      outputRange: ['#FFFFFF', '#222233'],
       extrapolate: 'clamp',
     });
 
+    // The start and end colors of the title
     const headerColor = this.state.scrollY.interpolate({
       inputRange: [START_HEIGHT, END_HEIGHT],
-      outputRange: ['#000000', '#4B4B4B'],
+      outputRange: ['#4B4B4B', '#FFFFFF'],
       extrapolate: 'clamp',
     });
 
+    // I use this.props.children so I can re-use this component to cover the scroll view
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        {/* The ScrollView needed*/}
         <ScrollView
           style={styles.container}
           scrollEventThrottle={16}
@@ -53,6 +58,7 @@ export default class AnimatedNavbar extends React.Component {
           >
           {this.props.children}
         </ScrollView>
+        {/* The nav bar*/}
         <Animated.View style={[styles.header, {height: 65, backgroundColor: headerOpacity}]}>
           <View style={styles.row}>
             <TouchableOpacity onPress={this.props.onLeftPress()}>
@@ -71,6 +77,7 @@ export default class AnimatedNavbar extends React.Component {
   }
 }
 
+// Styles for the AnimatedNavBar
 const styles = StyleSheet.create({
     line:{
       height: 1,
