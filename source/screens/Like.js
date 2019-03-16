@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, Image, StyleSheet} from "react-native";
 const likedThumb = require("../../assets/images/likedThumb.png");
 const unlikedThumb = require("../../assets/images/unlikedThumb.png");
 

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Text, ScrollView } from "react-native";
 import MovieList from "./MovieList";
 import AnimatedNavbar from "./AnimatedNavBar";
 

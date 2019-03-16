@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ActivityIndicator, FlatList, Image, StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
+import { Image, StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
 import { Dimensions } from 'react-native';
 import Like from "./Like";
 import idx from "idx";

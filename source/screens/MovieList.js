@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ActivityIndicator, FlatList, Image, 
-  StyleSheet, Text, View } from "react-native";
+  StyleSheet, View } from "react-native";
 import MovieListItem from "./MovieListItem";
 
 export default class Movies extends Component {
