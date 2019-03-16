@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import MovieList from "./MovieList";
-import AnimatedNavbar from "./AnimatedNavBar";
+import MovieList from "../components/MovieList";
+import AnimatedNavbar from "../components/AnimatedNavBar";
 
 export default class Main extends Component {
   // The page is passed into the List and modified by the nav bar
