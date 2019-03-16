@@ -54,18 +54,16 @@ export default class AnimatedNavbar extends React.Component {
           {this.props.children}
         </ScrollView>
         <Animated.View style={[styles.header, {height: 65, backgroundColor: headerOpacity}]}>
-          <View style={styles.bar}>
-            <View style={styles.row}>
-              <TouchableOpacity onPress={this.props.onLeftPress()}>
-                <Image style={styles.arrow} source={require('../../assets/left.png')} />
-              </TouchableOpacity>
-              <Animated.Text style={[styles.title, {color: headerColor}]}>
-                {this.props.name}
-              </Animated.Text>
-              <TouchableOpacity onPress={this.props.onRightPress()}>
-                <Image style={styles.arrow} source={require('../../assets/right.png')} />
-              </TouchableOpacity>
-            </View>
+          <View style={styles.row}>
+            <TouchableOpacity onPress={this.props.onLeftPress()}>
+              <Image style={styles.arrow} source={require('../../assets/images/left.png')} />
+            </TouchableOpacity>
+            <Animated.Text style={[styles.title, {color: headerColor}]}>
+              {this.props.name}
+            </Animated.Text>
+            <TouchableOpacity onPress={this.props.onRightPress()}>
+              <Image style={styles.arrow} source={require('../../assets/images/right.png')} />
+            </TouchableOpacity>
           </View>
         </Animated.View>
       </KeyboardAvoidingView>
@@ -95,12 +93,6 @@ const styles = StyleSheet.create({
       right: 0,
       overflow: 'hidden',
       backgroundColor: '#FFFFFF',
-    },
-    bar: {
-      marginTop: 28,
-      height: 32,
-      alignItems: 'center',
-      justifyContent: 'center',
     },
     row:{
       width: width,
