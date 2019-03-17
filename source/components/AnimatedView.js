@@ -62,7 +62,7 @@ export default class AnimatedView extends React.Component {
         <View style={styles.row}>
           <TouchableOpacity onPress={this.props.onLeftPress()}>
             <Animated.Text style={{color: titleColor}}>
-              <FontAwesome5 style={commonStyles.fontAwesomeIcon} name={'chevron-left'} />
+              <FontAwesome5 style={commonStyles.fontAwesomeIcon} name={this.props.leftButton} />
             </Animated.Text>
           </TouchableOpacity>
           <Animated.Text style={[fontStyles.navTitle, {color: titleColor}]}>
@@ -70,7 +70,7 @@ export default class AnimatedView extends React.Component {
           </Animated.Text>
           <TouchableOpacity onPress={this.props.onRightPress()}>
             <Animated.Text style={{color: titleColor}}>
-              <FontAwesome5 style={commonStyles.fontAwesomeIcon} name={'chevron-right'} />
+              <FontAwesome5 style={commonStyles.fontAwesomeIcon} name={this.props.rightButton} />
             </Animated.Text>
           </TouchableOpacity>
         </View>

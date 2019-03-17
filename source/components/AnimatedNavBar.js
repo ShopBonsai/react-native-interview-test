@@ -20,8 +20,8 @@ const viewStartColor = colors.white;
 const viewEndColor = colors.lightBlack;
 const titleStartColor = colors.darkGray;
 const titleEndColor = colors.white;
-const leftButton = require("../../assets/images/left.png");
-const rightButton = require("../../assets/images/right.png");
+const leftButton = 'chevron-left';
+const rightButton = 'chevron-right';
 
 const styles = StyleSheet.create({
   container:{
