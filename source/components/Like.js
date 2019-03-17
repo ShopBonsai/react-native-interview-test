@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { TouchableOpacity, Image, StyleSheet} from "react-native";
 import commonStyles from "../styles/commonStyles";
-const likedThumb = require("../../assets/images/likedThumb.png");
-const unlikedThumb = require("../../assets/images/unlikedThumb.png");
+import colors from "../styles/colors";
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
+const likedThumb = <FontAwesome5 style={[commonStyles.fontAwesomeIcon, {color: colors.facebookBlue}]} name={'thumbs-up'} solid />
+const unlikedThumb = <FontAwesome5 style={commonStyles.fontAwesomeIcon} name={'thumbs-up'} solid />
 
 const styles = StyleSheet.create({
   image: {
@@ -30,7 +33,7 @@ export default class Like extends Component {
         style={styles.likeRow}
         onPress={this.props.likePressed}
       >
-        <Image style={commonStyles.icon} source={image} />
+        {image}
       </TouchableOpacity>
     )
   }

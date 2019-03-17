@@ -9,9 +9,7 @@ export default StyleSheet.create({
     backgroundColor: colors.lightGray,
     width: width,
   },
-  icon:{
-    resizeMode: "contain",
-    width: 25,
-    height: 22,
+  fontAwesomeIcon:{
+    fontSize: 20,
   }
 });

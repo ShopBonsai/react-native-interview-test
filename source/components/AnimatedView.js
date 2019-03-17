@@ -10,7 +10,7 @@ import {
 import fontStyles from "../styles/fonts";
 import colors from "../styles/colors";
 import commonStyles from "../styles/commonStyles";
-import FontAwesome, { Icons } from "react-native-fontawesome";
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const {width} = Dimensions.get("window");
 
@@ -61,14 +61,17 @@ export default class AnimatedView extends React.Component {
       <Animated.View style={[styles.header, {height: 65, backgroundColor: viewOpacity}]}>
         <View style={styles.row}>
           <TouchableOpacity onPress={this.props.onLeftPress()}>
-            {/*<FontAwesome>{Icons.chevronLeft}</FontAwesome>*/}
-            <Image style={commonStyles.icon} source={this.props.leftButton} />
+            <Animated.Text style={{color: titleColor}}>
+              <FontAwesome5 style={commonStyles.fontAwesomeIcon} name={'chevron-left'} />
+            </Animated.Text>
           </TouchableOpacity>
           <Animated.Text style={[fontStyles.navTitle, {color: titleColor}]}>
             {this.props.name}
           </Animated.Text>
           <TouchableOpacity onPress={this.props.onRightPress()}>
-            <Image style={commonStyles.icon} source={this.props.rightButton} />
+            <Animated.Text style={{color: titleColor}}>
+              <FontAwesome5 style={commonStyles.fontAwesomeIcon} name={'chevron-right'} />
+            </Animated.Text>
           </TouchableOpacity>
         </View>
       </Animated.View>
