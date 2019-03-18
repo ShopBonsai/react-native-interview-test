@@ -17,19 +17,17 @@
     "clear-cache": "watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf node_modules && yarn && rm -rf ios/build && rm -rf android/build"
   },
   "dependencies": {
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "get-value": "3.0.1",
     "prop-types": "15.6.1",
     "react": "16.3.2",
     "react-native": "0.55.4",
     "react-native-firebase": "4.2.0",
     "react-native-navigation": "1.1.462",
-    "react-native-vector-icons": "^6.4.1",
+    "react-native-vector-icons": "6.4.1",
     "react-redux": "5.0.7",
     "recompose": "0.27.1",
     "redux": "4.0.0",
-    "styled-components": "^3.2.6"
+    "styled-components": "3.2.6"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3.4.5",

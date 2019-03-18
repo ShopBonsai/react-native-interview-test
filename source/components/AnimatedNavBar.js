@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
 
 export default class AnimatedNavbar extends React.Component {
 
-  // Animating based on the Y value of the scroll
   state = {
     scrollY: new Animated.Value(0),
   };
