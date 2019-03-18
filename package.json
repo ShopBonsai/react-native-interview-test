@@ -23,10 +23,11 @@
     "react-native": "0.55.4",
     "react-native-firebase": "4.2.0",
     "react-native-navigation": "1.1.462",
+    "react-native-vector-icons": "6.4.1",
     "react-redux": "5.0.7",
     "recompose": "0.27.1",
     "redux": "4.0.0",
-    "styled-components": "^3.2.6"
+    "styled-components": "3.2.6"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3.4.5",
@@ -59,6 +60,12 @@
     "react-native-dotenv": "0.1.1",
     "react-test-renderer": "16.3.2",
     "redux-logger": "3.0.6"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
   },
   "lint-staged": {
     "*.js": [
