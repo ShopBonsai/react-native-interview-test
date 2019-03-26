@@ -85,3 +85,41 @@ export const bottomStyle = StyleSheet.create({
         marginRight: 10
     }
 })
+
+/**
+ * Style for the movie details page
+ * Used in MovieDetails.js
+ */
+export const movieDetailsStyle = StyleSheet.create({
+    title: {
+        color: '#FFFFFF',
+        fontSize: 22,
+        textAlign: 'center',
+        marginBottom: 5
+    },
+    genre: {
+        color: '#BBBBBB',
+        fontSize: 18,
+        textAlign: 'center',
+        marginBottom: 10
+    },
+    image: {
+        borderRadius: 10,
+        height: 250,
+        width: 250,
+        resizeMode: 'contain'
+    },
+    topView: {
+        borderBottomColor: bonsai_colour.blue,
+        borderBottomWidth: 4,
+        width: width,
+        alignItems: 'center'
+    },
+    view: {
+        height: height,
+        width: width,
+        backgroundColor: bonsai_colour.purple,
+        alignItems: 'center',
+        paddingTop: 10
+    }
+})

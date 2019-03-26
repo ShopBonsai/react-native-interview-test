@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ActivityIndicator, FlatList, TouchableOpacity, Text, Image, Dimensions, View, Button } from "react-native";
 import { movieItemStyle, flatListStyle, bonsai_colour, bottomStyle } from "../styles";
+import { MOVIEDETAILS } from '../screens';
 
 /**
  * @class MovieList
@@ -72,9 +73,26 @@ export default class MovieList extends Component {
                 key={item.item.image}
             />)
         
+        const goToMovieDetails = () => {
+            this.props.navigator.push({   
+                screen: MOVIEDETAILS,
+                title: item.item.title,
+                navigatorStyle: {
+                    navBarHidden: false,
+                    navBarBackgroundColor: bonsai_colour.blue,
+                    navBarTextColor: '#FFFFFF',
+                    navBarTranslucent: true,
+                    largeTitle: true
+                },
+                passProps: {
+                    item: item
+                }
+            })
+        }
+        
         // Return rendering for given item
         return (
-            <TouchableOpacity style={movieItemStyle.container}>
+            <TouchableOpacity style={movieItemStyle.container} onPress={goToMovieDetails}>
                 <View style={movieItemStyle.imageContainer}>
                     {imageView}
                 </View>
