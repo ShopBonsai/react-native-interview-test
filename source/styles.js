@@ -35,7 +35,7 @@ export const movieItemStyle = StyleSheet.create({
         ...StyleSheet.absoluteFillObject
     },
     title: {
-        color: "#000000",
+        color: "#FFFFFF",
         fontSize: 15,
         marginTop: 5
     },
@@ -66,6 +66,6 @@ export const flatListStyle = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'stretch',
-        backgroundColor: '#FFFFFF'
+        backgroundColor: bonsai_colour.purple
     }
 })
