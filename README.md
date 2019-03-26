@@ -1,3 +1,10 @@
+# Subhan Chaudhry Interview Submission
+<p float="left" align="center">
+    <img src="images/screenGIF.gif" width="200"/>
+    <img src="images/screenshot2.png" width="200"/>
+    <img src="images/screenshot3.png" width="200"/>
+</p>
+
 # Welcome to the Bonsai React Native Frontend Interview Test!
 
 We have prepared an operational React Native app configured for Android and iOS with some simple structure to help you get going. 
