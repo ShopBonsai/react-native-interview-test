@@ -121,5 +121,43 @@ export const movieDetailsStyle = StyleSheet.create({
         backgroundColor: bonsai_colour.purple,
         alignItems: 'center',
         paddingTop: 10
+    },
+    buyView: {
+        marginTop: 20
+    },
+    dateView: {
+        backgroundColor: bonsai_colour.blue,
+        height: 150,
+        width: 150,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 15,
+        borderRadius: 10
+    },
+    dayAndDate: {
+        color: "#FFFFFF",
+        fontSize: 18,
+        textAlign: 'center',
+        marginBottom: 10
+    },
+    time: {
+        color: "#FFFFFF",
+        fontSize: 28,
+        textAlign: 'center',
+        marginBottom: 10
+    },
+    year: {
+        color: "#FFFFFF",
+        fontSize: 18,
+        textAlign: 'center'
+    },
+    inventory: {
+        color: "#BBBBBB",
+        marginTop: 10,
+        fontSize: 15,
+        textAlign: 'center'
+    },
+    buttonStyle: {
+        position: 'absolute'
     }
 })
