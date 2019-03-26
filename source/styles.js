@@ -69,3 +69,19 @@ export const flatListStyle = StyleSheet.create({
         backgroundColor: bonsai_colour.purple
     }
 })
+
+export const bottomStyle = StyleSheet.create({
+    view: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: width,
+        marginTop: 10,
+        marginBottom: 10
+    },
+    prevButton: {
+        marginLeft: 10
+    },
+    nextButton: {
+        marginRight: 10
+    }
+})

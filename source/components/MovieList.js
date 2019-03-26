@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { ActivityIndicator, FlatList, TouchableOpacity, Text, Image, View } from "react-native";
-import { movieItemStyle, flatListStyle, bonsai_colour } from "../styles";
+import { ActivityIndicator, FlatList, TouchableOpacity, Text, Image, Dimensions, View, Button } from "react-native";
+import { movieItemStyle, flatListStyle, bonsai_colour, bottomStyle } from "../styles";
 
 /**
  * @class MovieList
@@ -19,13 +19,31 @@ export default class MovieList extends Component {
         // Bind renderItem method to be used in TouchableOpacity
         this.renderItem = this.renderItem.bind(this);
         this.getData = this.getData.bind(this);
+
+        // Skip and Limit vars
+        this.skip = 0;
+        this.limit = 10;
+
+        // next and previous closures
+        this.getPrevious = () => {
+            this.skip = this.skip <= 0 ? 0 : this.skip - 10;
+            this.getData();
+        }
+        this.getNext = () => {
+            this.skip += 10;
+            this.getData();
+            if (this.state.allMovies == null) {
+                this.skip -= 10;
+                this.getData();
+            }
+        }
     }
 
     /**
      * Calls Bonsai API using Fetch and parses information, storing into @state allMovies
      */
     getData() {
-        fetch("https://us-central1-bonsai-interview-endpoints.cloudfunctions.net/movieTickets")
+        fetch("https://us-central1-bonsai-interview-endpoints.cloudfunctions.net/movieTickets?skip=" + this.skip + "&limit=" + this.limit)
         .then(response => response.json())
         .then(movies => this.setState({allMovies: movies, loading: false}))
         .catch(error => {
@@ -83,6 +101,22 @@ export default class MovieList extends Component {
                         keyExtractor={item => item._id.$oid}
                         numColumns={3}
                     />
+                    <View style={bottomStyle.view}>
+                        <View style={bottomStyle.prevButton}>
+                            <Button
+                            onPress={this.getPrevious}
+                            title="< Previous"
+                            accessibilityLabel=""
+                            />
+                        </View>
+                        <View style={bottomStyle.nextButton}>
+                            <Button
+                            onPress={this.getNext}
+                            title="Next >"
+                            accessibilityLabel=""
+                            />
+                        </View>
+                    </View>
                 </View>
             )
         }
