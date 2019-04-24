@@ -1,29 +1,40 @@
 /* eslint-disable no-use-before-define */
 import React from "react"
-import { View, Text, TouchableOpacity, Image, Dimensions } from "react-native"
+import { View, Text, Image } from "react-native"
+import { Icon } from "react-native-elements"
 
 import { Card, CardSection } from "./index"
 
-const {width} = Dimensions.get("window")
-const FeedCard = props => {
-  return (
-    // eslint-disable-next-line no-use-before-define
-    <Card>
-      <View style={styles.containerStyle}>
-        <Text style={styles.cardHeader}>{props.title}</Text>
-        {/* <Text style={{ marginLeft: 60 }}>{props.genre}</Text> */}
-        <View style={{ width: 400, height: 400 }}>
-          <Image style={styles.imageStyle} 
-            source={{ uri: `${props.imageUrl}` }} 
-            // resizeMode="contain"
-          />
+class FeedCard extends React.Component {
+  state = {
+    iconSelected: false,
+  }
+
+  render() {
+    return (
+      <Card>
+        <View style={styles.containerStyle}>
+          <Text style={styles.cardHeader}>{this.props.title}</Text>
+          <View style={{ width: 400, height: 400 }}>
+            <Image style={styles.imageStyle} source={{ uri: `${this.props.imageUrl}` }} />
+          </View>
         </View>
-      </View>
-      <TouchableOpacity style={styles.buttonStyle}>
-        <Text style={styles.buttonText}>View More Details</Text>
-      </TouchableOpacity>
-    </Card>
-  )
+        <CardSection>
+          <Icon
+            color={this.state.iconSelected ? "#FFD662" : "#000"}
+            raised
+            name="thumb-up"
+            type="material"
+            // eslint-disable-next-line react/jsx-no-bind
+            onPress={() => {
+              this.setState({ iconSelected: !this.state.iconSelected })
+            }}
+          />
+          <Text style={{alignSelf:"center"}}>Like</Text>
+        </CardSection>
+      </Card>
+    )
+  }
 }
 
 export { FeedCard }
@@ -32,12 +43,10 @@ const styles = {
   containerStyle: {
     flex: 1,
     alignSelf: "center",
-    // width: 500,
   },
   imageStyle: {
     flex: 1,
     alignSelf: "center",
-    // resizeMode: "contain",
     aspectRatio: 0.9,
   },
   cardHeader: {
@@ -46,18 +55,5 @@ const styles = {
     textAlign: "center",
     marginTop: 10,
     paddingBottom: 10,
-  },
-  buttonStyle: {
-    flex: 1,
-    alignSelf: "stretch",
-    padding: 20,
-    borderWidth: 1,
-    borderColor: "#007aff",
-  },
-  buttonText: {
-    fontSize: 16,
-    fontFamily: "OpenSans-Bold",
-    textAlign: "center",
-    color: "#007aff",
   },
 }
