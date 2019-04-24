@@ -2,6 +2,7 @@
 import React from "react"
 import { View, Text, Image } from "react-native"
 import { Icon } from "react-native-elements"
+import moment from "moment"
 
 import { Card, CardSection } from "./index"
 
@@ -31,6 +32,10 @@ class FeedCard extends React.Component {
             }}
           />
           <Text style={{alignSelf:"center"}}>Like</Text>
+          <View style={{ flexDirection: "column", marginLeft: 10 }}>
+            <Text style={styles.footerText}>{moment(this.props.date).format("MMMM Do YYYY, h:mm:ss a")}</Text>
+            <Text style={styles.footerText}>{`Genre: ${this.props.genre}`}</Text>
+          </View>
         </CardSection>
       </Card>
     )
@@ -55,5 +60,9 @@ const styles = {
     textAlign: "center",
     marginTop: 10,
     paddingBottom: 10,
+  },
+  footerText: {
+    fontFamily: "OpenSans-Bold",
+    fontSize: 14,
   },
 }

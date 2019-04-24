@@ -18,6 +18,7 @@ export default class Main extends Component {
   }
 
   fetchData = async () => {
+    // makes inital get request after component has rendered
     axios
       .get(
         `https://us-central1-bonsai-interview-endpoints.cloudfunctions.net/movieTickets?skip=${
@@ -36,12 +37,13 @@ export default class Main extends Component {
   }
 
   fetchMore = () => {
-    // fetches more makes another get request when end of list reached
+    //  makes another get request when end of list reached
     this.setState({ skip: this.state.skip + 1, isLoading: true })
     this.fetchData()
   }
 
   renderFooter = () => {
+    // footer that renders the spinner when making another fetch request
     if (this.state.isLoading) {
       return <ActivityIndicator size="large" />
     } else {
@@ -50,6 +52,7 @@ export default class Main extends Component {
   }
 
   renderItem = ({ item }) => {
+    // method called by flatlist to render each row element
     return <FeedCard imageUrl={item.image} title={item.title} date={item.date} genre={item.genre} />
   }
 
