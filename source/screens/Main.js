@@ -1,6 +1,7 @@
+/* eslint-disable react/no-set-state */
 /* eslint-disable react/no-deprecated */
 import React, { Component } from "react"
-import { ScrollView } from "react-native"
+import { FlatList, ActivityIndicator } from "react-native"
 import axios from "axios"
 
 import { FeedCard } from "./../components"
@@ -8,27 +9,60 @@ import { FeedCard } from "./../components"
 export default class Main extends Component {
   state = {
     movies: [], // will store retrieved data
+    skip: 0, // stores the page count
+    isLoading: false,
   }
   componentWillMount() {
+    this.setState({ isLoading: true })
+    this.fetchData()
+  }
+
+  fetchData = async () => {
     axios
       .get(
-        "https://us-central1-bonsai-interview-endpoints.cloudfunctions.net/movieTickets?skip=0&limit=10",
+        `https://us-central1-bonsai-interview-endpoints.cloudfunctions.net/movieTickets?skip=${
+          this.state.skip
+        }&limit=10`,
       )
       .then(result => {
-        this.setState({ movies: result.data })
+        this.setState({
+          movies: this.state.movies.concat(result.data),
+          isLoading: false,
+        })
       })
       .catch(error => {
-        console.log("an error occured")
+        console.log(error)
       })
+  }
+
+  fetchMore = () => {
+    // fetches more makes another get request when end of list reached
+    this.setState({ skip: this.state.skip + 1, isLoading: true })
+    this.fetchData()
+  }
+
+  renderFooter = () => {
+    if (this.state.isLoading) {
+      return <ActivityIndicator size="large" />
+    } else {
+      return null
+    }
+  }
+
+  renderItem = ({ item }) => {
+    return <FeedCard imageUrl={item.image} title={item.title} date={item.date} genre={item.genre} />
   }
 
   render() {
     return (
-      <ScrollView>
-        {this.state.movies.map((movie, index) => {
-          return <FeedCard key={index} imageUrl={movie.image} />
-        })}
-      </ScrollView>
+      <FlatList
+        data={this.state.movies}
+        renderItem={this.renderItem}
+        keyExtractor={(item, index) => index.toString()}
+        onEndReached={this.fetchMore}
+        onEndReachedThreshold={0}
+        ListFooterComponent={this.renderFooter}
+      />
     )
   }
 }

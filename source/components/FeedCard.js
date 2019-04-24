@@ -2,20 +2,27 @@
 import React from "react"
 import { View, Text, TouchableOpacity, Image, Dimensions } from "react-native"
 
-import { Card } from "./index"
+import { Card, CardSection } from "./index"
 
-const FeedCard = (props) => {
+const {width} = Dimensions.get("window")
+const FeedCard = props => {
   return (
     // eslint-disable-next-line no-use-before-define
-    <View style={styles.containerStyle}>
-      <Card>
-        <Text style={styles.cardHeader}>Heita </Text>
-        <Image style={styles.imageStyle} source={{ uri: `${props.imageUrl}` }} />
-      </Card>
+    <Card>
+      <View style={styles.containerStyle}>
+        <Text style={styles.cardHeader}>{props.title}</Text>
+        {/* <Text style={{ marginLeft: 60 }}>{props.genre}</Text> */}
+        <View style={{ width: 400, height: 400 }}>
+          <Image style={styles.imageStyle} 
+            source={{ uri: `${props.imageUrl}` }} 
+            // resizeMode="contain"
+          />
+        </View>
+      </View>
       <TouchableOpacity style={styles.buttonStyle}>
-        <Text style={styles.buttonText}>Buy Ticket</Text>
+        <Text style={styles.buttonText}>View More Details</Text>
       </TouchableOpacity>
-    </View>
+    </Card>
   )
 }
 
@@ -24,17 +31,18 @@ export { FeedCard }
 const styles = {
   containerStyle: {
     flex: 1,
-    alignItems: "center",
-    paddingLeft: 30,
-    paddingRight: 30,
+    alignSelf: "center",
+    // width: 500,
   },
   imageStyle: {
-    width: 400,
-    height: 400,
+    flex: 1,
+    alignSelf: "center",
+    // resizeMode: "contain",
+    aspectRatio: 0.9,
   },
   cardHeader: {
     fontFamily: "OpenSans-Bold",
-    fontSize: 22,
+    fontSize: 18,
     textAlign: "center",
     marginTop: 10,
     paddingBottom: 10,
