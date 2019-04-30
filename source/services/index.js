@@ -1,2 +1,2 @@
 export * from "./movieService";
-export * from "./parseService";
+export * from "./stringService";
