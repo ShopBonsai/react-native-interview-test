@@ -21,9 +21,13 @@ const MovieDetailsInfo = (props) => {
         <LabelledContent label={"Stock Level"} content={`${inventory} Remaining`} />
         <LabelledContent label={"Date"} content={date} />
         <LabelledContent label={"Price"} content={`${price}`} />
-        <LabelledContent label={"Stock Level"} content={`${inventory} Remaining`} />
+        <LabelledContent
+          label={"Stock Level"}
+          content={`${inventory} Remaining`}
+          contentStyles={inventory === 0 && styles.stockStyles}
+        />
 
-        <Button onPress={_handleOnPress} title="Add To Cart" styles={styles.checkoutWrapper} />
+        {inventory > 0 && <Button onPress={_handleOnPress} title="Add To Cart" styles={styles.checkoutWrapper} />}
       </View>
     </ScrollView>
   );

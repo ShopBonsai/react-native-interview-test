@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   },
   title: { fontWeight: "600", fontSize: 24, marginBottom: 2 },
   titleSpacer: { backgroundColor: "#000", height: 2, width: "10%", marginTop: 15, marginBottom: 15 },
+  stockStyles: { color: "red" },
   checkoutWrapper: {
     marginTop: 25,
   },
