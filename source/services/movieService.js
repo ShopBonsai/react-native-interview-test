@@ -1,4 +1,5 @@
 import { apiSettings } from "../settings";
+import { stringService } from "./stringService";
 
 const movieService = {
   /**
