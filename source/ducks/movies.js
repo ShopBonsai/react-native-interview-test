@@ -3,6 +3,7 @@ import { movieService } from "../services";
 // * Action Types
 export const SET_MOVIE_LIST = "movies/SET_MOVIE_LIST";
 export const SET_MOVIE_PAGINATION = "movies/SET_MOVIE_PAGINATION";
+export const SET_MOVIE_DETAILS = "movies/SET_MOVIE_DETAILS";
 
 // * Initial State
 export const initialState = {
@@ -11,6 +12,7 @@ export const initialState = {
     skip: 0,
     limit: 10,
   },
+  details: {},
 };
 
 // * Reducer
@@ -21,6 +23,12 @@ export default (state = initialState, action = {}) => {
 
     case SET_MOVIE_PAGINATION:
       return { ...state, pagination: { ...state.pagination, skip: action.data } };
+
+    case SET_MOVIE_DETAILS:
+      return {
+        ...state,
+        details: action.data,
+      };
 
     default:
       return state;
@@ -83,9 +91,16 @@ class ActionCreators {
     };
   };
 
+  setMovieDetails = (movie) => {
+    return (dispatch) => {
+      dispatch(this._setMovieDetails(movie));
+    };
+  };
+
   // * Redux Actions
   _setMovieList = (data) => ({ type: SET_MOVIE_LIST, data });
   _setPagination = (data) => ({ type: SET_MOVIE_PAGINATION, data });
+  _setMovieDetails = (data) => ({ type: SET_MOVIE_DETAILS, data });
 }
 
 export const actionCreators = new ActionCreators();
