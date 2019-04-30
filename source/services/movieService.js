@@ -5,8 +5,8 @@ import { stringService } from "./stringService";
 const movieService = {
   /**
    * Returns an array of movie listings
-   * @param {number} skip - Number of movie listings to skip by
-   * @param {number} limit - Number of how many movie listings to retrieve at a time
+   * @param {number} [skip = 0] - Number of movie listings to skip by
+   * @param {number} [limit = 10] - Number of how many movie listings to retrieve at a time
    */
   getMovieList(skip = 0, limit = 10) {
     return fetch(apiSettings.getMovieList(skip, limit)).then((response) => response.json());
