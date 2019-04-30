@@ -19,8 +19,10 @@ class MovieList extends Component {
     getNextPage();
   };
 
-  _handleOnMoviePress = () => {
-    const { navigator } = this.props;
+  _handleOnMoviePress = (movie) => {
+    const { navigator, setMovieDetails } = this.props;
+
+    setMovieDetails(movie);
     navigator.push({
       screen: MOVIEDETAILS,
     });

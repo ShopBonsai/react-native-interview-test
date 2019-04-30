@@ -9,9 +9,11 @@ const MovieThumbnail = (props) => {
 
   const parsedDate = moment(date).format("YYYY-MM-DD");
 
+  const _handleOnPress = () => onPress(movie);
+
   return (
     <View style={styles.container}>
-      <TouchableWithoutFeedback onPress={onPress}>
+      <TouchableWithoutFeedback onPress={_handleOnPress}>
         <View>
           <View style={{ height: 200 }}>
             {image !== null && <Image source={{ uri: image }} style={styles.thumbnailImage} />}
