@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../ducks/movies";
 import { MovieThumbnail } from "../components";
+import { MOVIEDETAILS } from "../screens";
 
 class MovieList extends Component {
   componentDidMount() {
@@ -19,10 +20,10 @@ class MovieList extends Component {
   };
 
   _handleOnMoviePress = () => {
-    // const { navigator } = this.props;
-    // navigator.push({
-    //   screen: MAIN,
-    // });
+    const { navigator } = this.props;
+    navigator.push({
+      screen: MOVIEDETAILS,
+    });
   };
 
   render() {

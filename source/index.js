@@ -1,22 +1,21 @@
-import { Navigation } from "react-native-navigation"
-
-import withProviders from "./containers/withProviders"
-import screens, { MAIN } from "./screens"
+import { Navigation } from "react-native-navigation";
+import withProviders from "./containers/withProviders";
+import screens, { MOVIELIST } from "./screens";
 
 class App {
   constructor() {
-    this.registerScreens(screens)
+    this.registerScreens(screens);
     Navigation.startSingleScreenApp({
       screen: {
-        screen: MAIN,
-        navigatorStyle: { navBarHidden: true },
+        screen: MOVIELIST,
+        navigatorStyle: { navBarHidden: false },
       },
-    })
+    });
   }
-  registerScreens = screensToRegister =>
+  registerScreens = (screensToRegister) =>
     Object.entries(screensToRegister).forEach(([key, Screen]) =>
-      Navigation.registerComponent(key, () => withProviders(Screen)),
-    )
+      Navigation.registerComponent(key, () => withProviders(Screen))
+    );
 }
 
-export default new App()
+export default new App();
