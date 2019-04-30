@@ -7,8 +7,6 @@ const MovieThumbnail = (props) => {
   const { movie, onPress } = props;
   const { image, title, date, price } = movie;
 
-  const parsedDate = moment(date).format("YYYY-MM-DD");
-
   const _handleOnPress = () => onPress(movie);
 
   return (
@@ -21,8 +19,8 @@ const MovieThumbnail = (props) => {
           <View style={styles.contentWrapper}>
             <Text style={styles.title}>{title}</Text>
             <View style={styles.infoWrapper}>
-              <Text>{parsedDate}</Text>
-              <Text>{`$${price}`}</Text>
+              <Text>{date}</Text>
+              <Text>{price}</Text>
             </View>
           </View>
         </View>

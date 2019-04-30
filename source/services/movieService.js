@@ -1,3 +1,4 @@
+import moment from "moment";
 import { apiSettings } from "../settings";
 import { stringService } from "./stringService";
 
@@ -28,10 +29,17 @@ const movieService = {
           return movie;
         }
       })
-      .map((movie) => ({
-        ...movie,
-        image: stringService.convertHttpToHttps(movie.image),
-      }));
+      .map((movie) => {
+        const { date, price } = movie;
+        const formattedDate = moment(date).format("YYYY-MM-DD");
+
+        return {
+          ...movie,
+          image: stringService.convertHttpToHttps(movie.image),
+          date: formattedDate,
+          price: `$${price.toFixed(2)}`,
+        };
+      });
   },
 };
 
