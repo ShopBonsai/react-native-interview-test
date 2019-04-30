@@ -13,7 +13,7 @@ const LabelledContent = (props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
-      <Text>{content}</Text>
+      <Text style={styles.content}>{content}</Text>
     </View>
   );
 };
