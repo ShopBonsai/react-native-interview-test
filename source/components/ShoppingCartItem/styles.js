@@ -10,12 +10,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   },
   thumbnail: { height: 50, width: 50 },
   titleWrapper: { width: "50%", justifyContent: "center" },
   title: { textAlign: "center" },
   priceWrapper: { justifyContent: "center" },
+  price: { letterSpacing: 1 },
 });
 
 export { styles };
