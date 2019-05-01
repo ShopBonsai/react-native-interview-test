@@ -1,15 +1,23 @@
 import { Navigation } from "react-native-navigation";
 import withProviders from "./containers/withProviders";
-import screens, { MOVIELIST } from "./screens";
+import screens, { MOVIELIST, SHOPPINGCART } from "./screens";
 
 class App {
   constructor() {
     this.registerScreens(screens);
-    Navigation.startSingleScreenApp({
-      screen: {
-        screen: MOVIELIST,
-        navigatorStyle: { navBarHidden: false },
-      },
+    Navigation.startTabBasedApp({
+      tabs: [
+        {
+          label: "Browse",
+          screen: MOVIELIST,
+          title: "Browse",
+        },
+        {
+          label: "Shopping Cart",
+          screen: SHOPPINGCART,
+          title: "Shopping Cart",
+        },
+      ],
     });
   }
   registerScreens = (screensToRegister) =>

@@ -30,7 +30,9 @@ const MovieDetailsInfo = (props) => {
           contentStyles={inventory === 0 && styles.stockStyles}
         />
 
-        {showAddToCart && <Button onPress={_handleOnPress} title="Add To Cart" styles={styles.checkoutWrapper} />}
+        {showAddToCart && (
+          <Button onPress={_handleAddMovieToCart} title="Add To Cart" styles={styles.checkoutWrapper} />
+        )}
         {isInCart && (
           <View style={styles.alreadyInCartWrapper}>
             <Text style={styles.alreadyInCartText}>Already In Cart</Text>
