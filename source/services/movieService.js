@@ -24,22 +24,37 @@ const movieService = {
   parseMovieList(movies) {
     return movies
       .filter((movie) => {
-        const { title, genre, price, inventory, image, date } = movie;
-        if (title && genre && image && date && price >= 0 && inventory >= 0) {
+        const { title, genre, price, inventory, image, date, _id } = movie;
+        if (title && genre && image && date && price >= 0 && inventory >= 0 && _id && _id["$oid"]) {
           return movie;
         }
       })
       .map((movie) => {
-        const { date, price } = movie;
+        const { date, price, title, genre, inventory, image, _id } = movie;
         const formattedDate = moment(date).format("YYYY-MM-DD");
+        const formattedMovie = {};
 
-        return {
-          ...movie,
-          image: stringService.convertHttpToHttps(movie.image),
-          date: formattedDate,
-          price: `$${price.toFixed(2)}`,
-        };
+        formattedMovie.id = _id["$oid"];
+        formattedMovie.title = title;
+        formattedMovie.genre = genre;
+        formattedMovie.price = `$${price.toFixed(2)}`;
+        formattedMovie.inventory = inventory;
+        formattedMovie.image = stringService.convertHttpToHttps(image);
+        formattedMovie.date = formattedDate;
+
+        return formattedMovie;
       });
+  },
+
+  /**
+   * Determines if the movie exists in the cart and returns a boolean value
+   * @param {string} movie.id - Id of the movie
+   * @param {object[]} cart - List of movies currently in the cart
+   * @return  {boolean} - Boolean of the results after checking if the movie is inside the cart
+   */
+  checkMovieInCart(movie, cart) {
+    const { id } = movie;
+    return Boolean(cart.find((cartMovie) => cartMovie.id === id));
   },
 };
 

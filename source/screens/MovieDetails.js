@@ -12,11 +12,11 @@ class MovieDetails extends Component {
   };
 
   render() {
-    const { details } = this.props;
+    const { details, cart } = this.props;
 
     return (
       <View>
-        <MovieDetailsInfo movie={details} onPress={this._handlePress} />
+        <MovieDetailsInfo movie={details} onPress={this._handlePress} cart={cart} />
       </View>
     );
   }
@@ -26,6 +26,7 @@ const mapDispatchToProps = (dispatch) => bindActionCreators(actionCreators, disp
 
 const mapStateToProps = (state) => ({
   details: state.movies.details,
+  cart: state.movies.cart,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails);

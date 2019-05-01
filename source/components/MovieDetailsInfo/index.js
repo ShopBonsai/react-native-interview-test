@@ -2,12 +2,15 @@ import React from "react";
 import { View, Image, Text, ScrollView } from "react-native";
 import { styles } from "./styles";
 import { LabelledContent, Button } from "../../components";
+import { movieService } from "../../services";
 
 const MovieDetailsInfo = (props) => {
-  const { movie, onPress } = props;
+  const { movie, onPress, cart } = props;
   const { image, title, date, price, genre, inventory } = movie;
+  const isInCart = movieService.checkMovieInCart(movie, cart);
+  const showAddToCart = !isInCart && inventory > 0;
 
-  _handleOnPress = () => onPress(movie);
+  _handleAddMovieToCart = () => onPress(movie);
 
   return (
     <ScrollView style={styles.container}>
@@ -27,7 +30,12 @@ const MovieDetailsInfo = (props) => {
           contentStyles={inventory === 0 && styles.stockStyles}
         />
 
-        {inventory > 0 && <Button onPress={_handleOnPress} title="Add To Cart" styles={styles.checkoutWrapper} />}
+        {showAddToCart && <Button onPress={_handleOnPress} title="Add To Cart" styles={styles.checkoutWrapper} />}
+        {isInCart && (
+          <View style={styles.alreadyInCartWrapper}>
+            <Text style={styles.alreadyInCartText}>Already In Cart</Text>
+          </View>
+        )}
       </View>
     </ScrollView>
   );

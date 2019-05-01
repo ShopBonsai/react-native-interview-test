@@ -12,7 +12,7 @@ class MovieList extends Component {
     getInitialPage();
   }
 
-  _movieKeyExtractor = (item) => item._id.$oid;
+  _movieKeyExtractor = (item) => item.id;
 
   _handleEndReached = () => {
     const { getNextPage } = this.props;

@@ -19,6 +19,20 @@ const styles = StyleSheet.create({
   checkoutWrapper: {
     marginTop: 25,
   },
+  alreadyInCartWrapper: {
+    borderTopWidth: 2,
+    borderRightWidth: 2,
+    borderBottomWidth: 2,
+    borderLeftWidth: 2,
+    marginTop: 25,
+  },
+  alreadyInCartText: {
+    paddingTop: 11,
+    paddingBottom: 11,
+    textAlign: "center",
+    letterSpacing: 1,
+    fontWeight: "600",
+  },
 });
 
 export { styles };
