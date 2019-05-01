@@ -6,11 +6,13 @@ import { actionCreators } from "../ducks/movies";
 import { MovieDetailsInfo } from "../components";
 
 class MovieDetails extends Component {
-  _handlePress = () => {};
+  _handlePress = (movie) => {
+    const { addToCart } = this.props;
+    addToCart(movie);
+  };
 
   render() {
     const { details } = this.props;
-    console.log(details);
 
     return (
       <View>

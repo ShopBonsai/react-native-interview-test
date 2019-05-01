@@ -4,6 +4,7 @@ import { movieService } from "../services";
 export const SET_MOVIE_LIST = "movies/SET_MOVIE_LIST";
 export const SET_MOVIE_PAGINATION = "movies/SET_MOVIE_PAGINATION";
 export const SET_MOVIE_DETAILS = "movies/SET_MOVIE_DETAILS";
+export const ADD_MOVIE_TO_CART = "movies/ADD_MOVIE_TO_CART";
 
 // * Initial State
 export const initialState = {
@@ -13,6 +14,7 @@ export const initialState = {
     limit: 10,
   },
   details: {},
+  cart: [],
 };
 
 // * Reducer
@@ -30,6 +32,12 @@ export default (state = initialState, action = {}) => {
         details: action.data,
       };
 
+    case ADD_MOVIE_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.data],
+      };
+
     default:
       return state;
   }
@@ -40,7 +48,7 @@ class ActionCreators {
   // * Redux-Thunk Actions
   /**
    * Fetches a list of movies and adds it to the Redux state
-   * @param {boolean} initialize - Determines if the list of movies should be added to or replace the current list of movies
+   * @param {boolean} [initialize = false] - Determines if the list of movies should be added to or replace the current list of movies
    */
   getMovieList = (initialize = false) => {
     return (dispatch, getState) => {
@@ -91,9 +99,23 @@ class ActionCreators {
     };
   };
 
+  /**
+   * Stores the selected movie's details in Redux store
+   * @param {object} movie - Contains movie details
+   */
   setMovieDetails = (movie) => {
     return (dispatch) => {
       dispatch(this._setMovieDetails(movie));
+    };
+  };
+
+  /**
+   * Adds movie to cart and stores in Redux store
+   * @param {object} movie - Contains movie details
+   */
+  addToCart = (movie) => {
+    return (dispatch) => {
+      dispatch(this._addMovieToCart(movie));
     };
   };
 
@@ -101,6 +123,7 @@ class ActionCreators {
   _setMovieList = (data) => ({ type: SET_MOVIE_LIST, data });
   _setPagination = (data) => ({ type: SET_MOVIE_PAGINATION, data });
   _setMovieDetails = (data) => ({ type: SET_MOVIE_DETAILS, data });
+  _addMovieToCart = (data) => ({ type: ADD_MOVIE_TO_CART, data });
 }
 
 export const actionCreators = new ActionCreators();
