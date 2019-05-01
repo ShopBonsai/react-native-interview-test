@@ -3,7 +3,7 @@ import { FlatList, View, Text } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../ducks/movies";
-import { SubTotal, ShoppingCartItem } from "../components";
+import { SubTotal, ShoppingCartItem, EmptyCart } from "../components";
 
 class ShoppingCart extends Component {
   state = {
@@ -23,22 +23,26 @@ class ShoppingCart extends Component {
   render() {
     const { cart } = this.state;
 
-    return (
-      <View style={{ flex: 1, paddingLeft: 20, paddingRight: 20 }}>
-        <View style={{ flex: 1 }}>
-          <FlatList
-            data={cart}
-            keyExtractor={this._movieKeyExtractor}
-            renderItem={({ item }) => (
-              <View>
-                <ShoppingCartItem movie={item} />
-              </View>
-            )}
-          />
+    if (cart.length === 0) {
+      return <EmptyCart />;
+    } else {
+      return (
+        <View style={{ flex: 1, paddingLeft: 20, paddingRight: 20 }}>
+          <View style={{ flex: 1 }}>
+            <FlatList
+              data={cart}
+              keyExtractor={this._movieKeyExtractor}
+              renderItem={({ item }) => (
+                <View>
+                  <ShoppingCartItem movie={item} />
+                </View>
+              )}
+            />
+          </View>
+          <SubTotal />
         </View>
-        <SubTotal />
-      </View>
-    );
+      );
+    }
   }
 }
 
