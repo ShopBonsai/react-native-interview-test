@@ -13,9 +13,9 @@ class App {
           title: "Browse",
         },
         {
-          label: "Shopping Cart",
+          label: "Cart",
           screen: SHOPPINGCART,
-          title: "Shopping Cart",
+          title: "Cart",
         },
       ],
     });
