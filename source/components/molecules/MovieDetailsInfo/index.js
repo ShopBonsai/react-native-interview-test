@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Image, Text, ScrollView } from "react-native";
 import { styles } from "./styles";
-import { LabelledContent, Button } from "../../components";
-import { movieService } from "../../services";
+import { LabelledContent, Button } from "../../../components";
+import { movieService } from "../../../services";
 
 const MovieDetailsInfo = (props) => {
   const { movie, onPress, cart } = props;

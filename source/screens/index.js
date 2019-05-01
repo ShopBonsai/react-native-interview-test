@@ -1,6 +1,6 @@
-import MovieList from "./MovieList";
-import MovieDetails from "./MovieDetails";
-import ShoppingCart from "./ShoppingCart";
+import MovieList from "./MovieListScreen";
+import MovieDetails from "./MovieDetailsScreen";
+import ShoppingCart from "./ShoppingCartScreen";
 
 export const MOVIELIST = "interview.movielist";
 export const MOVIEDETAILS = "interview.moviedetails";

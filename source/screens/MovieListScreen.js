@@ -1,18 +1,15 @@
 import React, { Component } from "react";
-import { FlatList } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../ducks/movies";
-import { MovieThumbnail } from "../components";
-import { MOVIEDETAILS } from "../screens";
+import { MovieListTemplate } from "../components";
+import { MOVIEDETAILS } from ".";
 
 class MovieList extends Component {
   componentDidMount() {
     const { getInitialPage } = this.props;
     getInitialPage();
   }
-
-  _movieKeyExtractor = (item) => item.id;
 
   _handleEndReached = () => {
     const { getNextPage } = this.props;
@@ -32,12 +29,10 @@ class MovieList extends Component {
     const { movies } = this.props;
 
     return (
-      <FlatList
-        data={movies}
-        keyExtractor={this._movieKeyExtractor}
+      <MovieListTemplate
+        movies={movies}
         onEndReached={this._handleEndReached}
-        onEndReachedThreshold={0.7}
-        renderItem={({ item }) => <MovieThumbnail movie={item} onPress={this._handleOnMoviePress} />}
+        onMoviePress={this._handleOnMoviePress}
       />
     );
   }

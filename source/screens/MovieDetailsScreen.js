@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../ducks/movies";
-import { MovieDetailsInfo } from "../components";
+import { MovieDetailsTemplate } from "../components";
 
 class MovieDetails extends Component {
   _handlePress = (movie) => {
@@ -14,11 +13,7 @@ class MovieDetails extends Component {
   render() {
     const { details, cart } = this.props;
 
-    return (
-      <View>
-        <MovieDetailsInfo movie={details} onPress={this._handlePress} cart={cart} />
-      </View>
-    );
+    return <MovieDetailsTemplate movie={details} onPress={this._handlePress} cart={cart} />;
   }
 }
 
