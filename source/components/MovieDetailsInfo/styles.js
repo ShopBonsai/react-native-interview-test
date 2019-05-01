@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
   checkoutWrapper: {
     marginTop: 25,
   },
+  price: {
+    letterSpacing: 1,
+  },
   alreadyInCartWrapper: {
     borderTopWidth: 2,
     borderRightWidth: 2,

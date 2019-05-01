@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   },
   title: { paddingBottom: 2, fontWeight: "600" },
   infoWrapper: { flexDirection: "row", justifyContent: "space-between" },
+  price: { letterSpacing: 1 },
 });
 
 export { styles };
