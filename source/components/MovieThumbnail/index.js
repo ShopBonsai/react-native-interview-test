@@ -20,7 +20,7 @@ const MovieThumbnail = (props) => {
             <Text style={styles.title}>{title}</Text>
             <View style={styles.infoWrapper}>
               <Text>{date}</Text>
-              <Text style={styles.price}>{price}</Text>
+              <Text style={styles.price}>{`$${price.toFixed(2)}`}</Text>
             </View>
           </View>
         </View>

@@ -14,7 +14,7 @@ const ShoppingCartItem = (props) => {
         <Text style={styles.title}>{title}</Text>
       </View>
       <View style={styles.priceWrapper}>
-        <Text style={styles.price}>{price}</Text>
+        <Text style={styles.price}>{`$${price.toFixed(2)}`}</Text>
       </View>
     </View>
   );

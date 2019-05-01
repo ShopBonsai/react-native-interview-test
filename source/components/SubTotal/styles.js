@@ -7,14 +7,14 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     flexDirection: "row",
+    borderTopWidth: 1,
   },
   subTotalLabel: {
     paddingRight: 25,
     width: "70%",
-    textAlign: "right",
     letterSpacing: 2,
   },
-  subTotal: {
+  subtotal: {
     width: "30%",
     textAlign: "right",
     letterSpacing: 1,

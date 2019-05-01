@@ -23,7 +23,7 @@ const MovieDetailsInfo = (props) => {
 
         <LabelledContent label={"Stock Level"} content={`${inventory} Remaining`} />
         <LabelledContent label={"Date"} content={date} />
-        <LabelledContent label={"Price"} content={`${price}`} contentStyles={styles.price} />
+        <LabelledContent label={"Price"} content={`$${price.toFixed(2)}`} contentStyles={styles.price} />
         <LabelledContent
           label={"Stock Level"}
           content={`${inventory} Remaining`}

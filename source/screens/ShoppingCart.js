@@ -3,25 +3,34 @@ import { FlatList, View, Text } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../ducks/movies";
-import { SubTotal, ShoppingCartItem, EmptyCart } from "../components";
+import { Subtotal, ShoppingCartItem, EmptyCart } from "../components";
 
 class ShoppingCart extends Component {
   state = {
     cart: [],
+    subtotal: 0,
   };
 
   componentWillReceiveProps(nextProps) {
     const { cart } = this.props;
 
     if (nextProps.cart !== cart) {
-      this.setState({ cart: nextProps.cart });
+      if (nextProps.cart.length > 0) {
+        let subtotal = 0;
+        nextProps.cart.map((movie) => {
+          subtotal += movie.price;
+        });
+        this.setState({ cart: nextProps.cart, subtotal });
+      } else {
+        this.setState({ cart: nextProps.cart, subtotal: 0 });
+      }
     }
   }
 
   _movieKeyExtractor = (item) => item.id;
 
   render() {
-    const { cart } = this.state;
+    const { cart, subtotal } = this.state;
 
     if (cart.length === 0) {
       return <EmptyCart />;
@@ -39,7 +48,7 @@ class ShoppingCart extends Component {
               )}
             />
           </View>
-          <SubTotal />
+          <Subtotal subtotal={subtotal} />
         </View>
       );
     }
