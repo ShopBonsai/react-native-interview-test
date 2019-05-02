@@ -3,6 +3,11 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { ICONS_CROSS } from "../../../../assets/icons";
 
+/**
+ * Returns a styled component for movie items inside of the cart
+ * @param {Object} props.movie - Object of movie item
+ * @param {(string) => void} props.onRemoveItem - Event handler for removing the selected movie from the cart
+ */
 const ShoppingCartItem = (props) => {
   const { movie, onRemoveItem } = props;
   const { image, title, price, id } = movie;

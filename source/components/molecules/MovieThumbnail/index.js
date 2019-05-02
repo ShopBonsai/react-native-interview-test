@@ -3,6 +3,11 @@ import { View, Image, Text, TouchableWithoutFeedback } from "react-native";
 import moment from "moment";
 import { styles } from "./styles";
 
+/**
+ * Returns a styled component which displays a thumbnail description of the movie
+ * @param {Object} props.movie - Object of movie item
+ * @param {(Object) => void)} props.onPress - Event handler for navigating to the selected movie's details page
+ */
 const MovieThumbnail = (props) => {
   const { movie, onPress } = props;
   const { image, title, date, price } = movie;

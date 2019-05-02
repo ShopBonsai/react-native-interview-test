@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { FlatList, View, Text } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../ducks/movies";
-import { Subtotal, ShoppingCartItem, EmptyCart, ShoppingCartTemplate } from "../components";
+import { EmptyCart, ShoppingCartTemplate } from "../components";
 
 class ShoppingCart extends Component {
   state = {
@@ -32,30 +31,13 @@ class ShoppingCart extends Component {
     removeFromCart(movieId);
   };
 
-  _movieKeyExtractor = (item) => item.id;
-
   render() {
     const { cart, subtotal } = this.state;
 
     if (cart.length === 0) {
       return <EmptyCart />;
     } else {
-      return (
-        <ShoppingCartTemplate>
-          <View style={{ flex: 1 }}>
-            <FlatList
-              data={cart}
-              keyExtractor={this._movieKeyExtractor}
-              renderItem={({ item }) => (
-                <View>
-                  <ShoppingCartItem movie={item} onRemoveItem={this._handleRemoveMovie} />
-                </View>
-              )}
-            />
-          </View>
-          <Subtotal subtotal={subtotal} />
-        </ShoppingCartTemplate>
-      );
+      return <ShoppingCartTemplate cart={cart} onRemoveItem={this._handleRemoveMovie} subtotal={subtotal} />;
     }
   }
 }
