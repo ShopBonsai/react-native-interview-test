@@ -102,7 +102,7 @@ class ActionCreators {
 
   /**
    * Stores the selected movie's details in Redux store
-   * @param {object} movie - Contains movie details
+   * @param {object} props.movie - Object of movie item
    */
   setMovieDetails = (movie) => {
     return (dispatch) => {
@@ -112,7 +112,7 @@ class ActionCreators {
 
   /**
    * Adds movie to cart and stores in Redux store
-   * @param {object} movie - Contains movie details
+   * @param {object} props.movie - Object of movie item
    */
   addToCart = (movie) => {
     return (dispatch, getState) => {

@@ -5,7 +5,7 @@ import { ICONS_CROSS } from "../../../../assets/icons";
 
 /**
  * Returns a styled component for movie items inside of the cart
- * @param {Object} props.movie - Object of movie item
+ * @param {object} props.movie - Object of movie item
  * @param {(string) => void} props.onRemoveItem - Event handler for removing the selected movie from the cart
  */
 const ShoppingCartItem = (props) => {

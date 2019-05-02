@@ -4,7 +4,7 @@ import { MovieThumbnail } from "../../../components";
 
 /**
  * Returns a styled component listing movie thumbnails
- * @param {Object[]} props.movies - List of movie items to display
+ * @param {object[]} props.movies - List of movie items to display
  * @param {() => void} props.onEndReached - Event handler for loading more movies to the list to display to the user
  * @param {() => void} props.onMoviePress - Event handler for navigating to the movie details page
  */

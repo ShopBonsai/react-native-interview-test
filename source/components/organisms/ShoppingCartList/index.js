@@ -4,7 +4,7 @@ import { ShoppingCartItem } from "../../../components";
 
 /**
  * Returns a styled component listing movies in the shopping cart
- * @param {Object[]} props.cart - List of all movies currently added to the shopping cart
+ * @param {object[]} props.cart - List of all movies currently added to the shopping cart
  * @param {(string) => void} props.onRemoveItem - Event handler for removing the selected movie from the cart
  */
 const ShoppingCartList = (props) => {

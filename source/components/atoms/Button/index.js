@@ -8,7 +8,7 @@ import { styles as buttonStyles } from "./styles";
  * @param {string} [props.color = "#fff"] - Color that that button text should be set to
  * @param {string} [props.backgroundColor = "#000"] - Background color that the button text should be set to
  * @param {string} [props.title = ""] - Title of the button
- * @param {Object} [props.styles = ""] - Extra styles to be applied to the button
+ * @param {object} [props.styles = ""] - Extra styles to be applied to the button
  */
 const Button = (props) => {
   const { onPress, color = "#fff", backgroundColor = "#000", title = "", styles = {} } = props;
