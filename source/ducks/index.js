@@ -1,5 +1,5 @@
-import example from "./example"
+import movies from "./movies";
 
 export default {
-  example,
-}
+  movies,
+};
