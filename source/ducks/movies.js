@@ -60,14 +60,16 @@ class ActionCreators {
       movieService
         .getMovieList(skip, limit)
         .then((movies) => {
-          const parsedMovies = movieService.parseMovieList(movies);
+          if (movies.length > 0) {
+            const parsedMovies = movieService.parseMovieList(movies);
 
-          if (initialize) {
-            dispatch(this._setMovieList(parsedMovies));
-          } else {
-            const currentList = getState().movies.list;
+            if (initialize) {
+              dispatch(this._setMovieList(parsedMovies));
+            } else {
+              const currentList = getState().movies.list;
 
-            dispatch(this._setMovieList([...currentList, ...parsedMovies]));
+              dispatch(this._setMovieList([...currentList, ...parsedMovies]));
+            }
           }
         })
         .catch((error) => {
