@@ -9,10 +9,11 @@ import { styles } from "./styles";
 const Subtotal = (props) => {
   const { subtotal } = props;
 
+  console.log(subtotal);
   return (
     <View style={styles.contentWrapper}>
       <Text style={styles.subTotalLabel}>SUBTOTAL:</Text>
-      <Text style={styles.subtotal}>{`$${subtotal.toFixed(2)}`}</Text>
+      <Text style={styles.subtotal}>{`$${subtotal}`}</Text>
     </View>
   );
 };

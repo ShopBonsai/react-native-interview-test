@@ -31,13 +31,14 @@ const movieService = {
       })
       .map((movie) => {
         const { date, price, title, genre, inventory, image, _id } = movie;
+        const formattedPrice = price.toFixed(2);
         const formattedDate = moment(date).format("YYYY-MM-DD");
         const formattedMovie = {};
 
         formattedMovie.id = _id["$oid"];
         formattedMovie.title = title;
         formattedMovie.genre = genre;
-        formattedMovie.price = price;
+        formattedMovie.price = formattedPrice;
         formattedMovie.inventory = inventory;
         formattedMovie.image = stringService.convertHttpToHttps(image);
         formattedMovie.date = formattedDate;

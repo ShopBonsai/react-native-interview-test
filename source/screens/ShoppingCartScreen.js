@@ -17,7 +17,7 @@ class ShoppingCart extends Component {
       if (nextProps.cart.length > 0) {
         let subtotal = 0;
         nextProps.cart.map((movie) => {
-          subtotal += movie.price;
+          subtotal += parseFloat(movie.price);
         });
         this.setState({ cart: nextProps.cart, subtotal });
       } else {
