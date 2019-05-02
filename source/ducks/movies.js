@@ -4,7 +4,8 @@ import { movieService } from "../services";
 export const SET_MOVIE_LIST = "movies/SET_MOVIE_LIST";
 export const SET_MOVIE_PAGINATION = "movies/SET_MOVIE_PAGINATION";
 export const SET_MOVIE_DETAILS = "movies/SET_MOVIE_DETAILS";
-export const ADD_MOVIE_TO_CART = "movies/ADD_MOVIE_TO_CART";
+export const REMOVE_MOVIE_FROM_CART = "movies/REMOVE_MOVIE_FROM_CART";
+export const SET_CART = "movies/SET_CART";
 
 // * Initial State
 export const initialState = {
@@ -32,10 +33,10 @@ export default (state = initialState, action = {}) => {
         details: action.data,
       };
 
-    case ADD_MOVIE_TO_CART:
+    case SET_CART:
       return {
         ...state,
-        cart: [...state.cart, action.data],
+        cart: action.data,
       };
 
     default:
@@ -114,8 +115,31 @@ class ActionCreators {
    * @param {object} movie - Contains movie details
    */
   addToCart = (movie) => {
-    return (dispatch) => {
-      dispatch(this._addMovieToCart(movie));
+    return (dispatch, getState) => {
+      const currentState = getState().movies;
+      const currentCart = currentState.cart;
+      const newCart = [...currentCart, movie];
+
+      dispatch(this._setCart(newCart));
+    };
+  };
+
+  /**
+   * Removes movie from the cart that has a matching ID
+   * @param {string} movieId - ID belonging to the movie which needs to be removed
+   */
+  removeFromCart = (movieId) => {
+    return (dispatch, getState) => {
+      const currentState = getState().movies;
+      const currentCart = currentState.cart;
+      const foundMovieIndex = currentCart.findIndex((movieInCart) => movieInCart.id === movieId);
+
+      if (foundMovieIndex !== -1) {
+        const newCart = [...currentCart];
+
+        newCart.splice(foundMovieIndex, 1);
+        dispatch(this._setCart(newCart));
+      }
     };
   };
 
@@ -123,7 +147,7 @@ class ActionCreators {
   _setMovieList = (data) => ({ type: SET_MOVIE_LIST, data });
   _setPagination = (data) => ({ type: SET_MOVIE_PAGINATION, data });
   _setMovieDetails = (data) => ({ type: SET_MOVIE_DETAILS, data });
-  _addMovieToCart = (data) => ({ type: ADD_MOVIE_TO_CART, data });
+  _setCart = (data) => ({ type: SET_CART, data });
 }
 
 export const actionCreators = new ActionCreators();

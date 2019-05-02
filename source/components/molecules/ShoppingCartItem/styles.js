@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
+  removeButton: { width: 15, height: 15 },
   thumbnail: { height: 50, width: 50 },
   titleWrapper: { width: "50%", justifyContent: "center" },
   title: { textAlign: "center" },

@@ -1,13 +1,20 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
+import { ICONS_CROSS } from "../../../../assets/icons";
 
 const ShoppingCartItem = (props) => {
-  const { movie } = props;
-  const { image, title, price } = movie;
+  const { movie, onRemoveItem } = props;
+  const { image, title, price, id } = movie;
+
+  _handleRemoveMovie = () => onRemoveItem(id);
 
   return (
     <View style={styles.contentWrapper}>
+      <TouchableOpacity onPress={_handleRemoveMovie}>
+        <Image source={ICONS_CROSS} style={styles.removeButton} />
+      </TouchableOpacity>
+
       <Image source={{ uri: image }} style={styles.thumbnail} />
 
       <View style={styles.titleWrapper}>

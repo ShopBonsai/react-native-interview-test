@@ -27,6 +27,11 @@ class ShoppingCart extends Component {
     }
   }
 
+  _handleRemoveMovie = (movieId) => {
+    const { removeFromCart } = this.props;
+    removeFromCart(movieId);
+  };
+
   _movieKeyExtractor = (item) => item.id;
 
   render() {
@@ -43,7 +48,7 @@ class ShoppingCart extends Component {
               keyExtractor={this._movieKeyExtractor}
               renderItem={({ item }) => (
                 <View>
-                  <ShoppingCartItem movie={item} />
+                  <ShoppingCartItem movie={item} onRemoveItem={this._handleRemoveMovie} />
                 </View>
               )}
             />
