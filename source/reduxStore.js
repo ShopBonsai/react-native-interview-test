@@ -1,12 +1,17 @@
-import { createStore, applyMiddleware, combineReducers } from "redux"
+import { createStore, applyMiddleware, combineReducers, compose } from "redux"
 
-import env from "./env"
-import reducers from "./ducks"
+import createSagaMiddleware from "redux-saga"
+
+import reducers from "./config/reducer"
+import rootSaga from "./config/saga"
+
+const sagaMiddleware = createSagaMiddleware()
+const middleWare = [sagaMiddleware]
 
 export const rootReducer = combineReducers(reducers)
-const developmentMiddleware = [require("redux-logger").createLogger({ collapsed: true })]
 
-const middleware = [...(env.IS_DEVELOPMENT ? developmentMiddleware : [])]
-const store = createStore(rootReducer, {}, applyMiddleware(...middleware))
+const store = createStore(rootReducer, {}, compose(applyMiddleware(...middleWare)))
+
+sagaMiddleware.run(rootSaga)
 
 export default store

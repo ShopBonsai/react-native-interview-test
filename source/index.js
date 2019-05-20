@@ -3,6 +3,9 @@ import { Navigation } from "react-native-navigation"
 import withProviders from "./containers/withProviders"
 import screens, { MAIN } from "./screens"
 
+// eslint-disable-next-line no-console
+console.disableYellowBox = true
+
 class App {
   constructor() {
     this.registerScreens(screens)
