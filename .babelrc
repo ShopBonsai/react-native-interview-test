@@ -1,0 +1,8 @@
+{
+  "presets": ["react-native-stage-0/decorator-support", "react-native-dotenv"],
+  "env": {
+    "production": {
+      "plugins": ["transform-remove-console"]
+    }
+  }
+}

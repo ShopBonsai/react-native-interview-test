@@ -1,0 +1,28 @@
+version: "2"
+plugins:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+  eslint:
+    enabled: false
+  fixme:
+    enabled: true
+  csslint:
+    enabled: true
+  git-legal:
+    enabled: false
+  markdownlint:
+    enabled: false
+  nodesecurity:
+    enabled: true
+  pep8:
+    enabled: true
+  shellcheck:
+    enabled: true
+exclude_patterns:
+- "**/node_modules/**/*"
+- "**/*.test.js"
+- "**/__tests__/**/*"
+- "**/android/**/*"
