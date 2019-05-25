@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Main> renders correctly 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 30,
+        "marginBottom": 10,
+        "textAlign": "center",
+      }
+    }
+  >
+    Movie Ticket Feed
+  </Text>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }
+    >
+      LOADING THE FEED
+    </Text>
+    <ActivityIndicator
+      animating={true}
+      color="blue"
+      hidesWhenStopped={true}
+      size="large"
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "height": 80,
+          "justifyContent": "center",
+          "margin": 30,
+        }
+      }
+    />
+  </View>
+  <View
+    className="buttonContainer"
+    style={
+      Object {
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "row",
+        "height": 60,
+        "justifyContent": "space-around",
+      }
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#cbe6e6",
+            "borderRadius": 5,
+            "flex": 1,
+            "justifyContent": "center",
+            "margin": 10,
+            "padding": 15,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+        >
+          Next Page
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

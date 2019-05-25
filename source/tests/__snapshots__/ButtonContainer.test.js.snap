@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonContainer> renders correctly 1`] = `
+<View
+  className="buttonContainer"
+  style={
+    Object {
+      "display": "flex",
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 60,
+      "justifyContent": "space-around",
+    }
+  }
+/>
+`;
