@@ -14,8 +14,11 @@ class Main extends Component {
     dispatch: PropTypes.func,
   }
 
-  state = {
-    isLoading: true,
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoading: true,
+    }
   }
 
   componentDidMount() {
