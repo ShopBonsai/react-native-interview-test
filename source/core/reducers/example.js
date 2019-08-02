@@ -1,7 +1,4 @@
-// Actions
-export const ADD = "example/ADD"
-export const SUBTRACT = "example/SUBTRACT"
-export const RESET = "example/RESET"
+import { ADD, SUBTRACT, RESET } from "../actions/example"
 
 // Initial State
 export const initialState = {
@@ -31,7 +28,5 @@ export default (state = initialState, action = {}) => {
   }
 }
 
-// Action Creators
-export const addExample = () => ({ type: ADD })
-export const subtractExample = () => ({ type: SUBTRACT })
-export const resetExample = () => ({ type: RESET })
+// Are you wondering where did I move the action creators?
+// They are on its folder under core/actions

@@ -17,6 +17,7 @@
     "clear-cache": "watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf node_modules && yarn && rm -rf ios/build && rm -rf android/build"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "get-value": "3.0.1",
     "prop-types": "15.6.1",
     "react": "16.3.2",
@@ -26,6 +27,7 @@
     "react-redux": "5.0.7",
     "recompose": "0.27.1",
     "redux": "4.0.0",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^3.2.6"
   },
   "devDependencies": {

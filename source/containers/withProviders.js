@@ -1,6 +1,6 @@
 import { compose } from "recompose"
 
-import reduxStore from "../reduxStore"
+import reduxStore from "../store"
 
 import withRedux from "./withRedux"
 import withSafeArea from "./withSafeArea"
