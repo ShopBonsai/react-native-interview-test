@@ -4,5 +4,6 @@ import reduxStore from "../store"
 
 import withRedux from "./withRedux"
 import withSafeArea from "./withSafeArea"
+import withHeader from "./withHeader"
 
-export default compose(withRedux(reduxStore), withSafeArea)
+export default compose(withRedux(reduxStore), withSafeArea, withHeader)
