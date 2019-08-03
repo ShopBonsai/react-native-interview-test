@@ -1,14 +1,21 @@
 /**
  * Data mapping for the movies.
  *
- * @param {Object} movie Movie unmapped.
- * @returns {Object} The movie mapped.
+ * @param {Array} data Data to be mapped.
+ * @returns {Object} Data mapped.
  */
-export default (movie) => {
-  const { _id, genre: movieGenre, ...rest } = movie
-  return {
-    id: _id.$oid,
-    genre: movieGenre ? movieGenre.split("|") : [],
-    ...rest,
-  }
+export default (data) => {
+  const mappedData = []
+  data.forEach((movie) => {
+    const { _id, genre: movieGenre, title, ...rest } = movie
+    if (title) {
+      mappedData.push({
+        id: _id.$oid,
+        genres: movieGenre ? movieGenre.split("|") : [],
+        title,
+        ...rest,
+      })
+    }
+  })
+  return mappedData
 }

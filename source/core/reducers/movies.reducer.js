@@ -18,7 +18,7 @@ const movieTicketsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetching: false,
-        data: action.payload.map(moviesFactory),
+        data: moviesFactory(action.payload),
         currentSkip: state.currentSkip + state.currentLimit,
       }
 
