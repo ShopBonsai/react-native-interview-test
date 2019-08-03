@@ -3,7 +3,7 @@ import React from "react"
 import AppHeader from "../molecules/app-header/AppHeader"
 
 export default (Child) =>
-  class extends React.Component {
+  class WithHeader extends React.Component {
     render() {
       return (
         <React.Fragment>

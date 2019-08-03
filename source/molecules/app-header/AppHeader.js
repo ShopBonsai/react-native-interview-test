@@ -1,40 +1,29 @@
 import React from "react"
-import { View, Platform } from "react-native"
+import { View, Text } from "react-native"
 import { Header } from "react-native-elements"
-import styled from "styled-components/native"
 
-const StyledText = styled.Text`
-  color: white;
-`
+import styles from "./AppHeader.styles"
+
+// const StyledText = styled.Text` Doesn't work as expected
+//   color: white;
+//   fontsize: ${130}px;
+// `
 
 const AppHeader = () => (
   <Header
     centerComponent={
       <View>
-        <StyledText>Bonsai</StyledText>
+        <Text style={styles.headerLogoText}>BONSAI</Text>
       </View>
     }
     statusBarProps={{
-      barStyle: "light-content",
-      backgroundColor: "rgba(0, 0, 0, 0.25)",
       animated: true,
       translucent: true,
+      barStyle: "light-content",
+      backgroundColor: "rgba(0, 0, 0, 0.25)",
     }}
-    outerContainerStyles={{
-      zIndex: 1,
-      backgroundColor: "#2678fb",
-      paddingTop: Platform.OS === "ios" ? 35 : 42,
-      justifyContent: "space-around",
-      ...Platform.select({
-        android: {
-          height: 87,
-        },
-        ios: {
-          height: 75,
-        },
-      }),
-    }}
-    innerContainerStyles={{ alignItems: "center" }}
+    outerContainerStyles={styles.headerOuterContainer}
+    innerContainerStyles={styles.headerInnerContainer}
   />
 )
 
