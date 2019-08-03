@@ -1,6 +1,6 @@
 import React from "react"
 
-import AppHeader from "../molecules/app-header/AppHeader"
+import AppHeader from "../organisms/app-header/AppHeader"
 
 export default (Child) =>
   class WithHeader extends React.Component {
