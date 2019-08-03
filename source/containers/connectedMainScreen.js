@@ -10,7 +10,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   store: {
-    movieTickets: state.movieTicketsStore.data,
+    ...state.movieTicketsStore,
   },
 })
 

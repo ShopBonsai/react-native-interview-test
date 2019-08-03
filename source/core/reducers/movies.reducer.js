@@ -1,4 +1,5 @@
 import { GET_MOVIES_START, GET_MOVIES_ERROR, GET_MOVIES_SUCCESS } from "../actions/movies.actions"
+import moviesFactory from "../factories/movies.factory"
 
 export const initialState = {
   data: [],
@@ -17,7 +18,7 @@ const movieTicketsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetching: false,
-        data: action.payload,
+        data: action.payload.map(moviesFactory),
         currentSkip: state.currentSkip + state.currentLimit,
       }
 
