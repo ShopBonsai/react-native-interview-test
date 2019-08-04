@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { FlatList } from "react-native"
 
 import LoadingMovies from "../molecules/loading-movies/LoadingMovies"
-import MovieTicket from "../organisms/movie-ticket/MovieTicket"
+import ConnectedMovieTicket from "../containers/connectedMovieTicket"
 
 export default class Main extends Component {
   componentDidMount() {
@@ -13,6 +13,8 @@ export default class Main extends Component {
 
   keyExtractor = (item) => item.id
 
+  renderItem = ({ item }) => <ConnectedMovieTicket item={item} />
+
   render() {
     const { store } = this.props
 
@@ -20,7 +22,9 @@ export default class Main extends Component {
       return <LoadingMovies />
     }
 
-    return <FlatList data={store.data} keyExtractor={this.keyExtractor} renderItem={MovieTicket} />
+    return (
+      <FlatList data={store.data} keyExtractor={this.keyExtractor} renderItem={this.renderItem} />
+    )
   }
 }
 

@@ -7,9 +7,15 @@ import styles from "./Cover.styles"
 
 const Cover = (props) => {
   const { uri } = props
+  const localUri = "https://dummyimage.com/80x120.jpg&text=COVER"
   return (
     <View style={styles.coverView}>
-      <Image source={{ uri }} PlaceholderContent={<ActivityIndicator />} />
+      <Image
+        style={styles.image}
+        source={{ uri: uri || localUri }}
+        PlaceholderContent={<ActivityIndicator />}
+        resizeMode="contain"
+      />
     </View>
   )
 }
