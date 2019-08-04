@@ -10,7 +10,7 @@ const LoveIcon = ({ isLoved }) => (
     {isLoved ? (
       <Icon type="material-community" name="heart" color={heartColor} />
     ) : (
-      <Icon type="material-community" name="heart-outline" />
+      <Icon type="material-community" name="heart-outline" color={heartColor} />
     )}
   </View>
 )

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { FlatList, ActivityIndicator, View } from "react-native"
+import { Divider } from "react-native-elements"
 
 import LoadingMovies from "../molecules/loading-movies/LoadingMovies"
 import ConnectedMovieTicket from "../containers/connectedMovieTicket"
@@ -40,10 +41,11 @@ export default class Main extends Component {
         onEndReached={this.fetchMoreMovies}
         onEndReachedThreshold={0.5}
         ListFooterComponent={
-          <View style={{ marginBottom: 24 }}>
+          <View style={{ marginBottom: 24, marginTop: 24 }}>
             <ActivityIndicator />
           </View>
         }
+        ItemSeparatorComponent={Divider}
       />
     )
   }
