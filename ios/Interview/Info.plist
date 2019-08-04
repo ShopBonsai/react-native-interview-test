@@ -55,6 +55,9 @@
 		<string>PTSans-BoldItalic.ttf</string>
 		<string>PTSans-Italic.ttf</string>
 		<string>PTSans-Regular.ttf</string>
+		<string>AntDesign.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
