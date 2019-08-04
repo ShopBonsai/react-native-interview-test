@@ -4,7 +4,8 @@ import { bindActionCreators } from "redux"
 import MovieTicket from "../organisms/movie-ticket/MovieTicket"
 import FavoriteMoviesActions from "../core/actions/favorites.actions"
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+// export for testing purposes
+export const mapDispatchToProps = (dispatch, ownProps) => ({
   actions: bindActionCreators(
     {
       setFavoritedMovie: () => FavoriteMoviesActions.setFavoritedMovie(ownProps.item.id),
@@ -14,7 +15,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   ),
 })
 
-const mapStateToProps = (state, ownProps) => ({
+// export for testing purposes
+export const mapStateToProps = (state, ownProps) => ({
   isFavorited: state.favoritedMoviesStore.favoritedMovies.find(
     (favorited) => favorited === ownProps.item.id,
   )
