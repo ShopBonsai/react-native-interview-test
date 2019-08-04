@@ -3,6 +3,13 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:datePickerDialogTheme">@style/Dialog.Theme</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:statusBarColor">@color/primary</item>
     </style>
-
+    <style name="Dialog.Theme" parent="Theme.AppCompat.Light.Dialog">
+	    <item name="colorAccent">@color/primary</item>
+	    <item name="android:textColorPrimary">@color/textPrimary</item>
+ 	</style>
 </resources>
