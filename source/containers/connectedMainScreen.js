@@ -5,7 +5,12 @@ import MovieTicketsActions from "../core/actions/movies.actions"
 import Main from "../screens/Main"
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators({ getMovieTickets: MovieTicketsActions.getMovieTickets }, dispatch),
+  actions: bindActionCreators(
+    {
+      getMovieTickets: MovieTicketsActions.getMovieTickets,
+    },
+    dispatch,
+  ),
 })
 
 const mapStateToProps = (state) => ({

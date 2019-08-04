@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { FlatList } from "react-native"
+import { FlatList, ActivityIndicator, View } from "react-native"
 
 import LoadingMovies from "../molecules/loading-movies/LoadingMovies"
 import ConnectedMovieTicket from "../containers/connectedMovieTicket"
@@ -15,15 +15,36 @@ export default class Main extends Component {
 
   renderItem = ({ item }) => <ConnectedMovieTicket item={item} />
 
-  render() {
-    const { store } = this.props
+  fetchMoreMovies = () => {
+    const {
+      actions,
+      store: { currentLimit, currentSkip },
+    } = this.props
+    actions.getMovieTickets(currentSkip, currentLimit, true)
+  }
 
-    if (store.fetching) {
+  render() {
+    const {
+      store: { data, fetching },
+    } = this.props
+
+    if (fetching) {
       return <LoadingMovies />
     }
 
     return (
-      <FlatList data={store.data} keyExtractor={this.keyExtractor} renderItem={this.renderItem} />
+      <FlatList
+        data={data}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderItem}
+        onEndReached={this.fetchMoreMovies}
+        onEndReachedThreshold={0.5}
+        ListFooterComponent={
+          <View style={{ marginBottom: 24 }}>
+            <ActivityIndicator />
+          </View>
+        }
+      />
     )
   }
 }
