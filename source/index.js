@@ -13,7 +13,8 @@ class App {
       },
     })
   }
-  registerScreens = screensToRegister =>
+
+  registerScreens = (screensToRegister) =>
     Object.entries(screensToRegister).forEach(([key, Screen]) =>
       Navigation.registerComponent(key, () => withProviders(Screen)),
     )

@@ -6,7 +6,7 @@ const SafeView = styled(SafeAreaView)`
   flex: 1;
 `
 
-export default Child =>
+export default (Child) =>
   class extends Component {
     render() {
       return (
