@@ -3,6 +3,9 @@ package com.interview;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+import com.oblador.shimmer.RNShimmerPackage;
 import com.reactnativenavigation.NavigationApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -22,14 +25,15 @@ public class MainApplication extends NavigationApplication {
   protected List<ReactPackage> getPackages() {
     // Add additional packages you require here
     // No need to add RnnPackage and MainReactPackage
-    return Arrays.<ReactPackage>asList();
+    return Arrays.<ReactPackage>asList(new RNShimmerPackage());
   }
 
   @Override
   public List<ReactPackage> createAdditionalReactPackages() {
     return getPackages();
   }
-
+  
+  @Override
   public String getJSMainModuleName() {
     return "index";
   }
