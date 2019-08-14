@@ -1,7 +1,7 @@
 import { Navigation } from "react-native-navigation"
 
-import withProviders from "./containers/withProviders"
 import screens, { MAIN } from "./screens"
+import withRedux from "./containers/withRedux"
 
 class App {
   constructor() {
@@ -16,7 +16,7 @@ class App {
 
   registerScreens = (screensToRegister) =>
     Object.entries(screensToRegister).forEach(([key, Screen]) =>
-      Navigation.registerComponent(key, () => withProviders(Screen)),
+      Navigation.registerComponent(key, () => withRedux(Screen)),
     )
 }
 
