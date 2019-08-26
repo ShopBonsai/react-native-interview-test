@@ -4,7 +4,7 @@ import * as actionTypes from "../actionTypes"
 export const initialState = {
   movies: [],
   limit: 10,
-  skip: 0,
+  skip: 900,
   isLoading: false,
 }
 
@@ -22,10 +22,16 @@ export default (state = initialState, action = {}) => {
         isLoading: false,
       }
     case actionTypes.FETCH_MOVIE_SUCCESS:
+      let skip = state.skip
+      if (action.data.length > 0) {
+        skip += state.limit
+      }
       return {
         ...state,
         movies: [...state.movies, ...action.data],
         isLoading: false,
+        limit: state.limit,
+        skip,
       }
     default:
       return state

@@ -2,6 +2,7 @@ import services from "../services"
 import * as actionTypes from "../actionTypes"
 
 import moviesNormalizer from "../../normalizers/movieNormalizer"
+const inProgress = {};
 
 export const fetchMoviesInprogress = () => ({
   type: actionTypes.FETCH_MOVIE_INPROGRESS,
@@ -17,12 +18,16 @@ export const fetchMoviesSuccess = data => ({
 
 export function fetchMovies(skip, limit) {
   return dispatch => {
-    dispatch(fetchMoviesInprogress())
-    services
-      .fetchMovies(skip, limit)
-      .then(resp => {
-        dispatch(fetchMoviesSuccess(moviesNormalizer(resp.data)))
-      })
-      .catch(err => dispatch(fetchMoviesFailed(err)))
+    if (!inProgress[`${skip}-${limit}`]) {
+      dispatch(fetchMoviesInprogress())
+      inProgress[`${skip}-${limit}`] = true
+      services
+        .fetchMovies(skip, limit)
+        .then(resp => {
+          delete inProgress[`${skip}-${limit}`]
+          dispatch(fetchMoviesSuccess(moviesNormalizer(resp.data)))
+        })
+        .catch(err => dispatch(fetchMoviesFailed(err)))
+    }
   }
 }

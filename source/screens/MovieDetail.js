@@ -45,7 +45,7 @@ class MovieList extends Component {
       const { date, genre, image, inventory, price, title } = selectedMovie
       return (
         <View style={style.container}>
-          <Image style={style.moviePosterStyle} source={{ uri: image }} />
+          <Image style={style.moviePosterStyle} source={image} />
           <ScrollView style={style.detailContainer}>
             <Text style={style.movieTitle}>{title}</Text>
             <MovieDetailItem label="Show Time:" value={date} />

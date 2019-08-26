@@ -74,7 +74,7 @@ class MovieItem extends Component {
         <View style={containerStyle}>
           <CardSection>
             <View style={topViewStyle}>
-              <Image style={moviePosterStyle} source={{ uri: image }} />
+              <Image style={moviePosterStyle} source={image} />
               <View style={imageRightStuff}>
                 <View style={topLineStyle}>
                   <Text style={titleStyle}>{title}</Text>
