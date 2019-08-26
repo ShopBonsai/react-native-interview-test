@@ -17,11 +17,11 @@
     "clear-cache": "watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf node_modules && yarn && rm -rf ios/build && rm -rf android/build"
   },
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.4.4",
     "get-value": "3.0.1",
     "prop-types": "15.6.1",
     "react": "16.8.6",
     "react-native": "0.60.5",
-    "react-native-firebase": "4.2.0",
     "react-native-navigation": "1.1.462",
     "react-redux": "5.0.7",
     "recompose": "0.27.1",
@@ -39,7 +39,6 @@
     "babel-jest": "22.4.4",
     "babel-plugin-transform-remove-console": "6.9.4",
     "babel-preset-react-native": "4.0.0",
-    "babel-preset-react-native-stage-0": "1.0.1",
     "babel-runtime": "6.26.0",
     "eslint": "4.19.1",
     "eslint-config-prettier": "2.9.0",
@@ -64,11 +63,6 @@
     "*.js": [
       "eslint --fix",
       "git add"
-    ]
-  },
-  "rnpm": {
-    "assets": [
-      "./assets/fonts/"
     ]
   }
 }
