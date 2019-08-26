@@ -1,5 +1,7 @@
-import services from "../services/movieService"
+import services from "../services"
 import * as actionTypes from "../actionTypes"
+
+import moviesNormalizer from "../../normalizers/movieNormalizer"
 
 export const fetchMoviesInprogress = () => ({
   type: actionTypes.FETCH_MOVIE_INPROGRESS,
@@ -13,13 +15,13 @@ export const fetchMoviesSuccess = data => ({
   data,
 })
 
-export function movieTickets(skip, limit) {
+export function fetchMovies(skip, limit) {
   return dispatch => {
     dispatch(fetchMoviesInprogress())
     services
       .fetchMovies(skip, limit)
       .then(resp => {
-        dispatch(fetchMoviesSuccess(resp))
+        dispatch(fetchMoviesSuccess(moviesNormalizer(resp.data)))
       })
       .catch(err => dispatch(fetchMoviesFailed(err)))
   }

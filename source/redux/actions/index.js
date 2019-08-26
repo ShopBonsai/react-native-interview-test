@@ -2,5 +2,5 @@ export {
   fetchMoviesInprogress,
   fetchMoviesFailed,
   fetchMoviesSuccess,
-  movieTickets,
+  fetchMovies,
 } from "./movieActions"

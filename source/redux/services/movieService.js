@@ -3,6 +3,7 @@ import axios from "axios"
 import { movieTicketsUrl } from "../../configs/urlList"
 
 export function fetchMovies(skip, limit) {
+  console.log('serviceCalled', movieTicketsUrl);
   return axios.get(movieTicketsUrl, {
     params: {
       skip,
