@@ -1,8 +1,13 @@
 import styled from 'styled-components'
-import { View, FlatList } from 'react-native'
+import { View, FlatList, Text } from 'react-native'
 
 export const CarouselMovieContainer = styled(View)`
-  flex: 1;
+  flex-direction: column;
   padding: 10px;
 `
 export const CarouselMovieContent = styled(FlatList)``
+
+export const CarouselMovieTitle = styled(Text)`
+  color: white;
+  font-weight: bold;
+`

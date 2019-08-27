@@ -5,7 +5,7 @@ module.exports = {
     "node": true
   },
   "extends": [
-    'airbnb',
+    'airbnb'
   ],
   "globals": {
   
@@ -30,7 +30,6 @@ module.exports = {
     "comma-dangle": ["error", "never"],
     "arrow-parens": ["error", "as-needed"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    
   },
   "overrides": [
     {
