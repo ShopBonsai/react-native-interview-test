@@ -2,7 +2,8 @@ import services from "../services"
 import * as actionTypes from "../actionTypes"
 
 import moviesNormalizer from "../../normalizers/movieNormalizer"
-const inProgress = {};
+
+const inProgress = {}
 
 export const fetchMoviesInprogress = () => ({
   type: actionTypes.FETCH_MOVIE_INPROGRESS,
@@ -24,6 +25,7 @@ export function fetchMovies(skip, limit) {
       services
         .fetchMovies(skip, limit)
         .then(resp => {
+          // eslint-disable-next-line fp/no-delete
           delete inProgress[`${skip}-${limit}`]
           dispatch(fetchMoviesSuccess(moviesNormalizer(resp.data)))
         })

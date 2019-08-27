@@ -7,11 +7,13 @@ import MovieItem from "../molecules/MovieItem"
 import { Header, Spinner } from "../atoms"
 import * as actions from "../redux/actions"
 
-import { DETAIL } from "../configs/routes"
+import { DETAIL } from "../screens"
 
 class MovieList extends Component {
   UNSAFE_componentWillMount() {
-    this.props.fetchMovies(0, 10)
+    const { fetchFavourites, fetchMovies } = this.props
+    fetchMovies(0, 10)
+    fetchFavourites()
   }
   movieSelected = movieId => {
     this.props.navigator.push({
@@ -61,6 +63,7 @@ class MovieList extends Component {
   }
 }
 MovieList.propTypes = {
+  fetchFavourites: PropTypes.func,
   fetchMovies: PropTypes.func,
   isLoading: PropTypes.bool,
   limit: PropTypes.number,
@@ -80,6 +83,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   fetchMovies: (skip, limit) => {
     dispatch(actions.fetchMovies(skip, limit))
+  },
+  fetchFavourites: () => {
+    dispatch(actions.fetchFavourites())
   },
 })
 

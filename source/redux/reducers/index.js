@@ -1,5 +1,7 @@
-import movieReducers from "./movieReducers"
+import moviesReducer from "./moviesReducer"
+import favouritesReducer from "./favouritesReducer"
 
 export default {
-  movies: movieReducers,
+  movies: moviesReducer,
+  favourites: favouritesReducer,
 }

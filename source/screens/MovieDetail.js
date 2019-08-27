@@ -39,9 +39,14 @@ const style = {
 }
 
 class MovieList extends Component {
+  onFavouritePress = () => {
+    const { addToFavourites, movieId } = this.props
+    addToFavourites(movieId)
+  }
   render() {
-    const { movieId, movies } = this.props
+    const { favourites, movieId, movies } = this.props
     const selectedMovie = movies.find(movie => movie.id === movieId)
+    const isFavourite = favourites[movieId]
     if (selectedMovie) {
       const { date, genre, image, inventory, price, title } = selectedMovie
       return (
@@ -54,8 +59,9 @@ class MovieList extends Component {
             <MovieDetailItem label="Tickets Left:" value={inventory} />
             <MovieDetailItem label="Ticket Price:" value={`$${price}`} />
             <View style={style.detailLastRow}>
-              <Button style={style.movieDetailBottons}>Add to Cart</Button>
-              <Button style={style.movieDetailBottons}>Add To Favourites</Button>
+              <Button style={style.movieDetailBottons} onPress={this.onFavouritePress}>
+                {isFavourite? "Unlike" :"Like"}
+              </Button>
             </View>
           </ScrollView>
         </View>
@@ -70,17 +76,23 @@ class MovieList extends Component {
   }
 }
 MovieList.propTypes = {
+  addToFavourites: PropTypes.func,
+  favourites: PropTypes.objectOf(PropTypes.number),
   movieId: PropTypes.string,
   movies: PropTypes.arrayOf(PropTypes.object),
 }
 const mapStateToProps = state => {
   return {
     movies: state.movies.movies,
+    favourites: state.favourites.favourites,
   }
 }
 const mapDispatchToProps = dispatch => ({
   fetchMovies: (skip, limit) => {
     dispatch(actions.fetchMovies(skip, limit))
+  },
+  addToFavourites: id => {
+    dispatch(actions.addToFavourites(id))
   },
 })
 
