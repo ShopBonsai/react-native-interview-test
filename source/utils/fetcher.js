@@ -8,7 +8,7 @@ const fetcher = {
     return request
   },
   post: async (url, body = {}) => {
-    const request =await fetch(url, {
+    const request = await fetch(url, {
       method: 'POST',
       cache: 'force-cache',
       body
