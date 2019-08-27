@@ -2,16 +2,16 @@
 
 exports[`Renders CardMovie correctly 1`] = `
 <View
-  className="sc-bdVaJa fDtgQN"
+  className="sc-bdVaJa gLHRUG"
 >
   <View
     className="sc-bwzfXH hcmPLH"
   >
     <Image
-      className="sc-htpNat khjhWz"
+      className="sc-htpNat LSIla"
       source={
         Object {
-          "uri": "https://via.placeholder.com/90x150",
+          "uri": "https://via.placeholder.com/120x150",
         }
       }
     />

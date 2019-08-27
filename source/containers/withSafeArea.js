@@ -4,6 +4,7 @@ import styled from 'styled-components/native'
 
 const SafeView = styled(SafeAreaView)`
   flex: 1;
+  background-Color: black;
 `
 
 export default Child => (
