@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { View, Text } from "react-native"
 
 const style = {
@@ -20,5 +21,8 @@ const MovieDetailItem = props => {
     </View>
   )
 }
-
+MovieDetailItem.propTypes = {
+  label: PropTypes.string,
+  value: PropTypes.string,
+}
 export default MovieDetailItem

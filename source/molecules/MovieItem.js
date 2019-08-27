@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 import { Text, TouchableWithoutFeedback, View, LayoutAnimation, Image } from "react-native"
 
 import { CardSection } from "../atoms"
@@ -65,7 +66,7 @@ class MovieItem extends Component {
       topLineStyle,
       topViewStyle,
     } = moreStyles
-    const { id, date, genre, image, inventory, title } = this.props.movie
+    const { date, genre, id, image, inventory, title } = this.props.movie
     const onMovieSelect = () => {
       this.props.movieSelect(id)
     }
@@ -85,7 +86,7 @@ class MovieItem extends Component {
                 </View>
                 <View style={detailedRow}>
                   <Text style={detailedTextStyle}>Genre -></Text>
-                  <Text style={detailedValueStyle}>{genre.slice(0, 3).join(', ')}</Text>
+                  <Text style={detailedValueStyle}>{genre.slice(0, 3).join(", ")}</Text>
                 </View>
                 <View style={detailedRow}>
                   <Text style={detailedTextStyle}>Tickets Left -> </Text>
@@ -99,5 +100,8 @@ class MovieItem extends Component {
     )
   }
 }
-
+MovieItem.propTypes = {
+  movie: PropTypes.object,
+  movieSelect: PropTypes.func,
+}
 export default MovieItem

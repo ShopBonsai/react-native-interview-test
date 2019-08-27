@@ -4,7 +4,7 @@ import * as actionTypes from "../actionTypes"
 export const initialState = {
   movies: [],
   limit: 10,
-  skip: 900,
+  skip: 0,
   isLoading: false,
 }
 

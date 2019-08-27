@@ -1,6 +1,6 @@
 import moment from "moment"
 
-import defaultImg from '../images/default.jpg'
+import defaultImg from "../images/default.jpg"
 
 function movieNormalizer(movie) {
   return {

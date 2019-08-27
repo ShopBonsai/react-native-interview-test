@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Text, View } from "react-native"
 
 const styles = {
@@ -26,5 +27,8 @@ const Header = props => {
       <Text style={textStyle}>{props.headerText}</Text>
     </View>
   )
+}
+Header.propTypes = {
+  headerText: PropTypes.string,
 }
 export default Header

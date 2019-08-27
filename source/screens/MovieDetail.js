@@ -1,10 +1,11 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 import { View, Image, Text, ScrollView } from "react-native"
 import { connect } from "react-redux"
 
 import { Button } from "../atoms"
-import MovieDetailItem from '../molecules/MovieDetailItem'
-import Dimensions from '../configs/Dimensions'
+import MovieDetailItem from "../molecules/MovieDetailItem"
+import Dimensions from "../configs/Dimensions"
 import * as actions from "../redux/actions"
 
 const style = {
@@ -68,7 +69,10 @@ class MovieList extends Component {
     }
   }
 }
-
+MovieList.propTypes = {
+  movieId: PropTypes.string,
+  movies: PropTypes.arrayOf(PropTypes.object),
+}
 const mapStateToProps = state => {
   return {
     movies: state.movies.movies,
