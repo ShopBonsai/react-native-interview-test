@@ -10,6 +10,7 @@
     "android": "react-native run-android",
     "lint": "eslint .",
     "test": "jest",
+    "test:watch": "jest --watch",
     "coverage": "yarn test --coverage",
     "precommit": "lint-staged && yarn test --lastCommit",
     "devtools": "react-devtools",

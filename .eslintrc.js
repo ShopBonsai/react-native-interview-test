@@ -27,6 +27,7 @@ module.exports = {
     "react/static-property-placement": 0,
     "react/jsx-props-no-spreading": 0,
     "semi": ["error", "never"],
+    "comma-dangle": ["error", "never"],
     "arrow-parens": ["error", "as-needed"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders CardMovie correctly 1`] = `
+<View
+  className="sc-bdVaJa fDtgQN"
+>
+  <View
+    className="sc-bwzfXH hcmPLH"
+  >
+    <Image
+      className="sc-htpNat khjhWz"
+      source={
+        Object {
+          "uri": "https://via.placeholder.com/90x150",
+        }
+      }
+    />
+  </View>
+</View>
+`;

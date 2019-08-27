@@ -1,5 +1,7 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+
+import CardMovie from '../../components/CardMovie'
+import { FeedContainer } from './Feed.styles'
 
 /**
  * @export {Fucntion}
@@ -7,8 +9,8 @@ import { View, Text } from 'react-native'
  */
 export default function Feed() {
   return (
-    <View>
-      <Text>Hello I am the feed</Text>
-    </View>
+    <FeedContainer>
+      <CardMovie />
+    </FeedContainer>
   )
 }
