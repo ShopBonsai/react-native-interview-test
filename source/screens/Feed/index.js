@@ -2,8 +2,8 @@ import React from 'react'
 import { View, Text } from 'react-native'
 
 /**
- * @export
- * @returns
+ * @export {Fucntion}
+ * @returns {JSX.Element}
  */
 export default function Feed() {
   return (
