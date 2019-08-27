@@ -1,0 +1,55 @@
+{
+  "name": "interview",
+  "repository": "git@github.com:shopbonsai/interview-test-native.git",
+  "author": "Mackie Drew <mackie@shopbonsai.ca>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "react-native start",
+    "ios": "react-native run-ios",
+    "android": "react-native run-android",
+    "lint": "eslint .",
+    "test": "jest",
+    "coverage": "yarn test --coverage",
+    "precommit": "lint-staged && yarn test --lastCommit",
+    "devtools": "react-devtools",
+    "clear-cache": "watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf node_modules && yarn && rm -rf ios/build && rm -rf android/build"
+  },
+  "dependencies": {
+    "get-value": "^3.0.1",
+    "prop-types": "^15.7.2",
+    "react": "16.8.6",
+    "react-native": "0.60.5",
+    "react-native-navigation": "^2.27.1",
+    "react-redux": "^7.1.1",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.4",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.2.2",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-jsdoc": "^15.8.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.2.4",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "prettier": "^1.18.2",
+    "react-test-renderer": "16.8.6",
+    "redux-logger": "^3.0.6"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
