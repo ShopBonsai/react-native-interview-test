@@ -1,8 +1,8 @@
-import { compose } from "recompose"
+import { compose } from 'recompose'
 
-import reduxStore from "../reduxStore"
+import reduxStore from '../redux/store'
 
-import withRedux from "./withRedux"
-import withSafeArea from "./withSafeArea"
+import withRedux from './withRedux'
+import withSafeArea from './withSafeArea'
 
 export default compose(withRedux(reduxStore), withSafeArea)

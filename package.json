@@ -1,64 +1,64 @@
 {
   "name": "interview",
-  "version": "1.0.0",
   "repository": "git@github.com:shopbonsai/interview-test-native.git",
   "author": "Mackie Drew <mackie@shopbonsai.ca>",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native start",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
     "lint": "eslint .",
     "test": "jest",
+    "test:watch": "jest --watch",
     "coverage": "yarn test --coverage",
     "precommit": "lint-staged && yarn test --lastCommit",
     "devtools": "react-devtools",
     "clear-cache": "watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf node_modules && yarn && rm -rf ios/build && rm -rf android/build"
   },
   "dependencies": {
-    "get-value": "3.0.1",
-    "prop-types": "15.6.1",
-    "react": "16.3.2",
-    "react-native": "0.55.4",
-    "react-native-firebase": "4.2.0",
-    "react-native-navigation": "1.1.462",
-    "react-redux": "5.0.7",
-    "recompose": "0.27.1",
-    "redux": "4.0.0",
-    "styled-components": "^3.2.6"
+    "@react-native-community/async-storage": "^1.6.1",
+    "get-value": "^3.0.1",
+    "prop-types": "^15.7.2",
+    "react": "16.8.6",
+    "react-native": "0.60.5",
+    "react-native-fast-image": "^7.0.2",
+    "react-native-gesture-handler": "^1.4.1",
+    "react-native-reanimated": "^1.2.0",
+    "react-navigation": "^3.12.1",
+    "react-redux": "^7.1.1",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "3.4.5",
-    "@storybook/addon-links": "3.4.5",
-    "@storybook/addon-storyshots": "3.4.5",
-    "@storybook/addons": "3.4.5",
-    "@storybook/react-native": "3.4.5",
-    "babel-core": "6.26.3",
-    "babel-eslint": "8.2.3",
-    "babel-jest": "22.4.4",
-    "babel-plugin-transform-remove-console": "6.9.4",
-    "babel-preset-react-native": "4.0.0",
-    "babel-preset-react-native-stage-0": "1.0.1",
-    "babel-runtime": "6.26.0",
-    "eslint": "4.19.1",
-    "eslint-config-prettier": "2.9.0",
-    "eslint-plugin-cumul8": "1.4.3",
-    "eslint-plugin-eslint-comments": "2.0.2",
-    "eslint-plugin-fp": "2.3.0",
-    "eslint-plugin-import": "2.12.0",
-    "eslint-plugin-jsdoc": "3.7.0",
-    "eslint-plugin-prettier": "2.6.0",
-    "eslint-plugin-react": "7.8.2",
-    "eslint-plugin-you-dont-need-lodash-underscore": "6.3.1",
-    "jest": "22.4.4",
-    "lint-staged": "7.1.2",
-    "prettier": "1.12.1",
-    "react-devtools": "3.2.2",
-    "react-dom": "16.3.2",
-    "react-native-dotenv": "0.1.1",
-    "react-test-renderer": "16.3.2",
-    "redux-logger": "3.0.6"
+    "@babel/core": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "enzyme": "^3.10.0",
+    "es6-promise": "^4.2.8",
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-cumul8": "^1.4.56",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsdoc": "^15.8.3",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.6.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.2.4",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "prettier": "^1.18.2",
+    "react-test-renderer": "16.8.6",
+    "redux-logger": "^3.0.6"
   },
   "lint-staged": {
     "*.js": [
@@ -66,9 +66,7 @@
       "git add"
     ]
   },
-  "rnpm": {
-    "assets": [
-      "./assets/fonts/"
-    ]
+  "jest": {
+    "preset": "react-native"
   }
 }
