@@ -2,7 +2,7 @@
 
 exports[`Renders LoadingSpinner correctly 1`] = `
 <View
-  className="sc-bdVaJa gucMGt"
+  className="sc-bdVaJa ctsiaT"
 >
   <ActivityIndicator
     animating={true}

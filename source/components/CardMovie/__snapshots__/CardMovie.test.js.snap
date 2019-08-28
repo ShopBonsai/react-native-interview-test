@@ -2,7 +2,21 @@
 
 exports[`Renders CardMovie correctly 1`] = `
 <View
-  className="sc-bdVaJa gLHRUG"
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
 >
   <View
     className="sc-bwzfXH fNxhoP"
@@ -18,7 +32,7 @@ exports[`Renders CardMovie correctly 1`] = `
       }
     >
       <FastImageView
-        className="sc-htpNat joWonT"
+        className="sc-htpNat jWGQiY"
         resizeMode="cover"
         source={
           Object {

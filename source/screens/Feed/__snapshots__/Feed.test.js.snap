@@ -15,7 +15,7 @@ exports[`Feed Screen Renders Feed correctly 1`] = `
   }
 >
   <View
-    className="sc-bZQynM wqEUz"
+    className="sc-bZQynM gUxBuS"
   >
     <RCTScrollView
       ListEmptyComponent={[Function]}
@@ -57,7 +57,7 @@ exports[`Feed Screen Renders Feed correctly 1`] = `
       <View />
     </RCTScrollView>
     <View
-      className="sc-dnqmqq fAyWKE"
+      className="sc-dnqmqq HidXu"
     >
       <ActivityIndicator
         animating={true}

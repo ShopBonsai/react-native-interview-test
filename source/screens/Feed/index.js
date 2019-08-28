@@ -27,14 +27,13 @@ import { MOVIEDETAIL } from '..'
  */
 export function renderCarouselItems(item = null, navigation = {}) {
   if (!item || item.length === 0) return null
-  console.log(navigation)
   return (
-    item.map(({ image, title, id }) => (
+    item.map(movie => (
       <CardMovie
-        key={id}
-        title={title}
-        thumbnail={image}
-        onClick={() => navigation.push(MOVIEDETAIL) }
+        key={movie.id}
+        title={movie.title}
+        thumbnail={movie.image}
+        onClick={() => navigation.navigate(MOVIEDETAIL, movie) }
       />
     ))
   )
@@ -105,5 +104,5 @@ Feed.defaultProps = {
 }
 
 Feed.propTypes = {
-  navigation: PropTypes.oneOf(PropTypes.shape({}))
+  navigation: PropTypes.oneOfType([PropTypes.shape({})])
 }

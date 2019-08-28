@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders MovieDetail correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "black",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
+>
+  <RCTScrollView
+    className="sc-bdVaJa lcApuY"
+  >
+    <View>
+      <RCTScrollView
+        className="sc-bwzfXH bpwjAU"
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "overflow": "hidden",
+                },
+                undefined,
+              ]
+            }
+          >
+            <FastImageView
+              className="sc-htpNat gbVinx"
+              resizeMode="cover"
+              source={
+                Object {
+                  "cache": "immutable",
+                  "uri": null,
+                }
+              }
+              style={
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                }
+              }
+            />
+          </View>
+          <Text
+            className="sc-bxivhb hWLKnT"
+          />
+          <Text
+            className="sc-ifAKCX eWIMju"
+          >
+            Price: U$
+          </Text>
+          <Text
+            className="sc-ifAKCX eWIMju"
+          >
+            Genre:
+          </Text>
+        </View>
+      </RCTScrollView>
+    </View>
+  </RCTScrollView>
+</RCTSafeAreaView>
+`;
