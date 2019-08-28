@@ -5,7 +5,10 @@ const cacher = {
     const key = `@SuperStore:${url}`
     try {
       const data = await AsyncStorage.getItem(key)
-      return data !== null && Object.keys(JSON.parse(data)).length > 0
+      if (data !== null && Object.keys(JSON.parse(data)).length > 0) {
+        return JSON.parse(data)
+      }
+      return null
     } catch (error) {
       return null
     }
