@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders LoadingSpinner correctly 1`] = `
+<View
+  className="sc-bdVaJa ctsiaT"
+>
+  <ActivityIndicator
+    animating={true}
+    className="sc-bwzfXH gdcgOT"
+    color="#999999"
+    hidesWhenStopped={true}
+    size="large"
+  />
+  <Text
+    className="sc-htpNat DjMmj"
+  >
+    Loading...
+  </Text>
+</View>
+`;
