@@ -1,14 +1,18 @@
 module.exports = {
   preset: 'react-native',
   testMatch: ['**/?(*.)test.js'],
+  setupFiles: ['./jest.setup.js'],
   collectCoverageFrom: [
     'source/**/*.js',
+    'source/**/**/*.js',
+    '!utils/fetcher.js',
     '!source/screens/index.js',
     '!source/ducks/index.js',
     '!source/copy.js',
-    '!source/palette.js'
+    '!source/palette.js',
+    '!source/redux/reducers/*Reducer.js',
+    '!source/index.js'
   ],
-  // eslint-disable-next-line id-length
   coveragePathIgnorePatterns: ['<rootDir>/source/env.js'],
   coverageThreshold: {
     global: {
