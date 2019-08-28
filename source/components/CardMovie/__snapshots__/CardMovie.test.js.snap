@@ -5,10 +5,10 @@ exports[`Renders CardMovie correctly 1`] = `
   className="sc-bdVaJa gLHRUG"
 >
   <View
-    className="sc-bwzfXH hcmPLH"
+    className="sc-bwzfXH fNxhoP"
   >
     <Image
-      className="sc-htpNat LSIla"
+      className="sc-htpNat joWonT"
       source={
         Object {
           "uri": "https://via.placeholder.com/120x150",

@@ -1,7 +1,6 @@
 module.exports = {
   preset: 'react-native',
   testMatch: ['**/?(*.)test.js'],
-  setupFiles: ['./jest.setup.js'],
   collectCoverageFrom: [
     'source/**/*.js',
     '!source/screens/index.js',

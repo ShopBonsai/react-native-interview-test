@@ -1,6 +1,6 @@
 export const START_MOVIE_REQUEST = 'START_MOVIE_REQUEST'
 export const SUCCESS_MOVIE_REQUEST = 'SUCCESS_MOVIE_REQUEST'
-export const ERROR_MOVIE_REQUEST = 'SUCCESS_MOVIE_REQUEST'
+export const ERROR_MOVIE_REQUEST = 'ERROR_MOVIE_REQUEST'
 
 export const initialState = {
   data: [],

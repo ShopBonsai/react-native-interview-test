@@ -2,8 +2,13 @@
 
 exports[`Renders CarouselMovide correctly 1`] = `
 <View
-  className="sc-bdVaJa cpkygt"
+  className="sc-bdVaJa jRfLJx"
 >
+  <Text
+    className="sc-htpNat bQbqvb"
+  >
+    Title carousel
+  </Text>
   <RCTScrollView
     className="sc-bwzfXH uTxCW"
     data={Array []}
@@ -25,6 +30,7 @@ exports[`Renders CarouselMovide correctly 1`] = `
     removeClippedSubviews={false}
     renderItem={[Function]}
     scrollEventThrottle={50}
+    showsHorizontalScrollIndicator={false}
     stickyHeaderIndices={Array []}
     updateCellsBatchingPeriod={50}
     viewabilityConfigCallbackPairs={Array []}

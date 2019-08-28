@@ -1,37 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders Feed correctly 1`] = `
-<View
-  className="sc-bxivhb bXmtVX"
+exports[`Feed Screen Renders Feed correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "black",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+      },
+    ]
+  }
 >
   <View
-    className="sc-EHOje kAtSlF"
+    className="sc-bZQynM wqEUz"
   >
     <RCTScrollView
-      className="sc-bZQynM bOrPFB"
-      data={
-        Array [
-          <CardMovie
-            thumbnail="https://via.placeholder.com/120x150"
-          />,
-          <CardMovie
-            thumbnail="https://via.placeholder.com/120x150"
-          />,
-          <CardMovie
-            thumbnail="https://via.placeholder.com/120x150"
-          />,
-          <CardMovie
-            thumbnail="https://via.placeholder.com/120x150"
-          />,
-          <CardMovie
-            thumbnail="https://via.placeholder.com/120x150"
-          />,
-        ]
-      }
+      className="sc-gzVnrw iZIxNz"
+      data={Array []}
       disableVirtualization={false}
       getItem={[Function]}
       getItemCount={[Function]}
-      horizontal={true}
+      horizontal={false}
       initialNumToRender={10}
       keyExtractor={[Function]}
       maxToRenderPerBatch={10}
@@ -51,149 +43,15 @@ exports[`Renders Feed correctly 1`] = `
       viewabilityConfigCallbackPairs={Array []}
       windowSize={21}
     >
-      <View>
-        <View
-          onLayout={[Function]}
-          style={
-            Array [
-              Object {
-                "flexDirection": "row",
-              },
-              null,
-            ]
-          }
-        >
-          <View
-            className="sc-bdVaJa gLHRUG"
-          >
-            <View
-              className="sc-bwzfXH hcmPLH"
-            >
-              <Image
-                className="sc-htpNat LSIla"
-                source={
-                  Object {
-                    "uri": "https://via.placeholder.com/120x150",
-                  }
-                }
-              />
-            </View>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={
-            Array [
-              Object {
-                "flexDirection": "row",
-              },
-              null,
-            ]
-          }
-        >
-          <View
-            className="sc-bdVaJa gLHRUG"
-          >
-            <View
-              className="sc-bwzfXH hcmPLH"
-            >
-              <Image
-                className="sc-htpNat LSIla"
-                source={
-                  Object {
-                    "uri": "https://via.placeholder.com/120x150",
-                  }
-                }
-              />
-            </View>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={
-            Array [
-              Object {
-                "flexDirection": "row",
-              },
-              null,
-            ]
-          }
-        >
-          <View
-            className="sc-bdVaJa gLHRUG"
-          >
-            <View
-              className="sc-bwzfXH hcmPLH"
-            >
-              <Image
-                className="sc-htpNat LSIla"
-                source={
-                  Object {
-                    "uri": "https://via.placeholder.com/120x150",
-                  }
-                }
-              />
-            </View>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={
-            Array [
-              Object {
-                "flexDirection": "row",
-              },
-              null,
-            ]
-          }
-        >
-          <View
-            className="sc-bdVaJa gLHRUG"
-          >
-            <View
-              className="sc-bwzfXH hcmPLH"
-            >
-              <Image
-                className="sc-htpNat LSIla"
-                source={
-                  Object {
-                    "uri": "https://via.placeholder.com/120x150",
-                  }
-                }
-              />
-            </View>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={
-            Array [
-              Object {
-                "flexDirection": "row",
-              },
-              null,
-            ]
-          }
-        >
-          <View
-            className="sc-bdVaJa gLHRUG"
-          >
-            <View
-              className="sc-bwzfXH hcmPLH"
-            >
-              <Image
-                className="sc-htpNat LSIla"
-                source={
-                  Object {
-                    "uri": "https://via.placeholder.com/120x150",
-                  }
-                }
-              />
-            </View>
-          </View>
-        </View>
-      </View>
+      <View />
     </RCTScrollView>
   </View>
-</View>
+</RCTSafeAreaView>
+`;
+
+exports[`Feed Screen Test the renderCarousel of feed screen with the correct parms 1`] = `
+<CarouselMovie
+  items={null}
+  title="genre"
+/>
 `;

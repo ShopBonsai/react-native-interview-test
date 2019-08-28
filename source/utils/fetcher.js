@@ -10,7 +10,6 @@ const fetcher = {
   post: async (url, body = {}) => {
     const request = await fetch(url, {
       method: 'POST',
-      cache: 'force-cache',
       body
     })
       .then(res => res.json())

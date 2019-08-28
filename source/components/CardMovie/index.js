@@ -14,24 +14,13 @@ export default function CardMovie(props) {
   // properties
   const { thumbnail } = props
 
-  /**
-   * The renderCardImage it's responsible by to render
-   * the movie thumnail of the card
-   *
-   * @param {string} source
-   * @returns {JSX.Element}
-   */
-  function renderCardImage(source) {
-    return (
-      <CardMovieImage source={{ uri: source }} />
-    )
-  }
-
   // main render
   return (
     <CardMovieContainer>
       <CardMovieContent>
-        {renderCardImage(thumbnail)}
+        <CardMovieImage
+          source={{ uri: thumbnail }}
+        />
       </CardMovieContent>
     </CardMovieContainer>
   )

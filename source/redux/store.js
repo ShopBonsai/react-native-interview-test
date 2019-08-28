@@ -7,7 +7,7 @@ import env from '../env'
 import reducers from './reducers'
 
 export const rootReducer = combineReducers(reducers)
-const developmentMiddleware = [require('redux-logger').createLogger({ collapsed: true })]
+const developmentMiddleware = [require('redux-logger').createLogger({ collapsed: true }), thunk]
 
 const middleware = [...(env.IS_DEVELOPMENT ? developmentMiddleware : [thunk])]
 const store = createStore(rootReducer, {}, applyMiddleware(...middleware))

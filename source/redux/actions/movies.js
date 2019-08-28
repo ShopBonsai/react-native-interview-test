@@ -1,4 +1,4 @@
-import API_BASE from '../../env'
+import * as env from '../../env'
 
 import {
   START_MOVIE_REQUEST,
@@ -9,6 +9,28 @@ import {
 import fetcher from '../../utils/fetcher'
 
 /**
+ * The mapMovies it's responsible by to map/ organize
+ * the movies by a specific key
+ *
+ * @export {function}
+ * @param {array} data
+ * @param {string} [key='genre']
+ * @returns {Array}
+ */
+export function mapMovies(data, key = 'genre') {
+  const obj = data.reduce((acumaled, currentValue) => {
+    if (acumaled && acumaled[currentValue[key]]) {
+      acumaled[currentValue[key]] = [...acumaled[currentValue[key]], currentValue]
+    } else if (currentValue[key] !== null && currentValue[key]) {
+      acumaled[currentValue[key]] = [currentValue]
+      return acumaled
+    }
+    return acumaled
+  }, {})
+  return Object.keys(obj).map(el => ({ [key]: el, items: obj[el] }))
+}
+
+/**
  * The fetchMovies it's responsible by to fetch the
  * movies by skip and limit as queryString params
  *
@@ -16,15 +38,17 @@ import fetcher from '../../utils/fetcher'
  * @param {number} [limit=10]
  * @returns {Promise}
  */
-function fetchMovies(skip = 0, limit = 10) {
+export function fetchMovies(skip = 0, limit = 10) {
   return async dispatch => {
     try {
-      const endPoint = `${API_BASE}/movieTickets?skip=${skip}&limit=${limit}`
       dispatch({ type: START_MOVIE_REQUEST })
-      const request = await fetcher.post(endPoint)
 
-      if (Array.isArray(request)) {
-        dispatch({ type: SUCCESS_MOVIE_REQUEST, data: request })
+      const { API_BASE } = env
+      const endPoint = `${API_BASE}/movieTickets?skip=${skip}&limit=${limit}`
+
+      const request = await fetcher.post(endPoint)
+      if (Array.isArray(request) && request.length > 0) {
+        dispatch({ type: SUCCESS_MOVIE_REQUEST, data: mapMovies(request) })
       } else {
         dispatch({ type: ERROR_MOVIE_REQUEST, error: 'Empty fetch' })
       }
@@ -34,11 +58,7 @@ function fetchMovies(skip = 0, limit = 10) {
   }
 }
 
-function mapMovieToGenre(data) {
-  return data
-}
-
 export default {
   fetchMovies,
-  mapMovieToGenre
+  mapMovies
 }

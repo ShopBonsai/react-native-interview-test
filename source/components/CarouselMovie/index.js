@@ -18,40 +18,16 @@ import CardMovie from '../CardMovie'
 export default function CarouselMovie(props) {
   const { items, title } = props
 
-  /**
-   * The renderCarouselTitle()
-   * It's responsible by to render the title of carousel
-   *
-   * @returns {JSX.Element}
-   */
-  function renderCarouselTitle() {
-    return (
-      <CarouselMovieTitle>
-        {title}
-      </CarouselMovieTitle>
-    )
-  }
-  /**
-   * The renderCarouselContent it's responsible
-   * by to render the content of the carousel
-   * @returns  {JSX.Element}
-   */
-  function renderCarouselContent() {
-    return (
+  // Main return
+  return (
+    <CarouselMovieContainer>
+      <CarouselMovieTitle>{title}</CarouselMovieTitle>
       <CarouselMovieContent
         horizontal
         showsHorizontalScrollIndicator={false}
         data={items}
         renderItem={({ item }) => item }
       />
-    )
-  }
-
-  // Main return
-  return (
-    <CarouselMovieContainer>
-      {renderCarouselTitle()}
-      {renderCarouselContent()}
     </CarouselMovieContainer>
   )
 }
@@ -62,6 +38,7 @@ CarouselMovie.defaultProps = {
   title: 'Title carousel'
 }
 
+// prop validation
 CarouselMovie.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({ type: CardMovie })),
   title: PropTypes.string
