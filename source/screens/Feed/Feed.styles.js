@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import { View, FlatList, Text } from 'react-native'
+import themes from '../../themes'
 
 
 export const FeedContainer = styled(View)`
   flex: 1;
-  background-color: #30312c;
+  background-color: ${themes.theme.colors.backgroundColor.secondary};
 `
 export const FeedContent = styled(FlatList)`
   flex: 1;

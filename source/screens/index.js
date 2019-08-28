@@ -1,6 +1,10 @@
 import Feed from './Feed'
+import MovieDetail from './MovieDetail'
 
-export const MAIN = 'Interview.Main'
+export const FEED = 'Interview.Feed'
+export const MOVIEDETAIL = 'Interview.Movie.Detail'
+
 export default {
-  [MAIN]: Feed
+  [FEED]: Feed,
+  [MOVIEDETAIL]: MovieDetail
 }

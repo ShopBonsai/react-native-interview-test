@@ -8,6 +8,7 @@ export const LoadingSpinnerContainer = styled(View)`
   height: 100%;
   justify-content: center;
   align-items: center;
+  background-color: black;
 `
 
 export const Spinner = styled(ActivityIndicator)`

@@ -9,5 +9,6 @@ export const CarouselMovieContent = styled(FlatList)``
 
 export const CarouselMovieTitle = styled(Text)`
   color: white;
-  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 15px;
 `

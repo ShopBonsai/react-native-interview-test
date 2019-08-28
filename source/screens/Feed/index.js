@@ -1,5 +1,7 @@
+/* eslint-disable import/no-named-as-default-member */
 // libraries
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { useSelector, useDispatch } from 'react-redux'
 
 // components
@@ -12,6 +14,8 @@ import { fetchMovies } from '../../redux/actions/movies'
 // styles
 import { FeedContainer, FeedContent, FeedEmptyList } from './Feed.styles'
 import LoadingSpinner from '../../components/LoadingSpinner'
+// eslint-disable-next-line import/no-cycle
+import { MOVIEDETAIL } from '..'
 
 
 /**
@@ -21,15 +25,19 @@ import LoadingSpinner from '../../components/LoadingSpinner'
  * @param {Array} item
  * @returns {Array(JSX.Element)}
  */
-export function renderCarouselItems(item = null) {
+export function renderCarouselItems(item = null, navigation = {}) {
   if (!item || item.length === 0) return null
-  return item.map(({ image, title, id }) => (
-    <CardMovie
-      key={id}
-      title={title}
-      thumbnail={image}
-    />
-  ))
+  console.log(navigation)
+  return (
+    item.map(({ image, title, id }) => (
+      <CardMovie
+        key={id}
+        title={title}
+        thumbnail={image}
+        onClick={() => navigation.push(MOVIEDETAIL) }
+      />
+    ))
+  )
 }
 /**
    * The renderCarousel it's responsible by to render
@@ -38,13 +46,13 @@ export function renderCarouselItems(item = null) {
    * @param {object} { item }
    * @returns {JSX.Element}
    */
-export function renderCarousel({ item } = {}) {
+export function renderCarousel({ item } = {}, navigation = {}) {
   if (!item) return null
   return item && (
     <CarouselMovie
       key={item.key.toString()}
       title={item.genre}
-      items={renderCarouselItems(item.items)}
+      items={renderCarouselItems(item.items, navigation)}
     />
   )
 }
@@ -56,7 +64,7 @@ export function renderCarousel({ item } = {}) {
  * @export {Fucntion}
  * @returns {JSX.Element}
  */
-export default function Feed() {
+export default function Feed({ navigation }) {
   // redux by hooks
   const { data, isLoading, noMoreItems } = useSelector(({ movieReducer }) => movieReducer)
   const dispatch = useDispatch()
@@ -77,7 +85,7 @@ export default function Feed() {
       <FeedContent
         keyExtractor={({ key }) => key.toString()}
         data={data}
-        renderItem={item => renderCarousel(item)}
+        renderItem={item => renderCarousel(item, navigation)}
         onEndReached={() => loadMore() }
         onEndReachedThreshold={10}
         onRefresh={() => setSkip(0)}
@@ -90,4 +98,12 @@ export default function Feed() {
       { isLoading && data.length === 0 && <LoadingSpinner />}
     </FeedContainer>
   )
+}
+
+Feed.defaultProps = {
+  navigation: {}
+}
+
+Feed.propTypes = {
+  navigation: PropTypes.oneOf(PropTypes.shape({}))
 }

@@ -13,11 +13,11 @@ import { CardMovieContainer, CardMovieContent, CardMovieImage } from './CardMovi
  */
 export default function CardMovie(props) {
   // properties
-  const { thumbnail } = props
+  const { thumbnail, onClick } = props
 
   // main render
   return (
-    <CardMovieContainer>
+    <CardMovieContainer onPress={() => onClick(props)}>
       <CardMovieContent>
         <CardMovieImage
           source={{
@@ -32,10 +32,12 @@ export default function CardMovie(props) {
 
 // define the default properties
 CardMovie.defaultProps = {
-  thumbnail: 'https://via.placeholder.com/120x150'
+  thumbnail: 'https://via.placeholder.com/120x150',
+  onClick: () => {}
 }
 
 // validate the default properties
 CardMovie.propTypes = {
-  thumbnail: PropTypes.string
+  thumbnail: PropTypes.string,
+  onClick: PropTypes.func
 }
