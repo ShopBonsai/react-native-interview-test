@@ -1,5 +1,5 @@
 // libraries
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 // components
@@ -10,7 +10,8 @@ import CarouselMovie from '../../components/CarouselMovie'
 import { fetchMovies } from '../../redux/actions/movies'
 
 // styles
-import { FeedContainer, FeedContent } from './Feed.styles'
+import { FeedContainer, FeedContent, FeedEmptyList } from './Feed.styles'
+import LoadingSpinner from '../../components/LoadingSpinner'
 
 
 /**
@@ -41,7 +42,7 @@ export function renderCarousel({ item } = {}) {
   if (!item) return null
   return item && (
     <CarouselMovie
-      key={item.genre}
+      key={item.key.toString()}
       title={item.genre}
       items={renderCarouselItems(item.items)}
     />
@@ -57,20 +58,36 @@ export function renderCarousel({ item } = {}) {
  */
 export default function Feed() {
   // redux by hooks
-  const data = useSelector(({ movieReducer }) => movieReducer.data)
+  const { data, isLoading, noMoreItems } = useSelector(({ movieReducer }) => movieReducer)
   const dispatch = useDispatch()
-
+  const [skip, setSkip] = useState(0)
   /** **
    *  useEffect as "did mount"
    */
   useEffect(() => {
-    dispatch(fetchMovies(0, 20))
-  }, [])
+    dispatch(fetchMovies(skip, 15))
+  }, [skip])
+
+  // Load more items
+  const loadMore = () => (!noMoreItems && !isLoading ? setSkip(skip + 1) : null)
 
   // Main return
   return (
     <FeedContainer>
-      <FeedContent data={data} renderItem={item => renderCarousel(item)} />
+      <FeedContent
+        keyExtractor={({ key }) => key.toString()}
+        data={data}
+        renderItem={item => renderCarousel(item)}
+        onEndReached={() => loadMore() }
+        onEndReachedThreshold={10}
+        onRefresh={() => setSkip(0)}
+        initialNumToRender={15}
+        refreshing={isLoading && data.length > 0}
+        ListEmptyComponent={ () => (
+          !isLoading && data.length === 0 ? <FeedEmptyList>Oops! No data :/ </FeedEmptyList> : null
+        )}
+      />
+      { isLoading && data.length === 0 && <LoadingSpinner />}
     </FeedContainer>
   )
 }

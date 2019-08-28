@@ -5,7 +5,7 @@ module.exports = {
   collectCoverageFrom: [
     'source/**/*.js',
     'source/**/**/*.js',
-    '!utils/fetcher.js',
+    '!source/utils/fetcher.js',
     '!source/screens/index.js',
     '!source/ducks/index.js',
     '!source/copy.js',

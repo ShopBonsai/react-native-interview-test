@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { View, Image } from 'react-native'
+import FastImage from 'react-native-fast-image'
+import { View } from 'react-native'
 
 export const CardMovieContainer = styled(View)`
   flex: 1;
@@ -10,7 +11,7 @@ export const CardMovieContent = styled(View)`
   shadow-color: #222;
   shadow-offset: 0px 5px;
 `
-export const CardMovieImage = styled(Image)`
+export const CardMovieImage = styled(FastImage)`
   width: 120px;
   height: 150px;
   background-color: #cccccc;

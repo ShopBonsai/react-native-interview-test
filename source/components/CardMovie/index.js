@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import FastImage from 'react-native-fast-image'
 import { CardMovieContainer, CardMovieContent, CardMovieImage } from './CardMovie.styles'
 
 /**
@@ -19,7 +20,10 @@ export default function CardMovie(props) {
     <CardMovieContainer>
       <CardMovieContent>
         <CardMovieImage
-          source={{ uri: thumbnail }}
+          source={{
+            uri: thumbnail,
+            cache: FastImage.cacheControl.immutable
+          }}
         />
       </CardMovieContent>
     </CardMovieContainer>

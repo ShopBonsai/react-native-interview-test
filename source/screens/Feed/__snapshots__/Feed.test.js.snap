@@ -18,23 +18,33 @@ exports[`Feed Screen Renders Feed correctly 1`] = `
     className="sc-bZQynM wqEUz"
   >
     <RCTScrollView
-      className="sc-gzVnrw iZIxNz"
+      ListEmptyComponent={[Function]}
+      className="sc-gzVnrw idEVjV"
       data={Array []}
       disableVirtualization={false}
       getItem={[Function]}
       getItemCount={[Function]}
       horizontal={false}
-      initialNumToRender={10}
+      initialNumToRender={15}
       keyExtractor={[Function]}
       maxToRenderPerBatch={10}
       numColumns={1}
       onContentSizeChange={[Function]}
-      onEndReachedThreshold={2}
+      onEndReached={[Function]}
+      onEndReachedThreshold={10}
       onLayout={[Function]}
       onMomentumScrollEnd={[Function]}
+      onRefresh={[Function]}
       onScroll={[Function]}
       onScrollBeginDrag={[Function]}
       onScrollEndDrag={[Function]}
+      refreshControl={
+        <RefreshControlMock
+          onRefresh={[Function]}
+          refreshing={false}
+        />
+      }
+      refreshing={false}
       removeClippedSubviews={false}
       renderItem={[Function]}
       scrollEventThrottle={50}
@@ -43,8 +53,25 @@ exports[`Feed Screen Renders Feed correctly 1`] = `
       viewabilityConfigCallbackPairs={Array []}
       windowSize={21}
     >
+      <RCTRefreshControl />
       <View />
     </RCTScrollView>
+    <View
+      className="sc-dnqmqq fAyWKE"
+    >
+      <ActivityIndicator
+        animating={true}
+        className="sc-iwsKbI dNpkGG"
+        color="#999999"
+        hidesWhenStopped={true}
+        size="large"
+      />
+      <Text
+        className="sc-gZMcBi gfnEmy"
+      >
+        Loading...
+      </Text>
+    </View>
   </View>
 </RCTSafeAreaView>
 `;

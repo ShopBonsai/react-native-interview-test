@@ -3,7 +3,8 @@ import * as env from '../../env'
 import {
   START_MOVIE_REQUEST,
   SUCCESS_MOVIE_REQUEST,
-  ERROR_MOVIE_REQUEST
+  ERROR_MOVIE_REQUEST,
+  CLEAR_LIST
 } from '../reducers/moviesReducer'
 
 import fetcher from '../../utils/fetcher'
@@ -27,7 +28,7 @@ export function mapMovies(data, key = 'genre') {
     }
     return acumaled
   }, {})
-  return Object.keys(obj).map(el => ({ [key]: el, items: obj[el] }))
+  return Object.keys(obj).map(el => ({ [key]: el, key: Math.random(), items: obj[el] }))
 }
 
 /**
@@ -41,6 +42,10 @@ export function mapMovies(data, key = 'genre') {
 export function fetchMovies(skip = 0, limit = 10) {
   return async dispatch => {
     try {
+      if (skip === 0) {
+        dispatch({ type: CLEAR_LIST })
+      }
+
       dispatch({ type: START_MOVIE_REQUEST })
 
       const { API_BASE } = env
@@ -48,9 +53,9 @@ export function fetchMovies(skip = 0, limit = 10) {
 
       const request = await fetcher.post(endPoint)
       if (Array.isArray(request) && request.length > 0) {
-        dispatch({ type: SUCCESS_MOVIE_REQUEST, data: mapMovies(request) })
+        dispatch({ type: SUCCESS_MOVIE_REQUEST, noMoreItems: false, data: mapMovies(request) })
       } else {
-        dispatch({ type: ERROR_MOVIE_REQUEST, error: 'Empty fetch' })
+        dispatch({ type: ERROR_MOVIE_REQUEST, noMoreItems: true, data: [] })
       }
     } catch (error) {
       dispatch({ type: ERROR_MOVIE_REQUEST, error: error.message })

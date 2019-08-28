@@ -24,6 +24,7 @@ export default function CarouselMovie(props) {
       <CarouselMovieTitle>{title}</CarouselMovieTitle>
       <CarouselMovieContent
         horizontal
+        keyExtractor={(item, index) => index.toString()}
         showsHorizontalScrollIndicator={false}
         data={items}
         renderItem={({ item }) => item }

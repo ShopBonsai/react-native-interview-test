@@ -26,6 +26,7 @@ describe('Feed Screen', () => {
   it('Test the renderCarousel of feed screen with the correct parms', async () => {
     const item = {
       genre: 'genre',
+      key: 'key',
       items: []
     }
     const Carousel = renderCarousel({ item })
