@@ -23,6 +23,13 @@ const styles = {
   },
 }
 
+/**
+ * Button Component to make it consistent with design.
+ *
+ * @param {string} children - Button text.
+ * @param {Function} onPress - Button click function.
+ * @returns {element} With Touchable Button.
+ */
 const Button = ({ children, onPress }) => {
   const { buttonStyle, textStyle } = styles
 

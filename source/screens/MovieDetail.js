@@ -9,9 +9,6 @@ import Dimensions from "../configs/Dimensions"
 import * as actions from "../redux/actions"
 
 const style = {
-  scrollContainer: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     alignItems: "flex-start",
@@ -37,8 +34,16 @@ const style = {
     flex: 1,
   },
 }
-
-export class MovieDetail extends Component {
+/**
+ * MovieDetail class Component to show a single movie detail.
+ *
+ * @property {Function} addToFavourites - To add/remove the movie from favourite list.
+ * @property {Object} favourites - List of favourite movies.
+ * @property {string} movieId - id for the movie which detail neet to be show.
+ * @property {Object} movies - List of movies.
+ * @returns {element} Detail of a movie.
+ */
+class MovieDetail extends Component {
   onFavouritePress = () => {
     const { addToFavourites, movieId } = this.props
     addToFavourites(movieId)

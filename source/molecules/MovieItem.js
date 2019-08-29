@@ -48,7 +48,13 @@ const moreStyles = {
     marginLeft: 5,
   },
 }
-
+/**
+ * MovieItem class Component to show a single item in the list.
+ *
+ * @property {object} movie - Single Movie object to show the detail in list view.
+ * @property {Function} movieSelect - Function to be called once click on a movie.
+ * @renders {element} Single movie item.
+ */
 class MovieItem extends Component {
   UNSAFE_componentWillUpdate() {
     LayoutAnimation.spring()

@@ -9,6 +9,18 @@ import * as actions from "../redux/actions"
 
 import { DETAIL } from "../screens"
 
+/**
+ * MoviesList class Component to show list movies.
+ *
+ * @property {Function} fetchFavourites - To get the favourite movies list.
+ * @property {Function} fetchMovies - Get the list of movies.
+ * @property {bool} isLoading - If movies list is fetching in progress.
+ * @property {number} limit - per page movie list limit.
+ * @property {Object} movies - List of movies.
+ * @property {Object} navigator - Navigation.
+ * @property {number} skip - How many movies to skip while fetching.
+ * @returns {element} List of movies.
+ */
 class MovieList extends Component {
   UNSAFE_componentWillMount() {
     const { fetchFavourites, fetchMovies } = this.props

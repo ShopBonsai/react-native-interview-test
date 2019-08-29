@@ -1,5 +1,5 @@
 import * as actionTypes from "../actionTypes"
-import * as service from "../services"
+import service from "../services"
 
 export const addToFavouritesInprogress = () => ({
   type: actionTypes.ADD_TO_FAVROURITES_INPROGRESS,

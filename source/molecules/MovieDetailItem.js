@@ -11,7 +11,13 @@ const style = {
     fontWeight: "bold",
   },
 }
-
+/**
+ * MovieDetailItem, to show the single item with label and text.
+ *
+ * @param {string} label - Label text.
+ * @param {any} value - Text value to show against label.
+ * @returns {element} Single item with label and text.
+ */
 const MovieDetailItem = ({ label, value }) => {
   return (
     <View style={style.detailRow}>
@@ -22,6 +28,6 @@ const MovieDetailItem = ({ label, value }) => {
 }
 MovieDetailItem.propTypes = {
   label: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 export default MovieDetailItem

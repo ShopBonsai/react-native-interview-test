@@ -1,6 +1,6 @@
 import App from "../../"
 
-describe("Card Component", () => {
+describe("index App", () => {
   it("should Define App", () => {
     expect(App).toBeDefined()
   })

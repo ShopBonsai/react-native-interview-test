@@ -9,7 +9,12 @@ const styles = {
     alignItems: "center",
   },
 }
-
+/**
+ * Spinner Component to show loading.
+ *
+ * @param {string} size - To set the size of the spinner.
+ * @returns {element} ActivityIndicator.
+ */
 const Spinner = ({ size }) => {
   return (
     <View style={styles.spinnerStyle}>

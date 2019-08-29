@@ -1,6 +1,6 @@
 import Button from "./Button"
-import Card from "./Card"
 import CardSection from "./CardSection"
 import Spinner from "./Spinner"
+import Header from "./Header"
 
-export { Button, Card, CardSection, Spinner }
+export { Button, CardSection, Spinner, Header }
