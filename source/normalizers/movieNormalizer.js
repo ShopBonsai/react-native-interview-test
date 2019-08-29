@@ -11,6 +11,6 @@ function movieNormalizer(movie) {
     date: moment(movie.date).format("HH:mm DD-MM-YYYY"),
   }
 }
-export default function moviesNormalizer(movies) {
+export default function moviesNormalizer(movies = []) {
   return movies.map(movieNormalizer)
 }

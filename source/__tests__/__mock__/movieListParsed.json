@@ -1,0 +1,175 @@
+[
+    {
+        "_id": {
+            "$oid": "5b8701a1fc13ae6569000000"
+        },
+        "date": "10:06 27-09-2017",
+        "genre": [
+            "Drama",
+            "War"
+        ],
+        "id": "5b8701a1fc13ae6569000000",
+        "image": {
+            "uri": "http://dummyimage.com/1459x751.png/cc0000/ffffff"
+        },
+        "inventory": 4,
+        "price": 28.704,
+        "title": "Long Live Death (Viva la muerte)"
+    },
+    {
+        "_id": {
+            "$oid": "5b8701a1fc13ae6569000001"
+        },
+        "date": "20:20 10-12-2017",
+        "genre": [
+            "Drama"
+        ],
+        "id": "5b8701a1fc13ae6569000001",
+        "image": {
+            "uri": "http://dummyimage.com/1567x1523.jpg/dddddd/000000"
+        },
+        "inventory": 3,
+        "price": 10.622,
+        "title": "Home"
+    },
+    {
+        "_id": {
+            "$oid": "5b8701a1fc13ae6569000002"
+        },
+        "date": "04:22 30-08-2018",
+        "genre": [
+            "Action",
+            "Drama",
+            "Thriller"
+        ],
+        "id": "5b8701a1fc13ae6569000002",
+        "image": {
+            "uri": "http://dummyimage.com/693x461.png/ff4444/ffffff"
+        },
+        "inventory": 4,
+        "price": 14.292,
+        "title": "Russian Specialist, The (Mechanik, The)"
+    },
+    {
+        "_id": {
+            "$oid": "5b8701a1fc13ae6569000003"
+        },
+        "date": "21:18 26-01-2018",
+        "genre": [
+            "Adventure",
+            "Animation",
+            "Children",
+            "Comedy",
+            "Mystery"
+        ],
+        "id": "5b8701a1fc13ae6569000003",
+        "image": {
+            "uri": "http://dummyimage.com/523x1329.jpg/ff4444/ffffff"
+        },
+        "inventory": 8,
+        "price": 23.208,
+        "title": "Scooby-Doo! Camp Scare"
+    },
+    {
+        "_id": {
+            "$oid": "5b8701a1fc13ae6569000004"
+        },
+        "date": "06:03 16-01-2018",
+        "genre": [
+            "Sci-Fi"
+        ],
+        "id": "5b8701a1fc13ae6569000004",
+        "image": {
+            "uri": "http://dummyimage.com/925x1868.bmp/dddddd/000000"
+        },
+        "inventory": 10,
+        "price": 10.979,
+        "title": "Black Scorpion, The"
+    },
+    {
+        "_id": {
+            "$oid": "5b8701a1fc13ae6569000005"
+        },
+        "date": "02:15 06-10-2017",
+        "genre": [
+            "Comedy",
+            "Drama"
+        ],
+        "id": "5b8701a1fc13ae6569000005",
+        "image": {
+            "uri": "http://dummyimage.com/1801x1742.png/dddddd/000000"
+        },
+        "inventory": 10,
+        "price": 24.651,
+        "title": "Blossoming of Maximo Oliveros, The (Ang pagdadalaga ni Maximo Oliveros)"
+    },
+    {
+        "_id": {
+            "$oid": "5b8701a1fc13ae6569000006"
+        },
+        "date": "15:40 14-05-2018",
+        "genre": [
+            "Action",
+            "Sci-Fi",
+            "War"
+        ],
+        "id": "5b8701a1fc13ae6569000006",
+        "image": {
+            "uri": "http://dummyimage.com/1424x424.jpg/ff4444/ffffff"
+        },
+        "inventory": 0,
+        "price": 14.281,
+        "title": "Starship Troopers 3: Marauder"
+    },
+    {
+        "_id": {
+            "$oid": "5b8701a1fc13ae6569000007"
+        },
+        "date": "03:20 05-12-2017",
+        "genre": [
+            "Drama",
+            "War"
+        ],
+        "id": "5b8701a1fc13ae6569000007",
+        "image": {
+            "uri": "http://dummyimage.com/1529x650.png/ff4444/ffffff"
+        },
+        "inventory": 2,
+        "price": 12.082,
+        "title": "Missing in America"
+    },
+    {
+        "_id": {
+            "$oid": "5b8701a1fc13ae6569000008"
+        },
+        "date": "17:40 24-11-2017",
+        "genre": [
+            "Documentary"
+        ],
+        "id": "5b8701a1fc13ae6569000008",
+        "image": {
+            "uri": "http://dummyimage.com/1622x1208.bmp/dddddd/000000"
+        },
+        "inventory": 2,
+        "price": 25.532,
+        "title": "You're Gonna Miss Me"
+    },
+    {
+        "_id": {
+            "$oid": "5b8701a1fc13ae6569000009"
+        },
+        "date": "11:55 17-07-2018",
+        "genre": [
+            "Animation",
+            "Children",
+            "Comedy"
+        ],
+        "id": "5b8701a1fc13ae6569000009",
+        "image": {
+            "uri": "http://dummyimage.com/599x725.bmp/ff4444/ffffff"
+        },
+        "inventory": 7,
+        "price": 19.865,
+        "title": "It's the Easter Beagle, Charlie Brown!"
+    }
+]

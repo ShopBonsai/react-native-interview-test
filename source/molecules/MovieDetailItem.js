@@ -12,8 +12,7 @@ const style = {
   },
 }
 
-const MovieDetailItem = props => {
-  const { label, value } = props
+const MovieDetailItem = ({ label, value }) => {
   return (
     <View style={style.detailRow}>
       <Text style={style.detailedTextStyle}>{label}</Text>

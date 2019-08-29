@@ -38,7 +38,7 @@ const style = {
   },
 }
 
-class MovieList extends Component {
+export class MovieDetail extends Component {
   onFavouritePress = () => {
     const { addToFavourites, movieId } = this.props
     addToFavourites(movieId)
@@ -60,7 +60,7 @@ class MovieList extends Component {
             <MovieDetailItem label="Ticket Price:" value={`$${price}`} />
             <View style={style.detailLastRow}>
               <Button style={style.movieDetailBottons} onPress={this.onFavouritePress}>
-                {isFavourite? "Unlike" :"Like"}
+                {isFavourite ? "Unlike" : "Like"}
               </Button>
             </View>
           </ScrollView>
@@ -75,7 +75,7 @@ class MovieList extends Component {
     }
   }
 }
-MovieList.propTypes = {
+MovieDetail.propTypes = {
   addToFavourites: PropTypes.func,
   favourites: PropTypes.objectOf(PropTypes.number),
   movieId: PropTypes.string,
@@ -88,12 +88,9 @@ const mapStateToProps = state => {
   }
 }
 const mapDispatchToProps = dispatch => ({
-  fetchMovies: (skip, limit) => {
-    dispatch(actions.fetchMovies(skip, limit))
-  },
   addToFavourites: id => {
     dispatch(actions.addToFavourites(id))
   },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieList)
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail)

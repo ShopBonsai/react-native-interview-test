@@ -1,6 +1,5 @@
 import * as actionTypes from "../actionTypes"
-import { favouriteKey } from "../../configs/constants"
-import * as storage from "../../helpers/localStorage"
+import * as service from "../services"
 
 export const addToFavouritesInprogress = () => ({
   type: actionTypes.ADD_TO_FAVROURITES_INPROGRESS,
@@ -13,15 +12,7 @@ export const addToFavouritesSuccess = data => ({
 export function addToFavourites(id) {
   return async dispatch => {
     dispatch(addToFavouritesInprogress())
-    let list = await storage.getItem(favouriteKey)
-    list = list ? list : {}
-    if (list[id]) {
-      // eslint-disable-next-line fp/no-delete
-      delete list[id]
-    } else {
-      list[id] = 1
-    }
-    await storage.setItem(favouriteKey, list)
+    const list = await service.setFavoritedMovies(id)
     dispatch(addToFavouritesSuccess(list))
   }
 }
@@ -37,7 +28,7 @@ export const fetchFavouritesSuccess = data => ({
 export function fetchFavourites() {
   return async dispatch => {
     dispatch(fetchFavouritesInprogress())
-    const list = await storage.getItem(favouriteKey)
+    const list = await service.getFavoritedMovies()
     dispatch(fetchFavouritesSuccess(list))
   }
 }
