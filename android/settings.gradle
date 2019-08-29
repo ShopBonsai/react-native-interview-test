@@ -1,9 +1,10 @@
 rootProject.name = 'Interview'
-
+include ':@react-native-community/async-storage'
+project(':@react-native-community/async-storage').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/async-storage/android')
+include ':react-native-navigation'
+project(':react-native-navigation').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-navigation/android/app')
+include ':react-native-firebase'
+project(':react-native-firebase').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-firebase/android')
 include ':app'
 
-include ':react-native-navigation'
-project(':react-native-navigation').projectDir = new File(
-  rootProject.projectDir,
-  '../node_modules/react-native-navigation/android/app/'
-)
+

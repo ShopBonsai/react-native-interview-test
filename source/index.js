@@ -1,14 +1,14 @@
 import { Navigation } from "react-native-navigation"
 
 import withProviders from "./containers/withProviders"
-import screens, { MAIN } from "./screens"
+import screens, { LIST } from "./screens"
 
 class App {
   constructor() {
     this.registerScreens(screens)
     Navigation.startSingleScreenApp({
       screen: {
-        screen: MAIN,
+        screen: LIST,
         navigatorStyle: { navBarHidden: true },
       },
     })

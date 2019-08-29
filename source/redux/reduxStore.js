@@ -1,12 +1,14 @@
 import { createStore, applyMiddleware, combineReducers } from "redux"
+import thunk from "redux-thunk"
 
-import env from "./env"
-import reducers from "./ducks"
+import env from "../env"
+
+import reducers from "./reducers"
 
 export const rootReducer = combineReducers(reducers)
 const developmentMiddleware = [require("redux-logger").createLogger({ collapsed: true })]
 
-const middleware = [...(env.IS_DEVELOPMENT ? developmentMiddleware : [])]
+const middleware = [...(env.IS_DEVELOPMENT ? developmentMiddleware : []), thunk]
 const store = createStore(rootReducer, {}, applyMiddleware(...middleware))
 
 export default store
