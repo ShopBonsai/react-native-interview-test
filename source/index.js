@@ -1,22 +1,8 @@
-import { Navigation } from "react-native-navigation"
+/* eslint-disable import/no-named-as-default-member */
+import { AppRegistry } from 'react-native'
+import { name as appName } from '../app.json'
 
-import withProviders from "./containers/withProviders"
-import screens, { MAIN } from "./screens"
+import withProviders from './containers/withProviders'
+import AppNavigator from './config/appNavigation'
 
-class App {
-  constructor() {
-    this.registerScreens(screens)
-    Navigation.startSingleScreenApp({
-      screen: {
-        screen: MAIN,
-        navigatorStyle: { navBarHidden: true },
-      },
-    })
-  }
-  registerScreens = screensToRegister =>
-    Object.entries(screensToRegister).forEach(([key, Screen]) =>
-      Navigation.registerComponent(key, () => withProviders(Screen)),
-    )
-}
-
-export default new App()
+AppRegistry.registerComponent(appName, () => withProviders(AppNavigator))
