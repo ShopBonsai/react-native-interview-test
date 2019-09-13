@@ -6,11 +6,12 @@
   },
   "plugins": ["prettier", "react", "fp", "jsdoc", "import", "cumul8"],
   "extends": [
+    "@react-native-community",
     "prettier",
     "prettier/react",
     "plugin:react/recommended",
     "plugin:you-dont-need-lodash-underscore/compatible",
-    "plugin:eslint-comments/recommended"
+    "plugin:eslint-comments/recommended",
   ],
   "globals": {
     "__DEV__": true,
