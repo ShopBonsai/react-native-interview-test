@@ -1,4 +1,5 @@
-{
+module.exports = {
+  "root": true,
   "parser": "babel-eslint",
   "env": {
     "browser": true,
@@ -7,7 +8,9 @@
   "plugins": ["prettier", "react", "fp", "jsdoc", "import", "cumul8"],
   "extends": [
     "@react-native-community",
+    "airbnb-typescript",
     "prettier",
+    "prettier/@typescript-eslint",
     "prettier/react",
     "plugin:react/recommended",
     "plugin:you-dont-need-lodash-underscore/compatible",
@@ -18,14 +21,6 @@
     "Promise": true
   },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "printWidth": 100,
-        "semi": false,
-        "trailingComma": "all"
-      }
-    ],
     "max-lines": ["error", { "max": 250, "skipBlankLines": true, "skipComments": true }],
     "max-statements": ["warn", { "max": 25 }],
     "max-params": ["error", { "max": 4 }],
@@ -75,6 +70,7 @@
     "no-dupe-class-members": "error",
     "constructor-super": "error",
     "spaced-comment": "error",
+    "comma-dangle": ["error", "always"],
     "eol-last": ["error", "always"],
     "camelcase": "error",
     "id-length": ["error", { "max": 25 }],
