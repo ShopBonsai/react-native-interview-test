@@ -4,24 +4,24 @@ import {
   combineReducers,
   Reducer,
   Middleware,
-  Store
-} from "redux"
-import { createLogger } from "redux-logger"
+  Store,
+} from 'redux';
+import { createLogger } from 'redux-logger';
 
-import env from "./env"
-import reducers, { ApplicationState } from "./ducks"
+import env from './env';
+import reducers, { ApplicationState } from './ducks';
 
-export const rootReducer: Reducer<ApplicationState> = combineReducers(reducers)
-const developmentMiddleware: Middleware[] = [createLogger({ collapsed: true })]
+export const rootReducer: Reducer<ApplicationState> = combineReducers(reducers);
+const developmentMiddleware: Middleware[] = [createLogger({ collapsed: true })];
 
 const middleware: Middleware[] = [
-  ...(env.IS_DEVELOPMENT ? developmentMiddleware : [])
-]
+  ...(env.IS_DEVELOPMENT ? developmentMiddleware : []),
+];
 
 const store: Store<ApplicationState> = createStore(
   rootReducer,
   {},
-  applyMiddleware(...middleware)
-)
+  applyMiddleware(...middleware),
+);
 
-export default store
+export default store;

@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import { Text, ScrollView } from "react-native"
+import React, { Component } from 'react';
+import { Text, ScrollView } from 'react-native';
 
 export default class Main extends Component {
   render() {
@@ -7,6 +7,6 @@ export default class Main extends Component {
       <ScrollView>
         <Text>Title</Text>
       </ScrollView>
-    )
+    );
   }
 }
