@@ -14,7 +14,7 @@ const CTAText: React.FC<Props> = ({ children, color, size }) => {
       <Text color={color} size={size} numberOfLines={1}>
         {children}
       </Text>
-      <Icon size={size} color={color} name="angle-right" />
+      <Icon color={color} size={size} name="angle-right" />
     </Container>
   );
 };
