@@ -103,7 +103,8 @@ module.exports = {
     "react/no-typos": "error",
     "react/no-set-state": "error",
     "react/jsx-key": "error",
-
+    "react/prop-types": "off",
+    
     "jsdoc/check-param-names": "error",
     "jsdoc/check-tag-names": "error",
     "jsdoc/check-types": "error",
