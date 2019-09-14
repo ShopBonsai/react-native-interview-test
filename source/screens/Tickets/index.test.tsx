@@ -1,14 +1,14 @@
 import React from 'react';
 import renderer, { ReactTestRenderer } from 'react-test-renderer';
 
-import Main from '.';
+import Tickets from '.';
 
-describe('Main Screen', () => {
+describe('Tickets Screen', () => {
   let tree: ReactTestRenderer;
 
   beforeAll(() => {
     const props: any = {};
-    tree = renderer.create(<Main {...props} />);
+    tree = renderer.create(<Tickets {...props} />);
   });
 
   it('renders correctly', () => {

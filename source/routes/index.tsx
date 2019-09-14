@@ -1,7 +1,9 @@
 import { createAppContainer } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
-import MainScreen from '../screens/Main';
+import FeedScreen from '../screens/Feed';
+import FavoritesScreen from '../screens/Favorites';
+import TicketsScreen from '../screens/Tickets';
 
 // TODO: Upgrade to stronger typing after issue with
 // recent versions of react-navigation has been solved:
@@ -9,12 +11,14 @@ import MainScreen from '../screens/Main';
 
 // Routes
 const routes: any = {
-  Main: MainScreen,
+  Feed: FeedScreen,
+  Favorites: FavoritesScreen,
+  Tickets: TicketsScreen,
 };
 
 // Tab Navigator Config
 const config: any = {
-  initialRouteName: 'Main',
+  initialRouteName: 'Feed',
   tabBarPosition: 'bottom',
 };
 

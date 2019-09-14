@@ -4,12 +4,12 @@ import { NavigationScreenComponent } from 'react-navigation';
 
 import { Container } from './style';
 
-const Main: NavigationScreenComponent = () => {
+const Favorites: NavigationScreenComponent = () => {
   return (
-    <Container testID="main">
-      <Text>Title</Text>
+    <Container testID="favorites-screen">
+      <Text>Favorites</Text>
     </Container>
   );
 };
 
-export default Main;
+export default Favorites;
