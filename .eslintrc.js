@@ -3,7 +3,9 @@ module.exports = {
   "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true,
+    "jasmine": true,
   },
   "plugins": ["prettier", "react", "fp", "jsdoc", "import", "cumul8"],
   "extends": [
@@ -18,7 +20,8 @@ module.exports = {
   ],
   "globals": {
     "__DEV__": true,
-    "Promise": true
+    "Promise": true,
+    "detoxCircus": true,
   },
   "rules": {
     "max-lines": ["error", { "max": 250, "skipBlankLines": true, "skipComments": true }],
@@ -122,7 +125,7 @@ module.exports = {
     "import/no-cycle": "error",
     "import/export": "error",
     "import/no-deprecated": "error",
-    "import/no-extraneous-dependencies": "error",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "import/no-mutable-exports": "error",
     "import/extensions": "error",
     "import/first": "error",

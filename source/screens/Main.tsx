@@ -3,7 +3,7 @@ import { Text, ScrollView } from 'react-native';
 
 const Main: React.FC = () => {
   return (
-    <ScrollView>
+    <ScrollView testID="main">
       <Text>Title</Text>
     </ScrollView>
   );

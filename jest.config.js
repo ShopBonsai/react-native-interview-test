@@ -24,7 +24,11 @@ module.exports = {
   },
   preset: 'react-native',
   setupFiles: ['./jest.setup.js'],
-  testPathIgnorePatterns: ['\\.snap$', '<rootDir>/node_modules/'],
+  testPathIgnorePatterns: [
+    '\\.snap$',
+    '<rootDir>/node_modules/',
+    '<rootDir>/e2e/',
+  ],
   testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   transform: {
     '^.+\\.(js)$': '<rootDir>/node_modules/babel-jest',

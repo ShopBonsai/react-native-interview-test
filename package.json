@@ -12,6 +12,9 @@
     "lint": "tsc --noEmit --skipLibCheck && eslint --ext .js,.jsx,.ts,.tsx ./",
     "test": "jest",
     "coverage": "yarn test --coverage",
+    "e2e": "yarn run e2e-ios",
+    "e2e-ios": "detox build -c ios.sim.debug && detox test -c ios.sim.debug",
+    "e2e-android": "npx jetify && detox build -c android.emu.debug && detox test -c android.emu.debug",
     "precommit": "lint-staged && yarn test --lastCommit",
     "devtools": "react-devtools",
     "clear-cache": "watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf node_modules && yarn && rm -rf ios/build && rm -rf android/build",
@@ -42,6 +45,7 @@
     "@storybook/addon-storyshots": "5.1.11",
     "@storybook/addons": "5.1.11",
     "@storybook/react-native": "5.1.11",
+    "@types/detox": "^12.8.4",
     "@types/jest": "^24.0.18",
     "@types/react": "^16.9.2",
     "@types/react-native": "^0.60.14",
@@ -61,6 +65,7 @@
     "babel-preset-react-native": "4.0.1",
     "babel-preset-react-native-stage-0": "1.0.1",
     "babel-runtime": "6.26.0",
+    "detox": "^14.3.0",
     "eslint": "^6.3.0",
     "eslint-config-airbnb-typescript": "^4.0.1",
     "eslint-config-prettier": "^6.3.0",
@@ -74,6 +79,7 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-you-dont-need-lodash-underscore": "6.7.0",
     "jest": "24.9.0",
+    "jest-circus": "^24.9.0",
     "lint-staged": "9.2.5",
     "metro-react-native-babel-preset": "^0.56.0",
     "prettier": "1.18.2",
@@ -85,5 +91,29 @@
     "redux-logger": "3.0.6",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
+  },
+  "detox": {
+    "test-runner": "jest",
+    "runner-config": "e2e/config.json",
+    "configurations": {
+      "android.emu.debug": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.emulator",
+        "name": "Nexus_5X_API_29_x86"
+      },
+      "android.emu.release": {
+        "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+        "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+        "type": "android.emulator",
+        "name": "Nexus_5X_API_29_x86"
+      },
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/interview.app",
+        "build": "xcodebuild -workspace ios/Interview.xcworkspace -scheme Interview -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone X"
+      }
+    }
   }
 }
