@@ -32,6 +32,6 @@ module.exports = {
   testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   transform: {
     '^.+\\.(js)$': '<rootDir>/node_modules/babel-jest',
-    '\\.(ts|tsx)$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
+    '\\.(ts|tsx)$': '<rootDir>/node_modules/ts-jest',
   },
 };

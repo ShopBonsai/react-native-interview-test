@@ -8,7 +8,8 @@ import {
 } from 'redux';
 import { createLogger } from 'redux-logger';
 
-import env from './env';
+import env from '../env';
+
 import reducers, { ApplicationState } from './ducks';
 
 export const rootReducer: Reducer<ApplicationState> = combineReducers(reducers);

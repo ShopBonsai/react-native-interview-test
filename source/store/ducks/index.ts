@@ -1,4 +1,4 @@
-import example, { ExampleState } from "./example"
+import example, { ExampleState } from './example';
 
 // Application State Type
 export interface ApplicationState {
@@ -7,4 +7,4 @@ export interface ApplicationState {
 
 export default {
   example,
-}
+};

@@ -1,6 +1,6 @@
 module.exports = {
   "root": true,
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
     "node": true,
@@ -131,7 +131,7 @@ module.exports = {
     "import/first": "error",
     "import/no-duplicates": "error",
     "import/order": ["error", { "newlines-between": "always-and-inside-groups" }],
-    "import/prefer-default-export": "error",
+    "import/prefer-default-export": "off",
     "import/newline-after-import": "error",
     "import/no-named-default": "error",
 
