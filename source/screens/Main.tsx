@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, ScrollView } from 'react-native';
 
-export default class Main extends Component {
-  render() {
-    return (
-      <ScrollView>
-        <Text>Title</Text>
-      </ScrollView>
-    );
-  }
-}
+const Main: React.FC = () => {
+  return (
+    <ScrollView>
+      <Text>Title</Text>
+    </ScrollView>
+  );
+};
+
+export default Main;
