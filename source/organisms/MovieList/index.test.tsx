@@ -28,6 +28,17 @@ describe('MovieList Molecule', () => {
           _id: { $oid: '5b8701a1fc13ae6569000001' },
         },
       ],
+      favorites: [
+        {
+          date: '2017-09-27T05:06:56Z',
+          genre: 'Drama|War',
+          image: 'http://dummyimage.com/1459x751.png/cc0000/ffffff',
+          inventory: 4,
+          price: 28.704,
+          title: 'Long Live Death (Viva la muerte)',
+          _id: { $oid: '5b8701a1fc13ae6569000000' },
+        },
+      ],
     };
     tree = renderer.create(<MovieList {...props} />);
   });

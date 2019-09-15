@@ -8,7 +8,7 @@ import { Container, Image, Lead, Title, Extra } from './style';
 export interface Props {
   image: string;
   isFavorite?: boolean;
-  onFavorite?: (isFavorite?: boolean) => void;
+  onFavorite?: (isFavorite: boolean) => void;
   onPress?: () => void;
   subtitle?: string;
   title: string;

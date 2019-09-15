@@ -6,7 +6,7 @@ import { Container } from './style';
 export interface Props {
   color?: string;
   isFavorite?: boolean;
-  onPress?: (isFavorite?: boolean) => void;
+  onPress?: (isFavorite: boolean) => void;
   size?: number;
 }
 
