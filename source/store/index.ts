@@ -20,7 +20,7 @@ export const rootReducer: Reducer<ApplicationState> = combineReducers(reducers);
 // Root Saga
 export const rootSaga: Saga = function* rootSaga() {
   // Execute all sagas
-  yield all(sagas.map(saga => saga()));
+  yield all(sagas);
 };
 
 // Middleware
