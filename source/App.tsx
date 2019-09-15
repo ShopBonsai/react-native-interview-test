@@ -1,14 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import Routes from './routes';
-import store from './store';
+import store, { persistor } from './store';
 import withSafeArea from './containers/HOCs/withSafeArea';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <Routes />
+      <PersistGate persistor={persistor}>
+        <Routes />
+      </PersistGate>
     </Provider>
   );
 };

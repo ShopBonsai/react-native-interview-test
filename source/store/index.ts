@@ -6,6 +6,14 @@ import {
   Middleware,
   Store,
 } from 'redux';
+import {
+  persistStore,
+  persistReducer,
+  PersistConfig,
+  Persistor,
+} from 'redux-persist';
+import { PersistPartial } from 'redux-persist/es/persistReducer';
+import AsyncStorage from '@react-native-community/async-storage';
 import createSagaMiddleware, { SagaMiddleware, Saga } from 'redux-saga';
 import { all } from 'redux-saga/effects';
 import { createLogger } from 'redux-logger';
@@ -15,10 +23,24 @@ import env from '../env';
 import { reducers, sagas, ApplicationState } from './ducks';
 
 // Root Reducer
-export const rootReducer: Reducer<ApplicationState> = combineReducers(reducers);
+const rootReducer: Reducer<ApplicationState> = combineReducers(reducers);
+
+// Persist Config
+const persistConfig: PersistConfig<ApplicationState> = {
+  key: 'root',
+  storage: AsyncStorage,
+  whitelist: ['favorites'],
+};
+
+// Persist Reducer
+type PersistedReducer = Reducer<ApplicationState & PersistPartial>;
+const persistedReducer: PersistedReducer = persistReducer(
+  persistConfig,
+  rootReducer,
+);
 
 // Root Saga
-export const rootSaga: Saga = function* rootSaga() {
+const rootSaga: Saga = function* rootSaga() {
   // Execute all sagas
   yield all(sagas);
 };
@@ -34,12 +56,15 @@ const middleware: Middleware[] = [
 
 // Store
 const store: Store<ApplicationState> = createStore(
-  rootReducer,
+  persistedReducer,
   {},
   applyMiddleware(...middleware),
 );
 
 // Run Saga
 sagaMiddleware.run(rootSaga);
+
+// RUn Persist
+export const persistor: Persistor = persistStore(store);
 
 export default store;
