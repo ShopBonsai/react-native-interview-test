@@ -15,7 +15,6 @@ export const FETCH_MOVIES_FAILURE: string = 'movies/FETCH_MOVIES_FAILURE';
 // State Type
 export interface FeedState {
   movies: Movie[];
-  movie: Partial<Movie>;
   page: number;
   pageSize: number;
   loading: boolean;
@@ -25,7 +24,6 @@ export interface FeedState {
 // Initial State
 export const initialState: FeedState = {
   movies: [],
-  movie: {},
   page: 1,
   pageSize: 3,
   loading: false,
