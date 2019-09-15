@@ -1,6 +1,8 @@
 import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
+import Header from '../organisms/Header';
 import TabBar from '../organisms/TabBar';
 
 import paths, { Path } from './paths';
@@ -24,9 +26,15 @@ const config: any = {
   initialRouteName: initialPath.name,
   tabBarComponent: TabBar,
   tabBarPosition: 'bottom',
+  navigationOptions: {
+    header: Header,
+  },
 };
 
-// Navigator
-const AppNavigator: any = createMaterialTopTabNavigator(routes, config);
+// Tabs Navigator
+const Tabs: any = createMaterialTopTabNavigator(routes, config);
 
-export default createAppContainer(AppNavigator);
+// Navigation tack
+const Stack: any = createStackNavigator({ Tabs });
+
+export default createAppContainer(Stack);
