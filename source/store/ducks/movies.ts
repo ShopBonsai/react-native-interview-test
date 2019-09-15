@@ -15,6 +15,8 @@ export const FETCH_MOVIES_FAILURE: string = 'movies/FETCH_MOVIES_FAILURE';
 export interface MoviesState {
   movies: Movie[];
   movie: Partial<Movie>;
+  page: number;
+  pageSize: number;
   loading: boolean;
   errorMessage: string;
 }
@@ -23,6 +25,8 @@ export interface MoviesState {
 export const initialState: MoviesState = {
   movies: [],
   movie: {},
+  page: 1,
+  pageSize: 3,
   loading: false,
   errorMessage: '',
 };
@@ -35,7 +39,7 @@ export const reducer: Reducer<MoviesState> = createReducer(initialState, {
   }),
   [FETCH_MOVIES_SUCCESS]: (state, action) => ({
     ...state,
-    movies: action.payload,
+    ...action.payload,
     loading: false,
   }),
   [FETCH_MOVIES_FAILURE]: (state, action) => ({
@@ -49,6 +53,7 @@ export const reducer: Reducer<MoviesState> = createReducer(initialState, {
 export interface FetchMoviesRequestAction extends Action {
   type: typeof FETCH_MOVIES_REQUEST;
   payload: {
+    movies: Movie[];
     page: number;
     pageSize: number;
   };
@@ -56,7 +61,11 @@ export interface FetchMoviesRequestAction extends Action {
 
 export interface FetchMoviesSuccessAction extends Action {
   type: typeof FETCH_MOVIES_SUCCESS;
-  payload: Movie[];
+  payload: {
+    movies: Movie[];
+    page: number;
+    pageSize: number;
+  };
 }
 
 export interface FetchMoviesFailureAction extends Action {
@@ -66,21 +75,29 @@ export interface FetchMoviesFailureAction extends Action {
 
 // Action Creators
 export const fetchMoviesRequest: ActionCreator<FetchMoviesRequestAction> = ({
+  movies = [],
   page,
   pageSize,
 }) => ({
   type: FETCH_MOVIES_REQUEST,
   payload: {
+    movies,
     page,
     pageSize,
   },
 });
 
-export const fetchMoviesSuccess: ActionCreator<FetchMoviesSuccessAction> = (
-  movies: Movie[],
-) => ({
+export const fetchMoviesSuccess: ActionCreator<FetchMoviesSuccessAction> = ({
+  movies,
+  page,
+  pageSize,
+}) => ({
   type: FETCH_MOVIES_SUCCESS,
-  payload: movies,
+  payload: {
+    movies,
+    page,
+    pageSize,
+  },
 });
 
 export const fetchMoviesFailure: ActionCreator<FetchMoviesFailureAction> = (
@@ -94,7 +111,7 @@ export const fetchMoviesFailure: ActionCreator<FetchMoviesFailureAction> = (
 export function* handleFetchMoviesRequest(action: FetchMoviesRequestAction) {
   try {
     // Pagination
-    const { page, pageSize } = action.payload;
+    const { movies, page, pageSize } = action.payload;
 
     // Setup request params
     const params = {
@@ -103,10 +120,16 @@ export function* handleFetchMoviesRequest(action: FetchMoviesRequestAction) {
     };
 
     // Request movies from API
-    const { data: movies } = yield http.get('/movieTickets', { params });
+    const { data } = yield http.get('/movieTickets', { params });
 
     // Dispatch success action
-    yield put(fetchMoviesSuccess(movies));
+    yield put(
+      fetchMoviesSuccess({
+        movies: [...movies, ...data],
+        page,
+        pageSize,
+      }),
+    );
   } catch (error) {
     // Dispatch failure action
     const errorMessage: string =
