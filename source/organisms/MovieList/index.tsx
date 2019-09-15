@@ -12,6 +12,7 @@ export interface Props {
   loading?: boolean;
   onEndReached?: () => void;
   onFavorite?: (movie: Movie, isFavorite: boolean) => void;
+  onSelectMovie?: (movie: Movie) => void;
 }
 
 const MovieList: React.FC<Props> = ({
@@ -20,6 +21,7 @@ const MovieList: React.FC<Props> = ({
   movies,
   onEndReached,
   onFavorite,
+  onSelectMovie,
 }) => {
   // Cache favorite ids for further comparison
   const favoriteIds = useMemo<string[]>(
@@ -40,6 +42,13 @@ const MovieList: React.FC<Props> = ({
       }
     };
 
+    // Delegate movie select callback to parent
+    const handlePress = (): void => {
+      if (onSelectMovie) {
+        onSelectMovie(item);
+      }
+    };
+
     // Verifies if movie is included in favorites
     const isFavorite: boolean = favoriteIds.includes(item._id.$oid);
 
@@ -49,6 +58,7 @@ const MovieList: React.FC<Props> = ({
           title={item.title}
           image={item.image}
           onFavorite={handleFavorite}
+          onPress={handlePress}
           isFavorite={isFavorite}
         />
       </ItemContainer>
