@@ -21,7 +21,7 @@ const CTAText: React.FC<Props> = ({ children, color, size }) => {
 
 CTAText.defaultProps = {
   color: '#1685fb',
-  size: 16,
+  size: 14,
 };
 
 export default CTAText;
