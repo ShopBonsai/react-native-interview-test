@@ -1,24 +1,28 @@
 import { createAppContainer } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
-import FeedScreen from '../screens/Feed';
-import FavoritesScreen from '../screens/Favorites';
-import TicketsScreen from '../screens/Tickets';
+import TabBar from '../organisms/TabBar';
+
+import paths, { Path } from './paths';
 
 // TODO: Upgrade to stronger typing after issue with
 // recent versions of react-navigation has been solved:
 // https://github.com/react-navigation/react-navigation/issues/6295
 
 // Routes
-const routes: any = {
-  Feed: FeedScreen,
-  Favorites: FavoritesScreen,
-  Tickets: TicketsScreen,
-};
+const routes: any = paths.reduce(
+  (acc, cur) => ({
+    ...acc,
+    [cur.name]: cur.screen,
+  }),
+  {},
+);
 
 // Tab Navigator Config
+const initialPath: Path = paths.find(path => path.initial) || paths[0];
 const config: any = {
-  initialRouteName: 'Feed',
+  initialRouteName: initialPath.name,
+  tabBarComponent: TabBar,
   tabBarPosition: 'bottom',
 };
 
