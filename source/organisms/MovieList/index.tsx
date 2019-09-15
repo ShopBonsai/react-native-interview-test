@@ -90,7 +90,7 @@ const MovieList: React.FC<Props> = ({
         data={movies}
         renderItem={renderItem}
         keyExtractor={item => item._id.$oid}
-        onEndReachedThreshold={0}
+        onEndReachedThreshold={0.3}
         onEndReached={handleEndReached}
         ListFooterComponent={renderFooter}
         onMomentumScrollBegin={handleMomentum}
