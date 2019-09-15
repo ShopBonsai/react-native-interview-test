@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import FlashMessage from 'react-native-flash-message';
 
 import Routes from './routes';
 import store, { persistor } from './store';
@@ -11,6 +12,7 @@ const App: React.FC = () => {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <Routes />
+        <FlashMessage />
       </PersistGate>
     </Provider>
   );

@@ -27,6 +27,7 @@
     "jetifier": "^1.6.4",
     "react": "^16.9.0",
     "react-native": "^0.60.5",
+    "react-native-flash-message": "^0.1.13",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-navigation": "^3.2.0",
     "react-native-reanimated": "^1.2.0",

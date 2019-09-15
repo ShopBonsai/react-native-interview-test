@@ -1,6 +1,7 @@
 import { Reducer, Action, ActionCreator } from 'redux';
 import { Saga } from 'redux-saga';
 import { put, takeLatest, all } from 'redux-saga/effects';
+import { showMessage } from 'react-native-flash-message';
 
 import createReducer from '../createReducer';
 import Movie from '../../models/movie';
@@ -36,6 +37,7 @@ export const reducer: Reducer<FeedState> = createReducer(initialState, {
   [FETCH_MOVIES_REQUEST]: state => ({
     ...state,
     loading: true,
+    errorMessage: initialState.errorMessage,
   }),
   [FETCH_MOVIES_SUCCESS]: (state, action) => ({
     ...state,
@@ -132,8 +134,8 @@ export function* handleFetchMoviesRequest(action: FetchMoviesRequestAction) {
     );
   } catch (error) {
     // Dispatch failure action
-    const errorMessage: string =
-      'Oops! Failed to fetch movies. Please, try again later.';
+    const errorMessage: string = 'Oops! Failed to fetch movies.';
+    showMessage({ message: error.message, type: 'danger' });
     yield put(fetchMoviesFailure(errorMessage));
   }
 }
