@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import MovieList from '../../organisms/MovieList';
+import Placeholder from '../../atoms/Placeholder';
 import ExpandView from '../../atoms/ExpandView';
 import ErrorMessage from '../../atoms/ErrorMessage';
 import LinkButton from '../../atoms/LinkButton';
+import MovieList from '../../organisms/MovieList';
 import { ApplicationState } from '../../store/ducks';
 import { fetchMoviesRequest, FeedState } from '../../store/ducks/feed';
 import {
@@ -52,6 +53,10 @@ const FeedMovieList: React.FC = () => {
       dispatch(removeFavorite(movie));
     }
   };
+
+  if (movies.length <= 0 && !loading) {
+    return <Placeholder>No movie found</Placeholder>;
+  }
 
   if (errorMessage) {
     return (
