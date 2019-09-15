@@ -1,13 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { NavigationScreenComponent } from 'react-navigation';
+
+import FeedMovieList from '../../containers/FeedMovieList';
 
 import { Container } from './style';
 
 const Feed: NavigationScreenComponent = () => {
   return (
     <Container testID="feed-screen">
-      <Text>Feed</Text>
+      <FeedMovieList />
     </Container>
   );
 };
