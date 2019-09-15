@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import MovieList from '../../organisms/MovieList';
+import ExpandView from '../../atoms/ExpandView';
+import ErrorMessage from '../../atoms/ErrorMessage';
+import LinkButton from '../../atoms/LinkButton';
 import { ApplicationState } from '../../store/ducks';
 import { fetchMoviesRequest, FeedState } from '../../store/ducks/feed';
 import {
@@ -13,7 +16,7 @@ import Movie from '../../models/movie';
 
 const FeedMovieList: React.FC = () => {
   // Get values from feed store state
-  const { loading, movies, page, pageSize } = useSelector<
+  const { errorMessage, loading, movies, page, pageSize } = useSelector<
     ApplicationState,
     FeedState
   >(store => store.feed);
@@ -36,6 +39,11 @@ const FeedMovieList: React.FC = () => {
     dispatch(fetchMoviesRequest({ page: page + 1, pageSize, movies }));
   };
 
+  // Dispatch action to reload same page
+  const handleTryAgain = (): void => {
+    dispatch(fetchMoviesRequest({ page, pageSize, movies }));
+  };
+
   // Dispatch action to update favorites when a movie is favorites/unfavorited
   const handleFavorite = (movie: Movie, isFavorite: boolean): void => {
     if (isFavorite) {
@@ -44,6 +52,15 @@ const FeedMovieList: React.FC = () => {
       dispatch(removeFavorite(movie));
     }
   };
+
+  if (errorMessage) {
+    return (
+      <ExpandView>
+        <ErrorMessage>{errorMessage}</ErrorMessage>
+        <LinkButton onPress={handleTryAgain}>Try Again</LinkButton>
+      </ExpandView>
+    );
+  }
 
   return (
     <MovieList
