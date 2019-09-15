@@ -31,9 +31,9 @@ module.exports = {
     "max-depth": ["warn", { "max": 4 }],
     "complexity": ["error", { "max": 5 }],
     "no-console": "error",
-    "no-undef": "error",
+    "no-undef": "off", // handled by typescript linter
     "no-unreachable": "error",
-    "no-unused-vars": "error",
+    "no-unused-vars": "off", // handled by typescript linter
     "no-extra-semi": "error",
     "no-func-assign": "error",
     "no-dupe-keys": "error",

@@ -1,10 +1,10 @@
-import example, { ExampleState } from './example';
+import movies, { MoviesState } from './movies';
 
 // Application State Type
 export interface ApplicationState {
-  example: ExampleState;
+  movies: MoviesState;
 }
 
 export default {
-  example,
+  movies,
 };
