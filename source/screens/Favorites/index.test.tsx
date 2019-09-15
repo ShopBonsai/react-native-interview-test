@@ -12,13 +12,15 @@ describe('Favorites Screen', () => {
     feed: {
       loading: false,
       movies: [],
-      movie: {},
       page: 1,
       pageSize: 5,
       errorMessage: '',
     },
     favorites: {
       favorites: [],
+    },
+    details: {
+      movie: {},
     },
   };
   const mockStore: MockStoreCreator = configureStore();
