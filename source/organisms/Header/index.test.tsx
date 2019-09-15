@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import renderer, { ReactTestRenderer } from 'react-test-renderer';
 
-import TabBar, { Props } from '.';
+import Header, { Props } from '.';
 
-describe('TabBar Organism', () => {
+describe('Header Organism', () => {
   let tree: ReactTestRenderer;
 
   beforeAll(() => {
@@ -12,9 +12,14 @@ describe('TabBar Organism', () => {
         state: {
           index: 0,
           routes: [
-            { routeName: 'Feed' },
-            { routeName: 'Favorites' },
-            { routeName: 'Tickets' },
+            {
+              index: 1,
+              routes: [
+                { routeName: 'Feed' },
+                { routeName: 'Favorites' },
+                { routeName: 'Tickets' },
+              ],
+            },
           ],
         },
       },
@@ -26,7 +31,7 @@ describe('TabBar Organism', () => {
         },
       ],
     };
-    tree = renderer.create(<TabBar {...props} />);
+    tree = renderer.create(<Header {...props} />);
   });
 
   it('renders correctly', () => {
