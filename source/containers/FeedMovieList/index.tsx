@@ -13,6 +13,7 @@ import {
   removeFavorite,
   FavoritesState,
 } from '../../store/ducks/favorites';
+import { selectMovie } from '../../store/ducks/details';
 import Movie from '../../models/movie';
 
 const FeedMovieList: React.FC = () => {
@@ -45,6 +46,11 @@ const FeedMovieList: React.FC = () => {
     dispatch(fetchMoviesRequest({ page, pageSize, movies }));
   };
 
+  // Dispatch action to select movie on movie selected from list
+  const handleMovieSelect = (movie: Movie) => {
+    dispatch(selectMovie(movie));
+  };
+
   // Dispatch action to update favorites when a movie is favorites/unfavorited
   const handleFavorite = (movie: Movie, isFavorite: boolean): void => {
     if (isFavorite) {
@@ -54,10 +60,12 @@ const FeedMovieList: React.FC = () => {
     }
   };
 
+  // If there is no movie and is not fetching any, show placeholder
   if (movies.length <= 0 && !loading) {
     return <Placeholder>No movie found</Placeholder>;
   }
 
+  // Show error message with an option to try again in case there is some error
   if (errorMessage) {
     return (
       <ExpandView>
@@ -74,6 +82,7 @@ const FeedMovieList: React.FC = () => {
       loading={loading}
       onEndReached={handleEndReached}
       onFavorite={handleFavorite}
+      onSelectMovie={handleMovieSelect}
     />
   );
 };
