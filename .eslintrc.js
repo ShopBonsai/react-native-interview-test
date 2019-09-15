@@ -34,6 +34,7 @@ module.exports = {
     "no-undef": "off", // handled by typescript linter
     "no-unreachable": "error",
     "no-unused-vars": "off", // handled by typescript linter
+    "no-underscore-dangle": "off", // API schema includes underscore dangle for "_id" fields
     "no-extra-semi": "error",
     "no-func-assign": "error",
     "no-dupe-keys": "error",
