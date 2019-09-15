@@ -1,20 +1,16 @@
 import { Saga } from 'redux-saga';
 
-import {
-  reducer as moviesReducer,
-  saga as moviesSaga,
-  MoviesState,
-} from './movies';
+import { reducer as feedReducer, saga as feedSaga, FeedState } from './feed';
 
 // Application State Type
 export interface ApplicationState {
-  movies: MoviesState;
+  feed: FeedState;
 }
 
 // Application Reducers
 export const reducers = {
-  movies: moviesReducer,
+  feed: feedReducer,
 };
 
 // Application Sagas
-export const sagas: Saga[] = [moviesSaga];
+export const sagas: Saga[] = [feedSaga];

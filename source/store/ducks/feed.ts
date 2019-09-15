@@ -12,7 +12,7 @@ export const FETCH_MOVIES_SUCCESS: string = 'movies/FETCH_MOVIES_SUCCESS';
 export const FETCH_MOVIES_FAILURE: string = 'movies/FETCH_MOVIES_FAILURE';
 
 // State Type
-export interface MoviesState {
+export interface FeedState {
   movies: Movie[];
   movie: Partial<Movie>;
   page: number;
@@ -22,7 +22,7 @@ export interface MoviesState {
 }
 
 // Initial State
-export const initialState: MoviesState = {
+export const initialState: FeedState = {
   movies: [],
   movie: {},
   page: 1,
@@ -32,7 +32,7 @@ export const initialState: MoviesState = {
 };
 
 // Reducer
-export const reducer: Reducer<MoviesState> = createReducer(initialState, {
+export const reducer: Reducer<FeedState> = createReducer(initialState, {
   [FETCH_MOVIES_REQUEST]: state => ({
     ...state,
     loading: true,
@@ -133,7 +133,7 @@ export function* handleFetchMoviesRequest(action: FetchMoviesRequestAction) {
   } catch (error) {
     // Dispatch failure action
     const errorMessage: string =
-      'Oops! Failed to get movies. Please, try again later.';
+      'Oops! Failed to fetch movies. Please, try again later.';
     yield put(fetchMoviesFailure(errorMessage));
   }
 }
