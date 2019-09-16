@@ -1,10 +1,10 @@
 import React, { useMemo, useRef } from 'react';
-import { FlatList, ActivityIndicator, ListRenderItem } from 'react-native';
+import { ActivityIndicator, ListRenderItem } from 'react-native';
 
 import MovieCard from '../../molecules/MovieCard';
 import Movie from '../../models/movie';
 
-import { Container, ItemContainer, LoadingContainer } from './style';
+import { Container, FlatList, ItemContainer, LoadingContainer } from './style';
 
 export interface Props {
   movies: Movie[];
@@ -98,8 +98,8 @@ const MovieList: React.FC<Props> = ({
     <Container>
       <FlatList
         data={movies}
-        renderItem={renderItem}
-        keyExtractor={item => item._id.$oid}
+        renderItem={renderItem as ListRenderItem<unknown>}
+        keyExtractor={item => (item as Movie)._id.$oid}
         onEndReachedThreshold={0.3}
         onEndReached={handleEndReached}
         ListFooterComponent={renderFooter}
