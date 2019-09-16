@@ -8,7 +8,7 @@ import { ApplicationState } from '../../store/ducks';
 import Favorites from '.';
 
 describe('Favorites Screen', () => {
-  const initialState: ApplicationState = {
+  const initialState: Partial<ApplicationState> = {
     feed: {
       loading: false,
       movies: [],

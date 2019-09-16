@@ -8,7 +8,7 @@ import { ApplicationState } from '../../store/ducks';
 import Feed from '.';
 
 describe('Feed Screen', () => {
-  const initialState: ApplicationState = {
+  const initialState: Partial<ApplicationState> = {
     feed: {
       loading: false,
       movies: [],
