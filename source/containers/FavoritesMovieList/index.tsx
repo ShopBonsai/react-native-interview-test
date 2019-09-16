@@ -9,6 +9,7 @@ import {
   removeFavorite,
   FavoritesState,
 } from '../../store/ducks/favorites';
+import { selectMovie } from '../../store/ducks/details';
 import Movie from '../../models/movie';
 
 const FavoritesMovieList: React.FC = () => {
@@ -29,6 +30,11 @@ const FavoritesMovieList: React.FC = () => {
     }
   };
 
+  // Dispatch action to select movie on movie selected from list
+  const handleMovieSelect = (movie: Movie) => {
+    dispatch(selectMovie(movie));
+  };
+
   if (favorites.length <= 0) {
     return <Placeholder iconName="heart-o">No favorites yet</Placeholder>;
   }
@@ -38,6 +44,7 @@ const FavoritesMovieList: React.FC = () => {
       movies={favorites}
       favorites={favorites}
       onFavorite={handleFavorite}
+      onSelectMovie={handleMovieSelect}
     />
   );
 };
