@@ -22,6 +22,9 @@ describe('FavoritesMovieList Container', () => {
     details: {
       movie: undefined,
     },
+    tickets: {
+      tickets: [],
+    },
   };
   const mockStore: MockStoreCreator = configureStore();
   let store: MockStore;

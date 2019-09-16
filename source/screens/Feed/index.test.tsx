@@ -22,6 +22,9 @@ describe('Feed Screen', () => {
     details: {
       movie: undefined,
     },
+    tickets: {
+      tickets: [],
+    },
   };
   const mockStore: MockStoreCreator = configureStore();
   const props: any = {};

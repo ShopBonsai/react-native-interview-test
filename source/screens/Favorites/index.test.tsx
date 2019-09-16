@@ -22,6 +22,9 @@ describe('Favorites Screen', () => {
     details: {
       movie: undefined,
     },
+    tickets: {
+      tickets: [],
+    },
   };
   const mockStore: MockStoreCreator = configureStore();
   const props: any = {};
