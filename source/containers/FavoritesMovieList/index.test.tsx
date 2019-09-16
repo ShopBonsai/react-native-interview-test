@@ -20,7 +20,7 @@ describe('FavoritesMovieList Container', () => {
       favorites: [],
     },
     details: {
-      movie: {},
+      movie: undefined,
     },
   };
   const mockStore: MockStoreCreator = configureStore();

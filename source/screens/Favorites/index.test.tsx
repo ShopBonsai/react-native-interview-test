@@ -20,7 +20,7 @@ describe('Favorites Screen', () => {
       favorites: [],
     },
     details: {
-      movie: {},
+      movie: undefined,
     },
   };
   const mockStore: MockStoreCreator = configureStore();
