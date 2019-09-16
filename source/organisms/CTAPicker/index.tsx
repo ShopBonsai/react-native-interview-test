@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { SafeAreaView } from 'react-native';
 import Modal from 'react-native-modal';
 
 import {
@@ -105,7 +105,9 @@ const CTAPicker: React.FC<Props> = ({
       {renderValue()}
       {!!iconName && <Icon color={color} size={size} name={iconName} />}
       <Modal isVisible={isModalVisible} onBackdropPress={toggleModal}>
-        <ModalContent>{renderOptions()}</ModalContent>
+        <SafeAreaView>
+          <ModalContent>{renderOptions()}</ModalContent>
+        </SafeAreaView>
       </Modal>
     </Container>
   );
