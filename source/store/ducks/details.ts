@@ -9,12 +9,12 @@ export const CLEAR_SELECTION: string = 'details/CLEAR_SELECTION';
 
 // State Type
 export interface DetailsState {
-  movie: Partial<Movie>;
+  movie?: Movie;
 }
 
 // Initial State
 export const initialState: DetailsState = {
-  movie: {},
+  movie: undefined,
 };
 
 // Reducer
