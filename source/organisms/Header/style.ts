@@ -12,3 +12,8 @@ export const Title = styled.Text`
   color: #f3f5ff;
   font-size: 22;
 `;
+
+export const Lead = styled.View`
+  position: absolute;
+  right: 10;
+`;

@@ -1,15 +1,12 @@
 import React from 'react';
 
-import appPaths, { Path } from '../../routes/paths';
-
-import { Container, Title } from './style';
+import { Container, Title, Lead } from './style';
 
 export interface Props {
-  navigation: any;
-  paths: Path[];
+  navigation?: any;
 }
 
-const Header: React.FC<Props> = ({ navigation }) => {
+const Header: React.FC<Props> = ({ children, navigation }) => {
   const activeRouteContainerIndex: number = navigation.state.index;
   const activeRouteContainer: any =
     navigation.state.routes[activeRouteContainerIndex];
@@ -20,12 +17,9 @@ const Header: React.FC<Props> = ({ navigation }) => {
   return (
     <Container>
       <Title>{activeRouteName}</Title>
+      <Lead>{children}</Lead>
     </Container>
   );
-};
-
-Header.defaultProps = {
-  paths: appPaths,
 };
 
 export default Header;
