@@ -24,6 +24,7 @@ export const Title = styled.Text`
 export const Details = styled.View`
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 10;
 `;
 
