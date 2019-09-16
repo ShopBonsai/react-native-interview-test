@@ -3,25 +3,27 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import TicketAmountPicker from '../../organisms/TicketAmountPicker';
 import { ApplicationState } from '../../store/ducks';
-import { TicketsState, setTicket } from '../../store/ducks/tickets';
-import Movie from '../../models/movie';
+import { DetailsState, selectTicket } from '../../store/ducks/details';
+import Ticket from '../../models/ticket';
 
-export interface Props {
-  movie: Movie;
-}
-
-const TicketPicker: React.FC<Props> = ({ movie }) => {
+const DetailsTicketPicker: React.FC = () => {
   // Get values from tickets store state
-  const { ticket } = useSelector<ApplicationState, TicketsState>(
-    store => store.tickets,
+  const { movie, ticket } = useSelector<ApplicationState, DetailsState>(
+    store => store.details,
   );
 
   // Get dispatcher
   const dispatch = useDispatch();
 
-  // Update ticket amount upon change
+  // Prevent render if movie is not set
+  if (!movie) {
+    return null;
+  }
+
+  // Update ticket selection upon change
   const handleChange = (amount: number): void => {
-    dispatch(setTicket({ amount, movie }));
+    const selectedTicket: Ticket = { amount, movie };
+    dispatch(selectTicket(selectedTicket));
   };
 
   return (
@@ -34,4 +36,4 @@ const TicketPicker: React.FC<Props> = ({ movie }) => {
   );
 };
 
-export default TicketPicker;
+export default DetailsTicketPicker;

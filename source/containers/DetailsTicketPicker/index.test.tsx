@@ -5,36 +5,23 @@ import { Provider } from 'react-redux';
 
 import { ApplicationState } from '../../store/ducks';
 
-import TicketPicker, { Props } from '.';
+import DetailsTicketPicker from '.';
 
-describe('TicketPicker Container', () => {
-  const initialState: ApplicationState = {
-    feed: {
-      loading: false,
-      movies: [],
-      page: 1,
-      pageSize: 5,
-      errorMessage: '',
-    },
-    favorites: {
-      favorites: [],
-    },
+describe('DetailsTicketPicker Container', () => {
+  const initialState: Partial<ApplicationState> = {
     details: {
-      movie: undefined,
+      movie: {
+        date: '2017-09-27T05:06:56Z',
+        genre: 'Drama|War',
+        image: 'http://dummyimage.com/1459x751.png/cc0000/ffffff',
+        inventory: 4,
+        price: 28.704,
+        title: 'Long Live Death (Viva la muerte)',
+        _id: { $oid: '5b8701a1fc13ae6569000000' },
+      },
     },
     tickets: {
       tickets: [],
-    },
-  };
-  const props: Props = {
-    movie: {
-      date: '2017-09-27T05:06:56Z',
-      genre: 'Drama|War',
-      image: 'http://dummyimage.com/1459x751.png/cc0000/ffffff',
-      inventory: 4,
-      price: 28.704,
-      title: 'Long Live Death (Viva la muerte)',
-      _id: { $oid: '5b8701a1fc13ae6569000000' },
     },
   };
   const mockStore: MockStoreCreator = configureStore();
@@ -45,7 +32,7 @@ describe('TicketPicker Container', () => {
     store = mockStore(initialState);
     tree = renderer.create(
       <Provider store={store}>
-        <TicketPicker {...props} />
+        <DetailsTicketPicker />
       </Provider>,
     );
   });
