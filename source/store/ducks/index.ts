@@ -10,6 +10,7 @@ import {
   saga as ticketsSaga,
   TicketsState,
 } from './tickets';
+import { reducer as cartReducer, saga as cartSaga, CartState } from './cart';
 
 // Application State Type
 export interface ApplicationState {
@@ -17,6 +18,7 @@ export interface ApplicationState {
   favorites: FavoritesState;
   details: DetailsState;
   tickets: TicketsState;
+  cart: CartState;
 }
 
 // Application Reducers
@@ -25,6 +27,7 @@ export const reducers = {
   favorites: favoritesReducer,
   details: detailsReducer,
   tickets: ticketsReducer,
+  cart: cartReducer,
 };
 
 // Application Sagas
@@ -32,4 +35,5 @@ export const sagas: IterableIterator<any>[] = [
   feedSaga(),
   favoritesSaga(),
   ticketsSaga(),
+  cartSaga(),
 ];
