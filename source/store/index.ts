@@ -20,6 +20,7 @@ import { createLogger } from 'redux-logger';
 
 import env from '../env';
 
+import { handleRehydrate } from './middleware';
 import { reducers, sagas, ApplicationState } from './ducks';
 
 // Root Reducer
@@ -52,6 +53,7 @@ const sagaMiddleware: SagaMiddleware = createSagaMiddleware();
 const middleware: Middleware[] = [
   ...(env.IS_DEVELOPMENT ? developmentMiddleware : []),
   sagaMiddleware,
+  handleRehydrate,
 ];
 
 // Store
