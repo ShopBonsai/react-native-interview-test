@@ -8,6 +8,7 @@ import Ticket from '../../models/ticket';
 
 // Action Types
 export const ADD_TICKET: string = 'cart/ADD_TICKET';
+export const REMOVE_TICKET: string = 'cart/REMOVE_TICKET';
 export const SET_TICKETS: string = 'cart/SET_TICKETS';
 export const CLEAR_CART: string = 'cart/CLEAR_CART';
 
@@ -42,6 +43,14 @@ export interface AddTicketAction extends Action {
   };
 }
 
+export interface RemoveTicketAction extends Action {
+  type: typeof REMOVE_TICKET;
+  payload: {
+    ticket: Ticket;
+    giveFeedback: boolean;
+  };
+}
+
 export interface SetTicketsAction extends Action {
   type: typeof SET_TICKETS;
   payload: Ticket[];
@@ -57,6 +66,17 @@ export const addTicket: ActionCreator<AddTicketAction> = (
   giveFeedback = true,
 ) => ({
   type: ADD_TICKET,
+  payload: {
+    ticket,
+    giveFeedback,
+  },
+});
+
+export const removeTicket: ActionCreator<RemoveTicketAction> = (
+  ticket,
+  giveFeedback = true,
+) => ({
+  type: REMOVE_TICKET,
   payload: {
     ticket,
     giveFeedback,
@@ -100,7 +120,32 @@ export function* handleAddTicket(action: AddTicketAction) {
 
   // Give feedback to user
   if (giveFeedback) {
-    showMessage({ message: 'Ticket(s) added to cart!', type: 'success' });
+    showMessage({ message: 'Cart updated!', type: 'success', icon: 'success' });
+  }
+}
+
+export function* handleRemoveTicket(action: RemoveTicketAction) {
+  // Get ticket and options from action
+  const { giveFeedback, ticket } = action.payload;
+
+  // Get tickets from store
+  const { tickets }: CartState = yield select(store => store.cart);
+
+  // Find index of new ticket inside owned tickets array
+  const ticketIndex: number = tickets.findIndex(cartTicket => {
+    return cartTicket.movie._id.$oid === ticket.movie._id.$oid;
+  });
+
+  // Completely remove ticket from cart regarless the amount
+  const newTickets: Ticket[] = [...tickets];
+  newTickets.splice(ticketIndex, 1);
+
+  // Dispatch action to update favorites
+  yield put(setTickets(newTickets));
+
+  // Give feedback to user
+  if (giveFeedback) {
+    showMessage({ message: 'Cart updated!', type: 'success', icon: 'success' });
   }
 }
 
@@ -109,7 +154,11 @@ export function* watchAddTicket() {
   yield takeLatest<AddTicketAction>(ADD_TICKET, handleAddTicket);
 }
 
+export function* watchRemoveTicket() {
+  yield takeLatest<AddTicketAction>(REMOVE_TICKET, handleRemoveTicket);
+}
+
 // Saga
 export const saga: Saga = function* saga() {
-  yield all([watchAddTicket()]);
+  yield all([watchAddTicket(), watchRemoveTicket()]);
 };
