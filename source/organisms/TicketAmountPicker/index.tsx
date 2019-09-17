@@ -53,6 +53,7 @@ const TicketAmountPicker: React.FC<Props> = ({
 
   return (
     <CTAPicker
+      emptyText="No tickets available"
       options={options}
       placeholer="Select the amount of tickets"
       onChange={onChange}
