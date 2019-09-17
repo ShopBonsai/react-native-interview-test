@@ -8,15 +8,21 @@ import { Container, FlatList, ItemContainer } from './style';
 
 export interface Props {
   onChange: (ticket: Ticket, amount: number) => void;
+  onRemoveFromCart: (ticket: Ticket) => void;
   tickets: Ticket[];
 }
 
-const CartList: React.FC<Props> = ({ onChange, tickets }) => {
+const CartList: React.FC<Props> = ({ onChange, onRemoveFromCart, tickets }) => {
   // Movie item renderer
   const renderItem: ListRenderItem<Ticket> = ({ index, item }) => {
-    // Delegate movie select callback to parent
+    // Delegate cart item change callback to parent
     const handleChange = (amount: number): void => {
       onChange(item, amount);
+    };
+
+    // Delegate cart item delete callback to parent
+    const handleDelete = (): void => {
+      onRemoveFromCart(item);
     };
 
     // Checks if current item is last item of the list
@@ -28,6 +34,7 @@ const CartList: React.FC<Props> = ({ onChange, tickets }) => {
           amount={item.amount}
           inventory={item.movie.inventory}
           onChange={handleChange}
+          onDelete={handleDelete}
           price={item.movie.price}
           subtitle={new Date(item.movie.date).toLocaleString()}
           title={item.movie.title}
