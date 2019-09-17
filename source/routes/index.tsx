@@ -1,9 +1,11 @@
+import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
-import Header from '../organisms/Header';
 import TabBar from '../organisms/TabBar';
+import Header from '../organisms/Header';
+import HeaderCart from '../containers/HeaderCart';
 
 import paths, { Path } from './paths';
 
@@ -20,6 +22,15 @@ const routes: any = paths.reduce(
   {},
 );
 
+// Handle Header Rendering
+const renderHeader = (props: any): JSX.Element => {
+  return (
+    <Header {...props}>
+      <HeaderCart />
+    </Header>
+  );
+};
+
 // Tab Navigator Config
 const initialPath: Path = paths.find(path => path.initial) || paths[0];
 const config: any = {
@@ -27,7 +38,7 @@ const config: any = {
   tabBarComponent: TabBar,
   tabBarPosition: 'bottom',
   navigationOptions: {
-    header: Header,
+    header: renderHeader,
   },
 };
 
