@@ -4,7 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import CartDetails from '../../organisms/CartDetails';
 import { ApplicationState } from '../../store/ducks';
 import { addTickets } from '../../store/ducks/tickets';
-import { addTicket, clearCart, CartState } from '../../store/ducks/cart';
+import {
+  addTicket,
+  removeTicket,
+  clearCart,
+  CartState,
+} from '../../store/ducks/cart';
 import Ticket from '../../models/ticket';
 
 export interface Props {
@@ -36,11 +41,17 @@ const CartCheckout: React.FC<Props> = ({ onCheckout }) => {
     dispatch(clearCart());
   };
 
+  // Dispatch action to remove ticket from list on ticket removal callback
+  const handleRemoveFromCart = (ticket: Ticket): void => {
+    dispatch(removeTicket(ticket));
+  };
+
   return (
     <CartDetails
       tickets={tickets}
       onChange={handleAddTicket}
       onCheckout={handleCheckout}
+      onRemoveFromCart={handleRemoveFromCart}
     />
   );
 };
