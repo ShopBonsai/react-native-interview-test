@@ -133,7 +133,7 @@ export function* handleFetchMoviesRequest(action: FetchMoviesRequestAction) {
   } catch (error) {
     // Dispatch failure action
     const errorMessage: string = 'Oops! Failed to fetch movies.';
-    showMessage({ message: error.message, type: 'danger' });
+    showMessage({ message: error.message, type: 'danger', icon: 'danger' });
     yield put(fetchMoviesFailure(errorMessage));
   }
 }

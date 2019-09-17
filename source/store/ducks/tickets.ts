@@ -111,7 +111,11 @@ export function* handleAddTickets(action: AddTicketsAction) {
 
   // Dispatch action to update favorites
   yield put(setTickets(tickets));
-  showMessage({ message: 'Ticket(s) bought successfully!', type: 'success' });
+  showMessage({
+    message: 'Ticket(s) bought successfully!',
+    type: 'success',
+    icon: 'success',
+  });
 }
 
 // Saga Watchers
