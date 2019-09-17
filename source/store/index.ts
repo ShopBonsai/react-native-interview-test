@@ -29,7 +29,7 @@ const rootReducer: Reducer<ApplicationState> = combineReducers(reducers);
 const persistConfig: PersistConfig<ApplicationState> = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['favorites'],
+  whitelist: ['favorites', 'tickets'],
 };
 
 // Persist Reducer
