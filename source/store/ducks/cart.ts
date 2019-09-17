@@ -7,7 +7,7 @@ import createReducer from '../createReducer';
 import Ticket from '../../models/ticket';
 
 // Action Types
-export const SET_TICKET: string = 'cart/SET_TICKET';
+export const ADD_TICKET: string = 'cart/ADD_TICKET';
 export const SET_TICKETS: string = 'cart/SET_TICKETS';
 export const CLEAR_CART: string = 'cart/CLEAR_CART';
 
@@ -34,8 +34,8 @@ export const reducer: Reducer<CartState> = createReducer(initialState, {
 });
 
 // Action Creator Types
-export interface SetTicketAction extends Action {
-  type: typeof SET_TICKET;
+export interface AddTicketAction extends Action {
+  type: typeof ADD_TICKET;
   payload: {
     ticket: Ticket;
     giveFeedback: boolean;
@@ -52,11 +52,11 @@ export interface ClearCartAction extends Action {
 }
 
 // Action Creators
-export const setTicket: ActionCreator<SetTicketAction> = (
+export const addTicket: ActionCreator<AddTicketAction> = (
   ticket,
   giveFeedback = true,
 ) => ({
-  type: SET_TICKET,
+  type: ADD_TICKET,
   payload: {
     ticket,
     giveFeedback,
@@ -73,7 +73,7 @@ export const clearCart: ActionCreator<ClearCartAction> = () => ({
 });
 
 // Saga Workers
-export function* handleSetTicket(action: SetTicketAction) {
+export function* handleAddTicket(action: AddTicketAction) {
   // Get ticket and options from action
   const { giveFeedback, ticket } = action.payload;
 
@@ -105,11 +105,11 @@ export function* handleSetTicket(action: SetTicketAction) {
 }
 
 // Saga Watchers
-export function* watchSetTicket() {
-  yield takeLatest<SetTicketAction>(SET_TICKET, handleSetTicket);
+export function* watchAddTicket() {
+  yield takeLatest<AddTicketAction>(ADD_TICKET, handleAddTicket);
 }
 
 // Saga
 export const saga: Saga = function* saga() {
-  yield all([watchSetTicket()]);
+  yield all([watchAddTicket()]);
 };

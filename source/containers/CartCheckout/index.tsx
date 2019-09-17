@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import CartDetails from '../../organisms/CartDetails';
 import { ApplicationState } from '../../store/ducks';
 import { addTickets } from '../../store/ducks/tickets';
-import { setTicket, clearCart, CartState } from '../../store/ducks/cart';
+import { addTicket, clearCart, CartState } from '../../store/ducks/cart';
 import Ticket from '../../models/ticket';
 
 export interface Props {
@@ -20,10 +20,10 @@ const CartCheckout: React.FC<Props> = ({ onCheckout }) => {
   // Get dispatcher
   const dispatch = useDispatch();
 
-  // Dispatch action to set the changed ticket to cart
-  const handleSetTicket = (ticket: Ticket, amount: number): void => {
+  // Dispatch action to add the changed ticket to cart
+  const handleAddTicket = (ticket: Ticket, amount: number): void => {
     const newTicket: Ticket = { ...ticket, amount };
-    dispatch(setTicket(newTicket, false));
+    dispatch(addTicket(newTicket, false));
   };
 
   // Call parent callback and disaptch action to clear cart and add tickets
@@ -39,7 +39,7 @@ const CartCheckout: React.FC<Props> = ({ onCheckout }) => {
   return (
     <CartDetails
       tickets={tickets}
-      onChange={handleSetTicket}
+      onChange={handleAddTicket}
       onCheckout={handleCheckout}
     />
   );

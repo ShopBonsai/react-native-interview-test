@@ -7,7 +7,7 @@ import BottomSheet from '../../organisms/BottomSheet';
 import DetailsTicketPicker from '../DetailsTicketPicker';
 import { ApplicationState } from '../../store/ducks';
 import { clearSelection, DetailsState } from '../../store/ducks/details';
-import { setTicket } from '../../store/ducks/cart';
+import { addTicket } from '../../store/ducks/cart';
 
 const DetailsBottomSheet: React.FC = () => {
   // Get values from details store state
@@ -23,9 +23,9 @@ const DetailsBottomSheet: React.FC = () => {
     dispatch(clearSelection());
   };
 
-  // Dispatch action to set the selected ticket to cart (and clear selection)
-  const handleSetTicket = (): void => {
-    dispatch(setTicket(ticket));
+  // Dispatch action to add the selected ticket to cart (and clear selection)
+  const handleAddTicket = (): void => {
+    dispatch(addTicket(ticket));
     handleClose();
   };
 
@@ -35,7 +35,7 @@ const DetailsBottomSheet: React.FC = () => {
       <CTAButton
         iconName="shopping-cart"
         disabled={!ticket}
-        onPress={handleSetTicket}
+        onPress={handleAddTicket}
       >
         Add To Cart
       </CTAButton>
