@@ -3,7 +3,7 @@ import renderer, { ReactTestRenderer } from 'react-test-renderer';
 
 import MovieDetails, { Props } from '.';
 
-describe('MovieDetails Molecule', () => {
+describe('MovieDetails Organism', () => {
   let tree: ReactTestRenderer;
 
   beforeAll(() => {
