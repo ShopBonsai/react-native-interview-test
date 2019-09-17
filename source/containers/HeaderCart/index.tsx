@@ -24,17 +24,19 @@ const HeaderCart: React.FC = () => {
     return tickets.reduce((acc, cur) => acc + cur.amount, 0);
   }, [tickets]);
 
-  // Opens or closes bottomSheet according to current bottm sheet visibility state
-  const toggleBottomSheet = (): void =>
-    setIsBottomSheetVisible(!isBottomSheetVisible);
+  // Opens bottomSheet by changing visibility state
+  const openBottomSheet = (): void => setIsBottomSheetVisible(true);
+
+  // Closes bottomSheet by changing visibility state
+  const closeBottomSheet = (): void => setIsBottomSheetVisible(false);
 
   return (
     <Fragment>
       <Badge count={ticketAmount}>
-        <CartButton onPress={toggleBottomSheet} />
+        <CartButton onPress={openBottomSheet} />
       </Badge>
-      <BottomSheet visible={!!isBottomSheetVisible} onClose={toggleBottomSheet}>
-        <CartCheckout />
+      <BottomSheet visible={!!isBottomSheetVisible} onClose={closeBottomSheet}>
+        <CartCheckout onCheckout={closeBottomSheet} />
       </BottomSheet>
     </Fragment>
   );
