@@ -36,7 +36,10 @@ export const reducer: Reducer<CartState> = createReducer(initialState, {
 // Action Creator Types
 export interface SetTicketAction extends Action {
   type: typeof SET_TICKET;
-  payload: Ticket;
+  payload: {
+    ticket: Ticket;
+    giveFeedback: boolean;
+  };
 }
 
 export interface SetTicketsAction extends Action {
@@ -49,9 +52,15 @@ export interface ClearCartAction extends Action {
 }
 
 // Action Creators
-export const setTicket: ActionCreator<SetTicketAction> = ticket => ({
+export const setTicket: ActionCreator<SetTicketAction> = (
+  ticket,
+  giveFeedback = true,
+) => ({
   type: SET_TICKET,
-  payload: ticket,
+  payload: {
+    ticket,
+    giveFeedback,
+  },
 });
 
 export const setTickets: ActionCreator<SetTicketsAction> = tickets => ({
@@ -65,8 +74,8 @@ export const clearCart: ActionCreator<ClearCartAction> = () => ({
 
 // Saga Workers
 export function* handleSetTicket(action: SetTicketAction) {
-  // Get ticket from action
-  const ticket: Ticket = action.payload;
+  // Get ticket and options from action
+  const { giveFeedback, ticket } = action.payload;
 
   // Get tickets from store
   const { tickets }: CartState = yield select(store => store.cart);
@@ -90,7 +99,9 @@ export function* handleSetTicket(action: SetTicketAction) {
   yield put(setTickets(newTickets));
 
   // Give feedback to user
-  showMessage({ message: 'Ticket(s) added to cart!', type: 'success' });
+  if (giveFeedback) {
+    showMessage({ message: 'Ticket(s) added to cart!', type: 'success' });
+  }
 }
 
 // Saga Watchers
