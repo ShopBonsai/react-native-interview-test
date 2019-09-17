@@ -1,12 +1,13 @@
 import { Reducer, Action, ActionCreator } from 'redux';
 import { Saga } from 'redux-saga';
 import { put, takeLatest, all, select } from 'redux-saga/effects';
+import { showMessage } from 'react-native-flash-message';
 
 import createReducer from '../createReducer';
 import Ticket from '../../models/ticket';
 
 // Action Types
-export const ADD_TICKET: string = 'tickets/ADD_TICKET';
+export const ADD_TICKETS: string = 'tickets/ADD_TICKETS';
 export const SET_TICKET: string = 'tickets/SET_TICKET';
 export const SET_TICKETS: string = 'tickets/SET_TICKETS';
 export const CLEAR_SELECTION: string = 'tickets/CLEAR_SELECTION';
@@ -40,9 +41,9 @@ export const reducer: Reducer<TicketsState> = createReducer(initialState, {
 });
 
 // Action Creator Types
-export interface AddTicketAction extends Action {
-  type: typeof ADD_TICKET;
-  payload: Ticket;
+export interface AddTicketsAction extends Action {
+  type: typeof ADD_TICKETS;
+  payload: Ticket[];
 }
 
 export interface SetTicketAction extends Action {
@@ -60,9 +61,9 @@ export interface ClearSelectionAction extends Action {
 }
 
 // Action Creators
-export const addTicket: ActionCreator<AddTicketAction> = ticket => ({
-  type: ADD_TICKET,
-  payload: ticket,
+export const addTickets: ActionCreator<AddTicketsAction> = tickets => ({
+  type: ADD_TICKETS,
+  payload: tickets,
 });
 
 export const setTicket: ActionCreator<SetTicketAction> = ticket => ({
@@ -80,35 +81,42 @@ export const clearSelection: ActionCreator<ClearSelectionAction> = () => ({
 });
 
 // Saga Workers
-export function* handleAddTicket(action: AddTicketAction) {
-  // Get new ticket from action
-  const newTicket: Ticket = action.payload;
+export function* handleAddTickets(action: AddTicketsAction) {
+  // Get new tickets from action
+  const newTickets: Ticket[] = action.payload;
 
   // Get tickets from store
-  const { tickets }: TicketsState = yield select(store => store.tickets);
+  const { tickets: ownedTickets }: TicketsState = yield select(
+    store => store.tickets,
+  );
 
-  // Find index of new ticket inside owned tickets array
-  const newTicketIndex: number = tickets.findIndex(ticket => {
-    return ticket.movie._id.$oid === newTicket.movie._id.$oid;
+  // Array of tickets that will be used to manipulate ticket amounts
+  const tickets: Ticket[] = [...ownedTickets];
+
+  newTickets.forEach(newTicket => {
+    // Find index of new ticket inside owned tickets array
+    const newTicketIndex: number = ownedTickets.findIndex(ticket => {
+      return ticket.movie._id.$oid === newTicket.movie._id.$oid;
+    });
+
+    // In case ticket is already owned, simply increase the amount of tickets
+    // otherwise, add the new ticket to the tickets array
+    const isNewTicketOwned: boolean = newTicketIndex !== -1;
+    if (isNewTicketOwned) {
+      tickets[newTicketIndex].amount += newTicket.amount;
+    } else {
+      tickets.unshift(newTicket);
+    }
   });
 
-  // In case ticket is already owned, simply increase the amount of tickets
-  // otherwise, add the new ticket to the owned tickets array
-  const isNewTicketOwned: boolean = newTicketIndex !== -1;
-  const newTickets: Ticket[] = [...tickets];
-  if (isNewTicketOwned) {
-    newTickets[newTicketIndex].amount += newTicket.amount;
-  } else {
-    newTickets.unshift(newTicket);
-  }
-
   // Dispatch action to update favorites
-  yield put(setTickets(newTickets));
+  yield put(setTickets(tickets));
+  showMessage({ message: 'Ticket(s) bought successfully!', type: 'success' });
 }
 
 // Saga Watchers
 export function* watchAddTicket() {
-  yield takeLatest<AddTicketAction>(ADD_TICKET, handleAddTicket);
+  yield takeLatest<AddTicketsAction>(ADD_TICKETS, handleAddTickets);
 }
 
 // Saga
