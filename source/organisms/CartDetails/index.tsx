@@ -19,6 +19,7 @@ export interface Props {
   color?: string;
   onChange: (ticket: Ticket, amount: number) => void;
   onCheckout: () => void;
+  onRemoveFromCart: (ticket: Ticket) => void;
   size?: number;
   tickets: Ticket[];
 }
@@ -27,6 +28,7 @@ const CartDetails: React.FC<Props> = ({
   color,
   onChange,
   onCheckout,
+  onRemoveFromCart,
   size,
   tickets,
 }) => {
@@ -45,7 +47,11 @@ const CartDetails: React.FC<Props> = ({
   return (
     <Container>
       <Content>
-        <CartList tickets={tickets} onChange={onChange} />
+        <CartList
+          tickets={tickets}
+          onChange={onChange}
+          onRemoveFromCart={onRemoveFromCart}
+        />
       </Content>
       <Extra>
         <TotalContainer>
