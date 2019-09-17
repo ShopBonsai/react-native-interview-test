@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 
 import { ApplicationState } from '../../store/ducks';
 
-import Tickets from '.';
+import OwnedTicketList from '.';
 
-describe('Tickets Screen', () => {
+describe('OwnedTicketList Container', () => {
   const initialState: Partial<ApplicationState> = {
     feed: {
       loading: false,
@@ -27,7 +27,6 @@ describe('Tickets Screen', () => {
     },
   };
   const mockStore: MockStoreCreator = configureStore();
-  const props: any = {};
   let store: MockStore;
   let tree: ReactTestRenderer;
 
@@ -35,7 +34,7 @@ describe('Tickets Screen', () => {
     store = mockStore(initialState);
     tree = renderer.create(
       <Provider store={store}>
-        <Tickets {...props} />
+        <OwnedTicketList />
       </Provider>,
     );
   });

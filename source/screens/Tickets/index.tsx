@@ -1,13 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { NavigationScreenComponent } from 'react-navigation';
+
+import OwnedTicketList from '../../containers/OwnedTicketList';
 
 import { Container } from './style';
 
 const Tickets: NavigationScreenComponent = () => {
   return (
     <Container testID="tickets-screen">
-      <Text>Tickets</Text>
+      <OwnedTicketList />
     </Container>
   );
 };
