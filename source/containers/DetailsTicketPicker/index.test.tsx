@@ -23,6 +23,9 @@ describe('DetailsTicketPicker Container', () => {
     tickets: {
       tickets: [],
     },
+    cart: {
+      tickets: [],
+    },
   };
   const mockStore: MockStoreCreator = configureStore();
   let store: MockStore;
