@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { SafeAreaView } from 'react-native';
 import Modal from 'react-native-modal';
 
+import Placeholder from '../../atoms/Placeholder';
+
 import {
   Container,
   ValueText,
@@ -15,6 +17,7 @@ export type Option = { label: string | JSX.Element; value: any };
 
 export interface Props {
   color?: string;
+  emptyText?: string;
   iconName?: string;
   onChange?: (value: any) => void;
   options: Option[];
@@ -25,6 +28,7 @@ export interface Props {
 
 const CTAPicker: React.FC<Props> = ({
   color,
+  emptyText,
   iconName,
   onChange,
   options,
@@ -38,7 +42,12 @@ const CTAPicker: React.FC<Props> = ({
   const toggleModal = (): void => setIsModalVisible(!isModalVisible);
 
   // Renders the picker options
-  const renderOptions = (): JSX.Element[] | null => {
+  const renderOptions = (): JSX.Element | JSX.Element[] | null => {
+    // If there is no option, render placeholder
+    if (options.length <= 0) {
+      return <Placeholder color="#2d3144">{emptyText}</Placeholder>;
+    }
+
     // Map options array prop to jsx array
     return options.map((option, index) => {
       // Delegate option select
@@ -116,6 +125,7 @@ const CTAPicker: React.FC<Props> = ({
 CTAPicker.defaultProps = {
   color: '#1685fb',
   iconName: 'angle-down',
+  emptyText: 'No option available',
   options: [],
   placeholer: 'Select an option ...',
   size: 18,
