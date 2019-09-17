@@ -7,6 +7,7 @@ import Routes from './routes';
 import store, { persistor } from './store';
 import withSafeArea from './containers/HOCs/withSafeArea';
 import DetailsBottomSheet from './containers/DetailsBottomSheet';
+import TicketBottomSheet from './containers/TicketBottomSheet';
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
       <PersistGate persistor={persistor}>
         <Routes />
         <DetailsBottomSheet />
+        <TicketBottomSheet />
         <FlashMessage />
       </PersistGate>
     </Provider>
