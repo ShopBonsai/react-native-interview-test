@@ -72,7 +72,7 @@ export const setTicket: ActionCreator<SetTicketAction> = ticket => ({
 });
 
 export const setTickets: ActionCreator<SetTicketsAction> = tickets => ({
-  type: SET_TICKET,
+  type: SET_TICKETS,
   payload: tickets,
 });
 
