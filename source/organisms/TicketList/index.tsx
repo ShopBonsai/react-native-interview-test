@@ -30,6 +30,7 @@ const TicketList: React.FC<Props> = ({ onSelectTicket, tickets }) => {
           amount={item.amount}
           onPress={handlePress}
           subtitle={new Date(item.movie.date).toLocaleString()}
+          testID={`ticket-item-${index}`}
           title={item.movie.title}
         />
       </ItemContainer>

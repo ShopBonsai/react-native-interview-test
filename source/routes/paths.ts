@@ -27,7 +27,7 @@ const paths: Path[] = [
     iconName: 'heart',
   },
   {
-    key: 'ticketes',
+    key: 'tickets',
     name: 'Tickets',
     screen: TicketsScreen,
     iconName: 'ticket',

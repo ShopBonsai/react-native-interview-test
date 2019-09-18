@@ -23,7 +23,11 @@ const OwnedTicketList: React.FC = () => {
 
   // If there is no ticket, render placeholder
   if (tickets.length <= 0) {
-    return <Placeholder iconName="ticket">No tickets yet</Placeholder>;
+    return (
+      <Placeholder iconName="ticket" testID="tickets-placeholder">
+        No tickets yet
+      </Placeholder>
+    );
   }
 
   return <TicketList tickets={tickets} onSelectTicket={handleTicketSelect} />;

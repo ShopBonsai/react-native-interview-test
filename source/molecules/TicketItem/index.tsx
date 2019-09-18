@@ -18,6 +18,7 @@ export interface Props {
   leadText?: string;
   onPress?: () => void;
   subtitle: string;
+  testID?: string;
   title: string;
 }
 
@@ -26,10 +27,11 @@ const TicketItem: React.FC<Props> = ({
   leadText,
   onPress,
   subtitle,
+  testID,
   title,
 }) => {
   return (
-    <Container onPress={onPress}>
+    <Container onPress={onPress} testID={testID}>
       <Title>{title}</Title>
       <Content>
         <Details>

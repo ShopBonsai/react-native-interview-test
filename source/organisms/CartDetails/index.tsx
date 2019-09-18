@@ -68,7 +68,12 @@ const CartDetails: React.FC<Props> = ({
           </TotalAmount>
         </TotalContainer>
       </Extra>
-      <CTAButton iconName="ticket" disabled={total <= 0} onPress={onCheckout}>
+      <CTAButton
+        iconName="ticket"
+        disabled={total <= 0}
+        onPress={onCheckout}
+        testID="buy-tickets-button"
+      >
         Buy Tickets
       </CTAButton>
     </Container>

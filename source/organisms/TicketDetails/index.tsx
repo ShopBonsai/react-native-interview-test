@@ -35,7 +35,7 @@ const TicketDetails: React.FC<Props> = ({
   },
 }) => {
   return (
-    <Container>
+    <Container testID="ticket-details">
       <Content>
         <Title>{title}</Title>
         <Details>
