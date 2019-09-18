@@ -58,6 +58,7 @@ const TicketAmountPicker: React.FC<Props> = ({
       placeholer="Select the amount of tickets"
       onChange={onChange}
       value={value}
+      testID="ticket-amount-picker"
     />
   );
 };

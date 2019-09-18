@@ -9,9 +9,10 @@ export interface Props {
   isFavorite?: boolean;
   onDelete?: () => void;
   size?: number;
+  testID?: string;
 }
 
-const DeleteButton: React.FC<Props> = ({ color, onDelete, size }) => {
+const DeleteButton: React.FC<Props> = ({ color, onDelete, size, testID }) => {
   const handlePress = (): void => {
     Alert.alert(
       'Delete Item',
@@ -30,7 +31,7 @@ const DeleteButton: React.FC<Props> = ({ color, onDelete, size }) => {
   };
 
   return (
-    <Container onPress={handlePress}>
+    <Container onPress={handlePress} testID={testID}>
       <Icon color={color} size={size} name="trash" />
     </Container>
   );

@@ -10,6 +10,7 @@ export interface Props {
   disabledColor?: string;
   iconName?: string;
   onPress?: () => void;
+  testID?: string;
   textSize?: number;
 }
 
@@ -22,6 +23,7 @@ const CTAButton: React.FC<Props> = ({
   disabledColor,
   iconName,
   onPress,
+  testID,
   textSize,
 }) => {
   // Handle button press. Only delegates when button is enabled
@@ -54,6 +56,7 @@ const CTAButton: React.FC<Props> = ({
       activeOpacity={disabled ? 1 : 0.2}
       color={disabled ? disabledBackgroundColor : backgroundColor}
       onPress={handlePress}
+      testID={testID}
     >
       {renderIcon()}
       <Text

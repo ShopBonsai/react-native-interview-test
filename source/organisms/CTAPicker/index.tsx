@@ -23,6 +23,7 @@ export interface Props {
   options: Option[];
   placeholer?: string;
   size?: number;
+  testID?: string;
   value?: any;
 }
 
@@ -34,6 +35,7 @@ const CTAPicker: React.FC<Props> = ({
   options,
   placeholer,
   size,
+  testID,
   value,
 }) => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
@@ -78,6 +80,7 @@ const CTAPicker: React.FC<Props> = ({
           key={option.value}
           onPress={handleOptionSelect}
           last={isLastOption}
+          testID={`option-${index}`}
         >
           {optionContent}
         </OptionContainer>
@@ -110,7 +113,7 @@ const CTAPicker: React.FC<Props> = ({
   };
 
   return (
-    <Container onPress={toggleModal}>
+    <Container onPress={toggleModal} testID={testID}>
       {renderValue()}
       {!!iconName && <Icon color={color} size={size} name={iconName} />}
       <Modal isVisible={isModalVisible} onBackdropPress={toggleModal}>

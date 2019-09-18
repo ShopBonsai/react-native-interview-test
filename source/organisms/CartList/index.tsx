@@ -38,6 +38,7 @@ const CartList: React.FC<Props> = ({ onChange, onRemoveFromCart, tickets }) => {
           price={item.movie.price}
           subtitle={new Date(item.movie.date).toLocaleString()}
           title={item.movie.title}
+          testID={`cart-item-${index}`}
         />
       </ItemContainer>
     );

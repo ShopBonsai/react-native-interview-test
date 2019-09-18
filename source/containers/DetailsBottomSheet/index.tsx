@@ -36,6 +36,7 @@ const DetailsBottomSheet: React.FC = () => {
         iconName="shopping-cart"
         disabled={!ticket}
         onPress={handleAddTicket}
+        testID="add-to-cart-button"
       >
         Add To Cart
       </CTAButton>

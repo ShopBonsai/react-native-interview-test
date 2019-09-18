@@ -12,6 +12,7 @@ export interface Props {
   onDelete?: () => void;
   price: number;
   subtitle: string;
+  testID?: string;
   title: string;
 }
 
@@ -22,10 +23,11 @@ const CartItem: React.FC<Props> = ({
   onDelete,
   price,
   subtitle,
+  testID,
   title,
 }) => {
   return (
-    <Container>
+    <Container testID={testID}>
       <Title>{title}</Title>
       <Subtitle>{subtitle}</Subtitle>
       <Content>
@@ -37,7 +39,12 @@ const CartItem: React.FC<Props> = ({
             value={amount}
           />
         </PickerContainer>
-        {onDelete && <DeleteButton onDelete={onDelete} />}
+        {onDelete && (
+          <DeleteButton
+            onDelete={onDelete}
+            testID={`${testID}-delete-button`}
+          />
+        )}
       </Content>
     </Container>
   );

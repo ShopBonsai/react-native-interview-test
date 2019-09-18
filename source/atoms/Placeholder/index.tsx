@@ -6,11 +6,18 @@ export interface Props {
   color?: string;
   iconName?: string;
   size?: number;
+  testID?: string;
 }
 
-const Placeholder: React.FC<Props> = ({ children, color, iconName, size }) => {
+const Placeholder: React.FC<Props> = ({
+  children,
+  color,
+  iconName,
+  size,
+  testID,
+}) => {
   return (
-    <Container>
+    <Container testID={testID}>
       {iconName && <Icon name={iconName} color={color} size={size} />}
       <Text color={color} size={size}>
         {children}

@@ -41,11 +41,15 @@ const CartDetails: React.FC<Props> = ({
 
   // If there is no ticket in the cart, render placeholder
   if (tickets.length <= 0) {
-    return <Placeholder color="#2d3144">Your cart is empty</Placeholder>;
+    return (
+      <Placeholder color="#2d3144" testID="cart-details-placeholder">
+        Your cart is empty
+      </Placeholder>
+    );
   }
 
   return (
-    <Container>
+    <Container testID="cart-details">
       <Content>
         <CartList
           tickets={tickets}

@@ -18,7 +18,7 @@ const CartButton: React.FC<Props> = ({ color, isFavorite, onPress, size }) => {
   };
 
   return (
-    <Container onPress={handlePress}>
+    <Container onPress={handlePress} testID="cart-button">
       <Icon color={color} size={size} name="shopping-cart" />
     </Container>
   );
