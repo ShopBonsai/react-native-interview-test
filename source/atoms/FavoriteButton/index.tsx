@@ -25,7 +25,7 @@ const FavoriteButton: React.FC<Props> = ({
   };
 
   return (
-    <Container onPress={handlePress}>
+    <Container onPress={handlePress} testID="favorite-button">
       <Icon color={color} size={size} name={iconName} />
     </Container>
   );

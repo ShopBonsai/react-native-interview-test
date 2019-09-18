@@ -11,6 +11,7 @@ export interface Props {
   onFavorite?: (isFavorite: boolean) => void;
   onPress?: () => void;
   subtitle?: string;
+  testID?: string;
   title: string;
 }
 
@@ -20,10 +21,11 @@ const MovieCard: React.FC<Props> = ({
   onFavorite,
   onPress,
   subtitle,
+  testID,
   title,
 }) => {
   return (
-    <Container onPress={onPress}>
+    <Container onPress={onPress} testID={testID}>
       <Image source={{ uri: image }} resizeMode="cover" />
       <Lead>
         <Title numberOfLines={1}>{title}</Title>

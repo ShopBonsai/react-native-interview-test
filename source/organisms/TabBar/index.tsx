@@ -21,10 +21,11 @@ const TabBar: React.FC<Props> = ({ navigation, paths }) => {
 
   const items: JSX.Element[] = paths.map(path => (
     <TabBarItem
-      key={path.name}
+      key={path.key}
       iconName={path.iconName}
       active={activeRouteName === path.name}
       onPress={() => handlePress(path)}
+      testID={`${path.key}-tab-bar-item`}
     >
       {path.name}
     </TabBarItem>

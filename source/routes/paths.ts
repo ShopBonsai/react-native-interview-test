@@ -5,6 +5,7 @@ import FavoritesScreen from '../screens/Favorites';
 import TicketsScreen from '../screens/Tickets';
 
 export interface Path {
+  key: string;
   name: string;
   screen: NavigationScreenComponent;
   iconName: string;
@@ -13,17 +14,20 @@ export interface Path {
 
 const paths: Path[] = [
   {
+    key: 'feed',
     name: 'Feed',
     screen: FeedScreen,
     iconName: 'list',
     initial: true,
   },
   {
+    key: 'favorites',
     name: 'Favorites',
     screen: FavoritesScreen,
     iconName: 'heart',
   },
   {
+    key: 'ticketes',
     name: 'Tickets',
     screen: TicketsScreen,
     iconName: 'ticket',

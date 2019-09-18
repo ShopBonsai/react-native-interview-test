@@ -27,7 +27,7 @@ const MovieDetails: React.FC<Props> = ({
   movie: { date, genre, image, price, title },
 }) => {
   return (
-    <Container>
+    <Container testID="movie-details">
       <Image source={{ uri: image }} resizeMode="cover" />
       <Content>
         <Title>{title}</Title>

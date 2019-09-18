@@ -34,7 +34,7 @@ const MovieList: React.FC<Props> = ({
   const reachedEndDuringMomentum = useRef<boolean>(false);
 
   // Movie item renderer
-  const renderItem: ListRenderItem<Movie> = ({ item }) => {
+  const renderItem: ListRenderItem<Movie> = ({ index, item }) => {
     // Delegate movie favorited/unfavorited callback to parent
     const handleFavorite = (isFavorite: boolean): void => {
       if (onFavorite) {
@@ -60,6 +60,7 @@ const MovieList: React.FC<Props> = ({
           onFavorite={handleFavorite}
           onPress={handlePress}
           isFavorite={isFavorite}
+          testID={`movie-card-${index}`}
         />
       </ItemContainer>
     );
@@ -73,7 +74,7 @@ const MovieList: React.FC<Props> = ({
     // Else render activity indicator (list is in loading state)
     return (
       <LoadingContainer>
-        <ActivityIndicator color="#1685fb" />
+        <ActivityIndicator color="#1685fb" testID="loading" />
       </LoadingContainer>
     );
   };
@@ -95,7 +96,7 @@ const MovieList: React.FC<Props> = ({
   };
 
   return (
-    <Container>
+    <Container testID="movie-list">
       <FlatList
         data={movies}
         renderItem={renderItem as ListRenderItem<unknown>}

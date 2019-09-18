@@ -1,6 +1,9 @@
 {
-    "setupFilesAfterEnv": ["./init.js"],
-    "testEnvironment": "node",
-    "reporters": ["detox/runners/jest/streamlineReporter"],
-    "verbose": true
+  "setupFilesAfterEnv": ["./init.js"],
+  "testEnvironment": "node",
+  "reporters": ["detox/runners/jest/streamlineReporter"],
+  "verbose": true,
+  "globals": {
+    "__DEV__": true
+  }
 }

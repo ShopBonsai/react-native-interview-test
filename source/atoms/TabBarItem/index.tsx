@@ -9,6 +9,7 @@ export interface Props {
   iconName: string;
   iconSize?: number;
   onPress?: () => void;
+  testID?: string;
   textSize?: number;
 }
 
@@ -20,10 +21,16 @@ const TabBarItem: React.FC<Props> = ({
   iconName,
   iconSize,
   onPress,
+  testID,
   textSize,
 }) => {
   return (
-    <Container active={active} activeColor={activeColor} onPress={onPress}>
+    <Container
+      active={active}
+      activeColor={activeColor}
+      onPress={onPress}
+      testID={testID}
+    >
       <Icon
         color={active ? activeColor : color}
         size={iconSize}
